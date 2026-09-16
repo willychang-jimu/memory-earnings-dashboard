@@ -22,6 +22,17 @@
 
 加新功能前先問：這能幫使用者判斷「未來供貨會不會鬆」嗎？不能的話大概不該做。
 
+## 部署
+
+- Repo：`willychang-jimu/memory-earnings-dashboard`（**public**）
+- 線上版：<https://willychang-jimu.github.io/memory-earnings-dashboard/>
+  （GitHub Pages，來源為 `main` 分支根目錄，push 後約一分鐘自動重建）
+- 根目錄的 `index.html` 只是導向 `dashboard/index.html` 的跳轉頁。
+  Pages 指向根目錄，沒有這頁會 404，**不要刪**。
+- 前端用相對路徑 `../data/...` 讀 JSON，在 Pages 的專案站台路徑
+  （`/memory-earnings-dashboard/`）底下可正常解析，不要改成絕對路徑 `/data/...`，
+  那樣在 Pages 上會指到網域根目錄而失效。
+
 ## 供給資料的幾個坑（做過了，別重踩）
 
 1. **九個季度的 `supply_demand_balance.status` 目前全部都是「供不應求」**，

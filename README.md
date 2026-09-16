@@ -8,7 +8,13 @@
 售罄狀態與長約（LTA）。財務數字是輔助佐證（capex 增加可以佐證擴產說法），
 放在獨立分頁備查，不是主角。
 
-## 快速開始
+## 線上版
+
+**<https://willychang-jimu.github.io/memory-earnings-dashboard/>**
+
+（GitHub Pages，push 到 `main` 後約一分鐘自動更新。手機可加到主畫面當捷徑。）
+
+## 本機開發
 
 ```bash
 python3 -m http.server 8765
