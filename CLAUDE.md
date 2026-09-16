@@ -43,22 +43,34 @@
 所以重繪後勾選狀態不會掉。**要讓新區塊可被匯出，只要加上 `data-export-title` 就好**，
 不用改匯出程式。
 
-### 這段踩過四個坑，改之前務必先讀
+### 圖表用「原生圖表」而不是貼圖（2026-09-16 改）
+
+`addSlideFor()` 走 `slide.addChart()`，把 Chart.js 的 datasets 轉成 PptxGenJS 的
+series 資料（`chartToPptxSeries()`）。**不要改回貼 PNG**：原生圖表在 PowerPoint 裡
+是向量、可縮放、可直接改色改標題，也不會因為圖片比例算錯被截掉——
+貼圖版本就是因為被截才換掉的。
+
+轉換時的來源是 `chart.$sourceConfig`（`mountChart()` 存的原始 config），
+**不能用 `chart.options`**，那是 Chart.js 解析過的 proxy，
+拿去重建會噴 `Recursion detected: _scriptable->_scriptable`。
+
+### 這段踩過的坑，改之前務必先讀
 
 1. **`requestAnimationFrame` 在分頁隱藏時永遠不會觸發** —— 直接 `await` 它會讓匯出
    無限卡在「產生中…」。一定要用 `nextPaint()`（內建逾時保護），不要退回裸的 rAF。
 
-2. **不能直接抓畫面上的 canvas 匯出圖表** —— 圖表在未顯示的分頁裡寬高是 0，
-   `toDataURL()` 只會回傳空的 `"data:,"`。所以 `chartToPngData()` 是**用固定
-   1400×700 的離屏畫布重新繪製**，順便讓簡報裡的圖解析度固定又銳利。
+2. **文字與表格都要自己分頁，不要用 PptxGenJS 的 `autoPage`** ——
+   autoPage 產生的續頁不會帶標題（翻到後面不知道在看什麼），
+   而且單一超長段落它不會切，會直接溢出版面外看不到。
+   現在的做法是用字元數預算自己切頁，每頁都補上「（n/m）」標題。
 
-3. **重建圖表時不能用 `chart.options`** —— 那是 Chart.js 解析過的 proxy，
-   拿去當新圖表的 options 會噴 `Recursion detected: _scriptable->_scriptable`。
-   所以 `mountChart()` 會把原始 config 存成 `chart.$sourceConfig` 供匯出使用。
+3. **投影片上的文字要主動裁短**（每則重點 150 字、表格儲存格依欄位數 90/130/180 字）。
+   簡報是拿來講的不是拿來讀的，完整內容留在 dashboard，頁尾會註明。
 
-4. **PptxGenJS 的 `addImage` 要的是 `"image/png;base64,..."`**，
-   但 `toDataURL()` 會多一個 `data:` 前綴，不拿掉會丟
-   「lacks a base64 header」而且整個產生流程會卡死。
+4. **曾經踩過**：PptxGenJS 的 `addImage` 要的是 `"image/png;base64,..."`，
+   `toDataURL()` 多的 `data:` 前綴不拿掉會丟「lacks a base64 header」並卡死；
+   以及隱藏分頁裡的 canvas 寬高為 0，`toDataURL()` 只回傳空的 `"data:,"`。
+   改用原生圖表後這兩個都不再是問題，但如果有人想加「匯出成圖片」的功能要記得。
 
 ### 尚未驗證的部分（誠實記錄）
 

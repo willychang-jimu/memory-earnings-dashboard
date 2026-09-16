@@ -18,6 +18,8 @@ const state = {
   range: "all",
   charts: {},
   exportSelection: new Set(), // 要匯出成簡報的區塊（以 data-export-title 為 key）
+  collapsedQuarters: new Set(), // 收折起來的季度；預設只展開最新一季
+  collapsedInit: false,
 };
 
 /* ── 工具 ───────────────────────────────── */
@@ -743,15 +745,59 @@ function renderQuarters() {
   }
 
   const labels = quarterLabels(rows).reverse(); // 新到舊
+  const latest = labels[0];
+
+  // 第一次渲染時，除了最新一季以外預設收折
+  if (!state.collapsedInit) {
+    labels.slice(1).forEach((l) => state.collapsedQuarters.add(l));
+    state.collapsedInit = true;
+  }
+
   labels.forEach((label) => {
+    const recs = rows.filter((r) => r._cal.label === label);
     const section = el("div", "quarter-section");
     const heading = el("div", "quarter-heading");
-    heading.appendChild(el("h2", null, label));
-    const recs = rows.filter((r) => r._cal.label === label);
-    heading.appendChild(
-      el("span", "sub", `${recs.length} 家已公布　·　${recs.map((r) => COMPANIES[r.company].name).join("、")}`)
-    );
+
+    const collapsed = state.collapsedQuarters.has(label);
+    const toggle = el("button", "quarter-toggle");
+    toggle.type = "button";
+    toggle.setAttribute("aria-expanded", String(!collapsed));
+    toggle.textContent = collapsed ? "▸" : "▾";
+
+    const h = el("h2", null, label);
+    if (label === latest) heading.appendChild(el("span", "latest-badge", "最新"));
+
+    const sub = el("span", "sub",
+      `${recs.length} 家　·　${recs.map((r) => COMPANIES[r.company].name).join("、")}`);
+
+    // 整季一次勾選：季度層級的勾選框會連動這一季底下所有公司卡片
+    const titlesOfQuarter = recs.map((r) => `${label}　${COMPANIES[r.company].name}`);
+    const selectAll = el("label", "export-check quarter-select");
+    const cbAll = document.createElement("input");
+    cbAll.type = "checkbox";
+    cbAll.checked = titlesOfQuarter.every((t) => state.exportSelection.has(t));
+    cbAll.addEventListener("change", () => {
+      titlesOfQuarter.forEach((t) => {
+        if (cbAll.checked) state.exportSelection.add(t);
+        else state.exportSelection.delete(t);
+      });
+      attachExportCheckboxes();
+    });
+    selectAll.append(cbAll, document.createTextNode("整季選入簡報"));
+
+    heading.append(toggle, h, sub, selectAll);
     section.appendChild(heading);
+
+    const body = el("div", "quarter-body");
+    body.hidden = collapsed;
+    toggle.addEventListener("click", () => {
+      const nowCollapsed = !body.hidden;
+      body.hidden = nowCollapsed;
+      toggle.textContent = nowCollapsed ? "▸" : "▾";
+      toggle.setAttribute("aria-expanded", String(!nowCollapsed));
+      if (nowCollapsed) state.collapsedQuarters.add(label);
+      else state.collapsedQuarters.delete(label);
+    });
 
     recs.forEach((r) => {
       const s = r.supply || {};
@@ -871,9 +917,10 @@ function renderQuarters() {
         })));
       }
 
-      section.appendChild(card);
+      body.appendChild(card);
     });
 
+    section.appendChild(body);
     container.appendChild(section);
   });
 }
@@ -1292,6 +1339,7 @@ function attachExportCheckboxes() {
         if (cb.checked) state.exportSelection.add(title);
         else state.exportSelection.delete(title);
         block.classList.toggle("is-selected", cb.checked);
+        syncQuarterCheckboxes(); // 單張卡片的變動要反映到季度層級的勾選框
         updateExportBar();
       });
       label.append(cb, document.createTextNode("選入簡報"));
@@ -1301,7 +1349,21 @@ function attachExportCheckboxes() {
     label.querySelector("input").checked = checked;
     block.classList.toggle("is-selected", checked);
   });
+
+  syncQuarterCheckboxes();
   updateExportBar();
+}
+
+/** 季度層級的勾選框要反映底下卡片的實際狀態（全選才勾起，部分選取顯示為 indeterminate） */
+function syncQuarterCheckboxes() {
+  document.querySelectorAll(".quarter-section").forEach((section) => {
+    const cb = section.querySelector(".quarter-select input");
+    if (!cb) return;
+    const titles = [...section.querySelectorAll("[data-export-title]")]
+      .map((b) => b.dataset.exportTitle);
+    cb.checked = titles.length > 0 && titles.every((t) => state.exportSelection.has(t));
+    cb.indeterminate = !cb.checked && titles.some((t) => state.exportSelection.has(t));
+  });
 }
 
 function updateExportBar() {
@@ -1319,12 +1381,13 @@ const cleanText = (s) => (s || "").replace(CLEAN_RE, " ").replace(/ /g, " ").re
 
 function tableToRows(table) {
   const head = [...table.querySelectorAll("thead th")].map((th) => cleanText(th.innerText));
+  // 投影片上的表格字一多就沒人讀得下去，超長內容截斷；
+  // 欄位愈多、每欄愈窄，能塞的字愈少。完整文字仍留在 dashboard 上可展開。
+  const cap = head.length >= 7 ? 90 : head.length >= 5 ? 130 : 180;
   const body = [...table.querySelectorAll("tbody tr")].map((tr) =>
     [...tr.children].map((td) => {
-      // 投影片上的表格字一多就沒人讀得下去，超長內容截斷；
-      // 完整文字仍然留在 dashboard 上可以展開看。
       const t = cleanText(td.innerText);
-      return t.length > 160 ? `${t.slice(0, 160)}…` : t;
+      return t.length > cap ? `${t.slice(0, cap)}…` : t;
     })
   );
   return { head, body };
@@ -1343,41 +1406,38 @@ function addTitleBar(slide, text) {
   });
 }
 
-/** 把圖表重畫到固定尺寸的離屏畫布再輸出 PNG。
-    不直接抓畫面上的 canvas，是因為它的尺寸取決於當下版面——分頁被隱藏時寬高會是 0，
-    toDataURL 只會吐出空的 "data:,"。離屏重繪同時讓簡報裡的圖解析度固定且銳利。 */
-function chartToPngData(chart, w = 1400, h = 700) {
-  const off = document.createElement("canvas");
-  off.width = w;
-  off.height = h;
+/** 把 Chart.js 圖表轉成 PptxGenJS 的原生圖表資料。
+    用原生圖表而不是貼圖：在 PowerPoint 裡是向量、可以縮放不失真、
+    也能直接改顏色改標題，而且不會因為圖片比例算錯被截掉。 */
+function chartToPptxSeries(chart) {
+  const src = chart.$sourceConfig || chart.config;
+  const labels = (src.data.labels || []).map(String);
 
-  const src = chart.$sourceConfig || {};
-  const srcOptions = src.options || {};
-  const tmp = new Chart(off, {
-    type: src.type || chart.config.type,
-    data: src.data || chart.config.data,
-    options: {
-      ...srcOptions,
-      responsive: false,
-      maintainAspectRatio: false,
-      animation: false,
-      plugins: { ...(srcOptions.plugins || {}), tooltip: { enabled: false } },
-    },
-    plugins: src.plugins,
+  const series = (src.data.datasets || []).map((ds) => ({
+    name: ds.label || "",
+    labels,
+    values: (ds.data || []).map((v) => (typeof v === "number" && Number.isFinite(v) ? v : null)),
+  }));
+
+  const colors = (src.data.datasets || []).map((ds) => {
+    const raw = Array.isArray(ds.borderColor) ? ds.borderColor[0] : ds.borderColor || ds.backgroundColor;
+    const hex = String(raw || "#888888").trim();
+    // PptxGenJS 要不含 # 的六碼 hex
+    return /^#?[0-9a-f]{6}$/i.test(hex) ? hex.replace("#", "").toUpperCase() : "888888";
   });
 
-  // 圖表背景是透明的，直接貼到白底投影片上，淺色的軸線文字會看不見，所以先合成白底
-  const out = document.createElement("canvas");
-  out.width = w;
-  out.height = h;
-  const ctx = out.getContext("2d");
-  ctx.fillStyle = "#ffffff";
-  ctx.fillRect(0, 0, w, h);
-  ctx.drawImage(off, 0, 0);
+  return {
+    isLine: (src.type || "bar") === "line",
+    stacked: Boolean(src.options?.scales?.y?.stacked),
+    series,
+    colors,
+  };
+}
 
-  const url = out.toDataURL("image/png");
-  tmp.destroy();
-  return url;
+/** 小倍數圖的標題在 canvas 前面的 .stat-label 裡，用來當該張投影片的副標 */
+function chartCaption(canvas) {
+  const label = canvas.closest(".chart-box")?.previousElementSibling;
+  return label?.classList?.contains("stat-label") ? cleanText(label.innerText) : "";
 }
 
 function addSlideFor(pptx, block) {
@@ -1387,96 +1447,156 @@ function addSlideFor(pptx, block) {
   const notes = [...block.querySelectorAll(":scope > p.note")]
     .map((p) => cleanText(p.innerText)).filter(Boolean);
 
-  // 1) 圖表：一張圖一頁，比例照原畫布，避免拉伸變形
+  // 1) 圖表：一張圖一頁，用 PowerPoint 原生圖表（向量、可編輯）
   if (charts.length) {
     charts.forEach((canvas, idx) => {
       const slide = pptx.addSlide();
-      addTitleBar(slide, charts.length > 1 ? `${title}（${idx + 1}/${charts.length}）` : title);
-      if (notes.length && idx === 0) {
-        slide.addText(notes.join("　"), {
-          x: 0.45, y: 0.82, w: 9.1, h: 0.5, fontSize: 9, color: "52514E", valign: "top",
-        });
-      }
+      const caption = chartCaption(canvas);
+      const slideTitle = caption ? `${title}　—　${caption}` : title;
+      addTitleBar(slide, charts.length > 1 ? `${slideTitle}（${idx + 1}/${charts.length}）` : slideTitle);
+
       const live = Chart.getChart(canvas);
-      let dataUrl = "";
+      let spec = null;
       try {
-        if (live) dataUrl = chartToPngData(live);
+        if (live) spec = chartToPptxSeries(live);
       } catch (err) {
-        console.warn("圖表轉圖失敗:", err);
+        console.warn("圖表轉換失敗:", err);
       }
-      if (!dataUrl.startsWith("data:image/")) {
-        slide.addText("（此圖表無法匯出：畫布尚未繪製）", {
+      if (!spec || !spec.series.length) {
+        slide.addText("（此圖表無資料可匯出）", {
           x: 0.45, y: 2.4, w: 9.1, h: 0.4, fontSize: 12, color: "898781", align: "center",
         });
         return;
       }
-      const ratio = 0.5; // 離屏畫布固定 1400×700
-      let w = 8.6;
-      let h = w * ratio;
-      const maxH = 3.9;
-      if (h > maxH) { h = maxH; w = h / ratio; }
-      // PptxGenJS 要的是 "image/png;base64,..."，toDataURL 會多一個 "data:" 前綴，
-      // 不拿掉會丟 "lacks a base64 header" 並讓產生流程卡死。
-      slide.addImage({
-        data: dataUrl.replace(/^data:/, ""),
-        x: (10 - w) / 2, y: 1.35, w, h,
+
+      let top = 0.95;
+      if (notes.length && idx === 0) {
+        const note = notes.join("　");
+        slide.addText(note.length > 180 ? `${note.slice(0, 180)}…` : note, {
+          x: 0.45, y: 0.9, w: 9.1, h: 0.45, fontSize: 9, color: "52514E", valign: "top",
+        });
+        top = 1.45;
+      }
+
+      slide.addChart(spec.isLine ? pptx.ChartType.line : pptx.ChartType.bar, spec.series, {
+        x: 0.5, y: top, w: 9.0, h: 5.4 - top,
+        chartColors: spec.colors,
+        showLegend: spec.series.length > 1,
+        legendPos: "b",
+        legendFontSize: 10,
+        barGrouping: spec.stacked ? "stacked" : "clustered",
+        catAxisLabelFontSize: 10,
+        valAxisLabelFontSize: 10,
+        displayBlanksAs: "gap",
+        lineSize: 2,
+        lineDataSymbolSize: 6,
+        showValue: false,
       });
     });
     return;
   }
 
-  // 2) 表格：用原生 PowerPoint 表格，之後可以直接在簡報裡編輯
+  // 2) 表格：用原生 PowerPoint 表格，之後可以直接在簡報裡編輯。
+  //    自己分頁而不用 autoPage —— autoPage 產生的續頁不會帶標題，翻到後面會不知道在看什麼。
   if (tables.length) {
     tables.forEach((table) => {
       const { head, body } = tableToRows(table);
       if (!body.length) return;
-      const slide = pptx.addSlide();
-      addTitleBar(slide, title);
-      const rows = [
-        head.map((h) => ({ text: h, options: { bold: true, color: "FFFFFF", fill: "2A78D6" } })),
-        ...body.map((r) => r.map((c) => ({ text: c }))),
-      ];
-      slide.addTable(rows, {
-        x: 0.45, y: 1.0, w: 9.1,
-        fontSize: 9, border: { type: "solid", pt: 0.5, color: "E1E0D9" },
-        autoPage: true, autoPageRepeatHeader: true, autoPageSlideStartY: 1.0,
-        valign: "top",
+
+      const ROWS_BUDGET = 900; // 一頁塞得下的字元量（含所有欄位）
+      const pages = [[]];
+      let used = 0;
+      body.forEach((row) => {
+        const len = row.reduce((a, c) => a + c.length, 0);
+        if (used + len > ROWS_BUDGET && pages[pages.length - 1].length) {
+          pages.push([]);
+          used = 0;
+        }
+        pages[pages.length - 1].push(row);
+        used += len;
+      });
+
+      pages.forEach((page, i) => {
+        const slide = pptx.addSlide();
+        addTitleBar(slide, pages.length > 1 ? `${title}（${i + 1}/${pages.length}）` : title);
+        const rows = [
+          head.map((h) => ({ text: h, options: { bold: true, color: "FFFFFF", fill: "2A78D6" } })),
+          ...page.map((r) => r.map((c) => ({ text: c }))),
+        ];
+        slide.addTable(rows, {
+          x: 0.45, y: 1.0, w: 9.1,
+          fontSize: 9, border: { type: "solid", pt: 0.5, color: "E1E0D9" },
+          valign: "top",
+        });
       });
     });
     return;
   }
 
   // 3) 其他一律轉成文字（各季度卡片、分歧觀察…）
-  const lines = [];
+  // 簡報是拿來講的，不是拿來讀整段的：每則重點裁到可掃視的長度，
+  // 完整內容留在 dashboard（投影片頁尾會註明）。
+  const BULLET_MAX = 150;
+  const trim = (s) => (s.length > BULLET_MAX ? `${s.slice(0, BULLET_MAX)}…` : s);
+
+  const rawLines = [];
   const fields = [...block.querySelectorAll(".field-row")];
   if (fields.length) {
     fields.forEach((row) => {
       const label = cleanText(row.querySelector(".field-label")?.innerText);
       const value = cleanText(row.querySelector(".field-value")?.innerText);
-      if (value) lines.push({ text: `${label}：${value}`, options: { bullet: true, breakLine: true } });
+      if (value) rawLines.push(`${label}：${trim(value)}`);
     });
   } else {
     [...block.querySelectorAll(".quote-block")].forEach((q) => {
       const t = cleanText(q.innerText);
-      if (t) lines.push({ text: t, options: { bullet: true, breakLine: true } });
+      if (t) rawLines.push(trim(t));
     });
   }
-  if (!lines.length) {
+  if (!rawLines.length) {
     const t = cleanText(block.innerText);
-    if (t) lines.push({ text: t, options: { breakLine: true } });
+    if (t) rawLines.push(t);
   }
 
-  const slide = pptx.addSlide();
-  addTitleBar(slide, title);
-  const scope = cleanText(block.querySelector(":scope > p.note")?.innerText);
-  slide.addText(lines, {
-    x: 0.45, y: 0.95, w: 9.1, h: 4.4,
-    fontSize: 11, color: "0B0B0B", valign: "top", lineSpacingMultiple: 1.15,
-    autoPage: true, autoPageSlideStartY: 0.95,
+  // 一張投影片塞得下的字數是有限的，超過就換頁——不能只靠 autoPage，
+  // 單一超長段落它不會切，會直接溢出版面外看不到。
+  const PER_SLIDE = 560;   // 中文字寬，實測這個量在 11pt 下不會超出版面
+  const MAX_LINE = 480;    // 單一段落太長時自己先切開
+  const chunks = [];
+  rawLines.forEach((line) => {
+    for (let i = 0; i < line.length; i += MAX_LINE) {
+      chunks.push(line.slice(i, i + MAX_LINE) + (line.length > i + MAX_LINE ? "…" : ""));
+    }
   });
-  if (scope) {
-    slide.addText(scope, { x: 0.45, y: 5.25, w: 9.1, h: 0.3, fontSize: 8, color: "898781" });
-  }
+
+  const pages = [[]];
+  let used = 0;
+  chunks.forEach((c) => {
+    if (used + c.length > PER_SLIDE && pages[pages.length - 1].length) {
+      pages.push([]);
+      used = 0;
+    }
+    pages[pages.length - 1].push(c);
+    used += c.length;
+  });
+
+  const scope = cleanText(block.querySelector(":scope > p.note")?.innerText);
+  pages.forEach((page, i) => {
+    const slide = pptx.addSlide();
+    addTitleBar(slide, pages.length > 1 ? `${title}（${i + 1}/${pages.length}）` : title);
+    slide.addText(
+      page.map((t) => ({ text: t, options: { bullet: true, breakLine: true } })),
+      {
+        x: 0.45, y: 0.95, w: 9.1, h: 4.3,
+        fontSize: 11, color: "0B0B0B", valign: "top", lineSpacingMultiple: 1.2,
+      }
+    );
+    const footer = [
+      scope && i === 0 ? (scope.length > 120 ? `${scope.slice(0, 120)}…` : scope) : "",
+      "完整內容見 dashboard",
+    ].filter(Boolean).join("　|　");
+    slide.addText(footer, { x: 0.45, y: 5.3, w: 9.1, h: 0.3, fontSize: 8, color: "898781" });
+  });
 }
 
 /** 等下一次繪製。requestAnimationFrame 在分頁被隱藏時「永遠不會觸發」，
