@@ -12,9 +12,12 @@ const COMPANIES = {
 const state = {
   quarters: [],        // 正規化後的季度資料
   brokers: [],         // 投行觀點
+  divergences: [],
+  upcoming: [],
   selected: new Set(Object.keys(COMPANIES)),
   range: "all",
   charts: {},
+  exportSelection: new Set(), // 要匯出成簡報的區塊（以 data-export-title 為 key）
 };
 
 /* ── 工具 ───────────────────────────────── */
@@ -367,7 +370,12 @@ function destroyChart(key) {
 
 function mountChart(key, canvas, config) {
   destroyChart(key);
-  state.charts[key] = new Chart(canvas, config);
+  const chart = new Chart(canvas, config);
+  // 保留建立時的原始 config：匯出簡報時要用它重建圖表。
+  // 不能用 chart.options，那是 Chart.js 解析過的 proxy，重用會觸發
+  // "Recursion detected: _scriptable->_scriptable"。
+  chart.$sourceConfig = config;
+  state.charts[key] = chart;
 }
 
 function showEmpty(container, msg) {
@@ -376,55 +384,6 @@ function showEmpty(container, msg) {
 }
 
 /* ── 財務分頁 ───────────────────────────── */
-
-function renderKpis() {
-  const box = document.getElementById("kpi-row");
-  box.textContent = "";
-  const rows = visibleQuarters();
-  if (!rows.length) {
-    showEmpty(box, "尚無資料 — 請先執行 scripts/build_manifest.py，並確認 data/ 底下有季度 JSON。");
-    return;
-  }
-
-  for (const company of Object.keys(COMPANIES)) {
-    if (!state.selected.has(company)) continue;
-    const recs = rows.filter((r) => r.company === company);
-    if (!recs.length) continue;
-    const latest = recs[recs.length - 1];
-    const amount = resolveAmount(latest.financials, "revenue", company);
-    const yoy = pickNumber(latest.financials, ["revenue_yoy_pct"]);
-
-    const tile = el("div", "stat-tile");
-    const label = el("div", "stat-label");
-    const key = el("span", "key");
-    key.style.background = companyColor(company);
-    label.append(key, document.createTextNode(`${COMPANIES[company].name} 營收`));
-
-    const value = el("div", "stat-value");
-    if (amount) {
-      value.textContent = fmtNumber(amount.value, amount.scale === "t" ? 2 : 0);
-      value.appendChild(el("span", "stat-unit", amount.unit));
-    } else {
-      value.textContent = "—";
-      value.appendChild(el("span", "stat-unit", "查無公開數字"));
-    }
-
-    const delta = el("div", "stat-delta");
-    if (Number.isFinite(yoy)) {
-      delta.appendChild(el("span", yoy >= 0 ? "up" : "down", fmtPct(yoy)));
-      delta.appendChild(document.createTextNode(" 年增"));
-    } else {
-      delta.appendChild(el("span", "na", "年增率 —"));
-    }
-
-    tile.append(label, value, delta,
-      el("div", "stat-period", `${latest.period_label || latest._cal.label}　公布日 ${latest.report_date || "—"}`));
-    if (latest.reporting_scope) {
-      tile.appendChild(el("div", "stat-period", `口徑：${latest.reporting_scope}`));
-    }
-    box.appendChild(tile);
-  }
-}
 
 function renderRevenueIndex() {
   const canvas = document.getElementById("chart-revenue-index");
@@ -614,46 +573,6 @@ function renderMix() {
 
 /* ── Guidance 分頁 ──────────────────────── */
 
-function renderGuidance() {
-  const table = document.getElementById("guidance-table");
-  table.textContent = "";
-  const rows = visibleQuarters();
-  if (!rows.length) {
-    table.appendChild(el("caption", "empty", "尚無資料。"));
-    return;
-  }
-
-  const thead = el("thead");
-  const hr = el("tr");
-  ["公司", "期間", "次季營收財測", "次季毛利率財測", "Capex 計畫", "展望摘要"].forEach((h) =>
-    hr.appendChild(el("th", null, h))
-  );
-  thead.appendChild(hr);
-  table.appendChild(thead);
-
-  const tbody = el("tbody");
-  rows.forEach((r) => {
-    const g = r.guidance || {};
-    const tr = el("tr");
-
-    const range = (arr, suffix) =>
-      Array.isArray(arr) && arr.some((v) => Number.isFinite(v))
-        ? `${fmtNumber(arr[0], 0)} – ${fmtNumber(arr[1], 0)}${suffix}`
-        : "—";
-
-    tr.append(
-      companyTagCell(r.company),
-      el("td", "tight", r.period_label || r._cal.label),
-      el("td", "num", range(g.next_period_revenue_range_usd_m, " 百萬美元")),
-      el("td", "num", range(g.next_period_gross_margin_range_pct, "%")),
-      el("td", "num", Number.isFinite(g.capex_plan_usd_m) ? fmtNumber(g.capex_plan_usd_m) : "—"),
-      longTextCell(g.commentary_summary)
-    );
-    tbody.appendChild(tr);
-  });
-  table.appendChild(tbody);
-}
-
 /** 把各家用字不同的 topic 收斂成幾個主題，才能跨公司比對同一件事。
     順序＝判斷優先序，必須「具體主題在前」：像「需求」「supply」這種字幾乎每句都有，
     放前面會把所有發言都吸進同一桶，主題分組就失去意義。 */
@@ -707,6 +626,7 @@ function renderCommentary() {
     if (!group.length) return;
 
     const card = el("div", "card");
+    card.dataset.exportTitle = `管理層說法 · ${groupName}`;
     const head = el("div", "card-head");
     head.appendChild(el("h2", null, groupName));
     head.appendChild(el("span", "note", `${group.length} 則`));
@@ -792,6 +712,170 @@ function renderBrokers() {
     tbody.appendChild(tr);
   });
   table.appendChild(tbody);
+}
+
+/* ── 各季度分頁（主視圖） ───────────────── */
+
+function fieldRow(label, value) {
+  if (value === null || value === undefined || value === "") return null;
+  const row = el("div", "field-row");
+  row.appendChild(el("div", "field-label", label));
+  const box = el("div", "field-value");
+  if (typeof value === "string") box.textContent = value;
+  else box.appendChild(value);
+  row.appendChild(box);
+  return row;
+}
+
+function listNode(items, renderItem) {
+  const frag = document.createDocumentFragment();
+  items.forEach((it) => frag.appendChild(renderItem(it)));
+  return frag;
+}
+
+function renderQuarters() {
+  const container = document.getElementById("quarters-list");
+  container.textContent = "";
+  const rows = visibleQuarters();
+  if (!rows.length) {
+    showEmpty(container, "尚無資料。");
+    return;
+  }
+
+  const labels = quarterLabels(rows).reverse(); // 新到舊
+  labels.forEach((label) => {
+    const section = el("div", "quarter-section");
+    const heading = el("div", "quarter-heading");
+    heading.appendChild(el("h2", null, label));
+    const recs = rows.filter((r) => r._cal.label === label);
+    heading.appendChild(
+      el("span", "sub", `${recs.length} 家已公布　·　${recs.map((r) => COMPANIES[r.company].name).join("、")}`)
+    );
+    section.appendChild(heading);
+
+    recs.forEach((r) => {
+      const s = r.supply || {};
+      const g = r.guidance || {};
+      const fin = r.financials || {};
+      const card = el("div", "quarter-card");
+      card.dataset.exportTitle = `${label}　${COMPANIES[r.company].name}`;
+
+      const head = el("div", "card-head");
+      const title = el("h2");
+      const key = el("span", "key");
+      key.style.background = companyColor(r.company);
+      key.style.display = "inline-block";
+      key.style.width = "11px";
+      key.style.height = "11px";
+      key.style.borderRadius = "3px";
+      key.style.marginRight = "8px";
+      title.append(key, document.createTextNode(COMPANIES[r.company].name));
+      head.appendChild(title);
+      head.appendChild(
+        el("span", "note", `${r.period_label || label}　·　公布日 ${r.report_date || "—"}`)
+      );
+      card.appendChild(head);
+      if (r.reporting_scope) card.appendChild(el("p", "note", `口徑：${r.reporting_scope}`));
+
+      const balance = s.supply_demand_balance || {};
+      const bg = s.bit_growth_guidance || {};
+      const pricing = s.pricing_direction || {};
+
+      const add = (node) => { if (node) card.appendChild(node); };
+
+      if (balance.status) {
+        const box = el("div");
+        box.appendChild(statusBadge(balance.status));
+        if (balance.statement) box.appendChild(el("div", null, balance.statement));
+        add(fieldRow("供需狀態", box));
+      }
+
+      if (pricing.dram || pricing.nand || pricing.statement) {
+        const box = el("div");
+        const dirs = [pricing.dram ? `DRAM：${pricing.dram}` : null, pricing.nand ? `NAND：${pricing.nand}` : null]
+          .filter(Boolean).join("　·　");
+        if (dirs) box.appendChild(el("div", null, dirs));
+        if (pricing.statement) box.appendChild(el("div", "note", pricing.statement));
+        add(fieldRow("報價方向", box));
+      }
+
+      const bits = [
+        bg.dram_next_quarter ? `DRAM 次季：${bg.dram_next_quarter}` : null,
+        bg.nand_next_quarter ? `NAND 次季：${bg.nand_next_quarter}` : null,
+        bg.dram_full_year ? `DRAM 全年：${bg.dram_full_year}` : null,
+        bg.nand_full_year ? `NAND 全年：${bg.nand_full_year}` : null,
+      ].filter(Boolean);
+      if (bits.length || bg.note) {
+        const box = el("div");
+        bits.forEach((b) => box.appendChild(el("div", null, b)));
+        if (bg.note) box.appendChild(el("div", "note", bg.note));
+        add(fieldRow("位元出貨成長", box));
+      }
+
+      if (s.capex_direction || s.capex_plan_text) {
+        const box = el("div");
+        if (s.capex_direction) box.appendChild(el("div", null, s.capex_direction));
+        if (s.capex_plan_text) box.appendChild(el("div", "note", s.capex_plan_text));
+        add(fieldRow("Capex", box));
+      }
+
+      if ((s.capacity_actions || []).length) {
+        add(fieldRow("擴產動作", listNode(s.capacity_actions, (a) => {
+          const d = el("div");
+          d.appendChild(el("span", null, a.action || ""));
+          const meta = [a.type, a.timing].filter(Boolean).join("　·　");
+          if (meta) d.appendChild(el("span", "note", `　（${meta}）`));
+          if (a.detail) d.appendChild(el("div", "note", a.detail));
+          return d;
+        })));
+      }
+
+      if (s.sold_out_status) add(fieldRow("售罄狀態", s.sold_out_status));
+      if (s.lta_status) add(fieldRow("長約 LTA", s.lta_status));
+      if (s.hbm_progress) add(fieldRow("HBM 進度", s.hbm_progress));
+      if (s.customer_allocation) add(fieldRow("客戶配置", s.customer_allocation));
+      if (s.inventory_comment) add(fieldRow("庫存", s.inventory_comment));
+
+      if ((r.management_commentary || []).length) {
+        add(fieldRow("管理層發言", listNode(r.management_commentary, (c) => {
+          const block = el("div", "quote-block");
+          block.appendChild(el("div", "quote-speaker", [c.speaker, c.topic].filter(Boolean).join("　·　")));
+          block.appendChild(el("div", null, c.summary || ""));
+          return block;
+        })));
+      }
+
+      if (g.commentary_summary) add(fieldRow("次季展望", g.commentary_summary));
+
+      const amount = resolveAmount(fin, "revenue", r.company);
+      const finBits = [
+        amount ? `營收 ${fmtNumber(amount.value, amount.scale === "t" ? 2 : 0)} ${amount.unit}` : null,
+        Number.isFinite(fin.revenue_yoy_pct) ? `年增 ${fmtPct(fin.revenue_yoy_pct)}` : null,
+        Number.isFinite(fin.revenue_qoq_pct) ? `季增 ${fmtPct(fin.revenue_qoq_pct)}` : null,
+        // 比率本身不是變化量，不該帶 +/- 號
+        Number.isFinite(fin.operating_margin_pct) ? `營益率 ${fin.operating_margin_pct.toFixed(1)}%` : null,
+        Number.isFinite(fin.gross_margin_pct) ? `毛利率 ${fin.gross_margin_pct.toFixed(1)}%` : null,
+      ].filter(Boolean);
+      if (finBits.length) add(fieldRow("關鍵財務", finBits.join("　·　")));
+
+      if ((r.sources || []).length) {
+        add(fieldRow("出處", listNode(r.sources.filter((x) => x?.url), (src) => {
+          const d = el("div");
+          const a = el("a", "src-link", src.title || src.url);
+          a.href = src.url;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          d.appendChild(a);
+          if (src.publisher) d.appendChild(el("span", "note", `　${src.publisher}`));
+          return d;
+        })));
+      }
+
+      section.appendChild(card);
+    });
+
+    container.appendChild(section);
+  });
 }
 
 /* ── 供給與供需分頁（主視圖） ───────────── */
@@ -1188,10 +1272,298 @@ function renderRaw() {
   if (!seen.size) showEmpty(list, "尚無出處資料。");
 }
 
+/* ── 匯出勾選 ───────────────────────────── */
+
+/* 以 data-export-title 當 key，重繪後勾選狀態才不會掉 */
+function attachExportCheckboxes() {
+  document.querySelectorAll("[data-export-title]").forEach((block) => {
+    const title = block.dataset.exportTitle;
+    let head = block.querySelector(".card-head");
+    if (!head) {
+      head = el("div", "card-head");
+      block.insertBefore(head, block.firstChild);
+    }
+    let label = head.querySelector(".export-check");
+    if (!label) {
+      label = el("label", "export-check");
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.addEventListener("change", () => {
+        if (cb.checked) state.exportSelection.add(title);
+        else state.exportSelection.delete(title);
+        block.classList.toggle("is-selected", cb.checked);
+        updateExportBar();
+      });
+      label.append(cb, document.createTextNode("選入簡報"));
+      head.appendChild(label);
+    }
+    const checked = state.exportSelection.has(title);
+    label.querySelector("input").checked = checked;
+    block.classList.toggle("is-selected", checked);
+  });
+  updateExportBar();
+}
+
+function updateExportBar() {
+  const n = state.exportSelection.size;
+  const bar = document.getElementById("export-bar");
+  if (!bar) return;
+  document.getElementById("export-count").textContent = `已選 ${n} 項`;
+  bar.hidden = n === 0;
+}
+
+/* ── PowerPoint 產生 ────────────────────── */
+
+const CLEAN_RE = /\s*(展開 ▾|收合 ▴|選入簡報)\s*/g;
+const cleanText = (s) => (s || "").replace(CLEAN_RE, " ").replace(/ /g, " ").replace(/[ \t]+/g, " ").trim();
+
+function tableToRows(table) {
+  const head = [...table.querySelectorAll("thead th")].map((th) => cleanText(th.innerText));
+  const body = [...table.querySelectorAll("tbody tr")].map((tr) =>
+    [...tr.children].map((td) => {
+      // 投影片上的表格字一多就沒人讀得下去，超長內容截斷；
+      // 完整文字仍然留在 dashboard 上可以展開看。
+      const t = cleanText(td.innerText);
+      return t.length > 160 ? `${t.slice(0, 160)}…` : t;
+    })
+  );
+  return { head, body };
+}
+
+function collectSelectedBlocks() {
+  return [...document.querySelectorAll("[data-export-title]")].filter((b) =>
+    state.exportSelection.has(b.dataset.exportTitle)
+  );
+}
+
+function addTitleBar(slide, text) {
+  slide.addText(text, {
+    x: 0.45, y: 0.28, w: 9.1, h: 0.55,
+    fontSize: 20, bold: true, color: "0B0B0B", valign: "middle",
+  });
+}
+
+/** 把圖表重畫到固定尺寸的離屏畫布再輸出 PNG。
+    不直接抓畫面上的 canvas，是因為它的尺寸取決於當下版面——分頁被隱藏時寬高會是 0，
+    toDataURL 只會吐出空的 "data:,"。離屏重繪同時讓簡報裡的圖解析度固定且銳利。 */
+function chartToPngData(chart, w = 1400, h = 700) {
+  const off = document.createElement("canvas");
+  off.width = w;
+  off.height = h;
+
+  const src = chart.$sourceConfig || {};
+  const srcOptions = src.options || {};
+  const tmp = new Chart(off, {
+    type: src.type || chart.config.type,
+    data: src.data || chart.config.data,
+    options: {
+      ...srcOptions,
+      responsive: false,
+      maintainAspectRatio: false,
+      animation: false,
+      plugins: { ...(srcOptions.plugins || {}), tooltip: { enabled: false } },
+    },
+    plugins: src.plugins,
+  });
+
+  // 圖表背景是透明的，直接貼到白底投影片上，淺色的軸線文字會看不見，所以先合成白底
+  const out = document.createElement("canvas");
+  out.width = w;
+  out.height = h;
+  const ctx = out.getContext("2d");
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, w, h);
+  ctx.drawImage(off, 0, 0);
+
+  const url = out.toDataURL("image/png");
+  tmp.destroy();
+  return url;
+}
+
+function addSlideFor(pptx, block) {
+  const title = block.dataset.exportTitle;
+  const charts = [...block.querySelectorAll("canvas")];
+  const tables = [...block.querySelectorAll("table.data")];
+  const notes = [...block.querySelectorAll(":scope > p.note")]
+    .map((p) => cleanText(p.innerText)).filter(Boolean);
+
+  // 1) 圖表：一張圖一頁，比例照原畫布，避免拉伸變形
+  if (charts.length) {
+    charts.forEach((canvas, idx) => {
+      const slide = pptx.addSlide();
+      addTitleBar(slide, charts.length > 1 ? `${title}（${idx + 1}/${charts.length}）` : title);
+      if (notes.length && idx === 0) {
+        slide.addText(notes.join("　"), {
+          x: 0.45, y: 0.82, w: 9.1, h: 0.5, fontSize: 9, color: "52514E", valign: "top",
+        });
+      }
+      const live = Chart.getChart(canvas);
+      let dataUrl = "";
+      try {
+        if (live) dataUrl = chartToPngData(live);
+      } catch (err) {
+        console.warn("圖表轉圖失敗:", err);
+      }
+      if (!dataUrl.startsWith("data:image/")) {
+        slide.addText("（此圖表無法匯出：畫布尚未繪製）", {
+          x: 0.45, y: 2.4, w: 9.1, h: 0.4, fontSize: 12, color: "898781", align: "center",
+        });
+        return;
+      }
+      const ratio = 0.5; // 離屏畫布固定 1400×700
+      let w = 8.6;
+      let h = w * ratio;
+      const maxH = 3.9;
+      if (h > maxH) { h = maxH; w = h / ratio; }
+      // PptxGenJS 要的是 "image/png;base64,..."，toDataURL 會多一個 "data:" 前綴，
+      // 不拿掉會丟 "lacks a base64 header" 並讓產生流程卡死。
+      slide.addImage({
+        data: dataUrl.replace(/^data:/, ""),
+        x: (10 - w) / 2, y: 1.35, w, h,
+      });
+    });
+    return;
+  }
+
+  // 2) 表格：用原生 PowerPoint 表格，之後可以直接在簡報裡編輯
+  if (tables.length) {
+    tables.forEach((table) => {
+      const { head, body } = tableToRows(table);
+      if (!body.length) return;
+      const slide = pptx.addSlide();
+      addTitleBar(slide, title);
+      const rows = [
+        head.map((h) => ({ text: h, options: { bold: true, color: "FFFFFF", fill: "2A78D6" } })),
+        ...body.map((r) => r.map((c) => ({ text: c }))),
+      ];
+      slide.addTable(rows, {
+        x: 0.45, y: 1.0, w: 9.1,
+        fontSize: 9, border: { type: "solid", pt: 0.5, color: "E1E0D9" },
+        autoPage: true, autoPageRepeatHeader: true, autoPageSlideStartY: 1.0,
+        valign: "top",
+      });
+    });
+    return;
+  }
+
+  // 3) 其他一律轉成文字（各季度卡片、分歧觀察…）
+  const lines = [];
+  const fields = [...block.querySelectorAll(".field-row")];
+  if (fields.length) {
+    fields.forEach((row) => {
+      const label = cleanText(row.querySelector(".field-label")?.innerText);
+      const value = cleanText(row.querySelector(".field-value")?.innerText);
+      if (value) lines.push({ text: `${label}：${value}`, options: { bullet: true, breakLine: true } });
+    });
+  } else {
+    [...block.querySelectorAll(".quote-block")].forEach((q) => {
+      const t = cleanText(q.innerText);
+      if (t) lines.push({ text: t, options: { bullet: true, breakLine: true } });
+    });
+  }
+  if (!lines.length) {
+    const t = cleanText(block.innerText);
+    if (t) lines.push({ text: t, options: { breakLine: true } });
+  }
+
+  const slide = pptx.addSlide();
+  addTitleBar(slide, title);
+  const scope = cleanText(block.querySelector(":scope > p.note")?.innerText);
+  slide.addText(lines, {
+    x: 0.45, y: 0.95, w: 9.1, h: 4.4,
+    fontSize: 11, color: "0B0B0B", valign: "top", lineSpacingMultiple: 1.15,
+    autoPage: true, autoPageSlideStartY: 0.95,
+  });
+  if (scope) {
+    slide.addText(scope, { x: 0.45, y: 5.25, w: 9.1, h: 0.3, fontSize: 8, color: "898781" });
+  }
+}
+
+/** 等下一次繪製。requestAnimationFrame 在分頁被隱藏時「永遠不會觸發」，
+    直接 await 它會讓匯出無限卡住，所以一定要搭配逾時保護。 */
+function nextPaint(timeoutMs = 300) {
+  return new Promise((resolve) => {
+    let done = false;
+    const finish = () => { if (!done) { done = true; resolve(); } };
+    requestAnimationFrame(() => requestAnimationFrame(finish));
+    setTimeout(finish, timeoutMs);
+  });
+}
+
+async function generatePptx() {
+  const btn = document.getElementById("export-pptx");
+  const original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "產生中…";
+
+  const root = document.documentElement;
+  const hadThemeAttr = root.hasAttribute("data-theme");
+  const prevTheme = root.dataset.theme;
+  const isDark =
+    prevTheme === "dark" ||
+    (!hadThemeAttr && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+  try {
+    // 深色模式的圖表用的是淺色系文字，貼到白底投影片會看不清楚，
+    // 所以匯出前先切成淺色重畫，匯出完再切回來。
+    if (isDark) {
+      root.dataset.theme = "light";
+      renderAll();
+      await nextPaint();
+    }
+
+    const blocks = collectSelectedBlocks();
+    if (!blocks.length) return;
+
+    const pptx = new PptxGenJS();
+    pptx.layout = "LAYOUT_16x9";
+    pptx.title = "記憶體三雄供貨追蹤";
+
+    // 壓縮 pptx 的過程在「分頁切到背景」時會被瀏覽器暫停，看起來像卡住。
+    // 超過 20 秒還沒好就提示使用者把分頁留在前景。
+    const watchdog = setTimeout(() => {
+      const count = document.getElementById("export-count");
+      if (count) count.textContent = "產生中，請讓此分頁保持在前景";
+    }, 20000);
+
+    const today = new Date().toISOString().slice(0, 10);
+    const cover = pptx.addSlide();
+    cover.addText("記憶體三雄供貨追蹤", {
+      x: 0.6, y: 1.9, w: 8.8, h: 0.8, fontSize: 32, bold: true, color: "0B0B0B",
+    });
+    cover.addText("三星 Samsung ・ 美光 Micron ・ SK 海力士 SK Hynix", {
+      x: 0.6, y: 2.7, w: 8.8, h: 0.4, fontSize: 14, color: "52514E",
+    });
+    cover.addText(
+      `產生日期 ${today}　·　收錄 ${state.quarters.length} 季法說會資料、${state.brokers.length} 則投行觀點\n` +
+      "資料取自各公司官方 IR 揭露與公開財經媒體報導，投行觀點僅為公開新聞轉述之摘要，非研究報告全文。",
+      { x: 0.6, y: 3.25, w: 8.8, h: 0.8, fontSize: 10, color: "898781" }
+    );
+
+    blocks.forEach((block) => addSlideFor(pptx, block));
+
+    await pptx.writeFile({ fileName: `記憶體三雄供貨追蹤_${today}.pptx` });
+    clearTimeout(watchdog);
+  } catch (err) {
+    console.error("PowerPoint 產生失敗:", err);
+    const count = document.getElementById("export-count");
+    count.textContent = "產生失敗，詳見主控台";
+    setTimeout(updateExportBar, 4000);
+  } finally {
+    if (isDark) {
+      if (hadThemeAttr) root.dataset.theme = prevTheme;
+      else root.removeAttribute("data-theme");
+      renderAll();
+    }
+    btn.disabled = false;
+    btn.textContent = original;
+  }
+}
+
 /* ── 總渲染 ─────────────────────────────── */
 
 function renderAll() {
-  renderKpis();
+  renderQuarters();
   renderRevenueIndex();
   renderSmallMultiples(
     "revenue-small-multiples",
@@ -1207,7 +1579,6 @@ function renderAll() {
     (recs) => resolveAmount(recs[0]?.financials, "capex", recs[0]?.company)?.unit || ""
   );
   renderMix();
-  renderGuidance();
   renderCommentary();
   renderBrokers();
   renderUpcoming();
@@ -1218,6 +1589,7 @@ function renderAll() {
   renderCapacityTimeline();
   renderSoldOut();
   renderRaw();
+  attachExportCheckboxes(); // 一定要在最後：重繪後要把勾選狀態接回新的 DOM
 }
 
 /* ── 互動 ───────────────────────────────── */
@@ -1250,6 +1622,15 @@ document.getElementById("tabs").addEventListener("click", (e) => {
   tab.setAttribute("aria-selected", "true");
   document.getElementById(tab.dataset.panel).hidden = false;
   Object.values(state.charts).forEach((c) => c.resize());
+});
+
+document.getElementById("export-pptx").addEventListener("click", generatePptx);
+
+document.getElementById("export-clear").addEventListener("click", () => {
+  state.exportSelection.clear();
+  document.querySelectorAll(".export-check input").forEach((cb) => (cb.checked = false));
+  document.querySelectorAll(".is-selected").forEach((b) => b.classList.remove("is-selected"));
+  updateExportBar();
 });
 
 document.getElementById("theme-toggle").addEventListener("click", () => {

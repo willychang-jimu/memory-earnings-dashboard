@@ -33,6 +33,42 @@
   （`/memory-earnings-dashboard/`）底下可正常解析，不要改成絕對路徑 `/data/...`，
   那樣在 Pages 上會指到網域根目錄而失效。
 
+## PowerPoint 匯出（`dashboard/app.js` 的 `generatePptx`）
+
+用 **PptxGenJS 3.12.0**，檔案直接放在 `dashboard/vendor/pptxgen.bundle.js`（466KB）——
+**刻意不用 CDN**：cdnjs 沒有這個套件，而放進 repo 就不必依賴外部服務、離線也能用。
+
+勾選機制：任何帶 `data-export-title` 屬性的元素都會自動長出勾選框
+（`attachExportCheckboxes()`），以那個標題字串當 key 記在 `state.exportSelection`，
+所以重繪後勾選狀態不會掉。**要讓新區塊可被匯出，只要加上 `data-export-title` 就好**，
+不用改匯出程式。
+
+### 這段踩過四個坑，改之前務必先讀
+
+1. **`requestAnimationFrame` 在分頁隱藏時永遠不會觸發** —— 直接 `await` 它會讓匯出
+   無限卡在「產生中…」。一定要用 `nextPaint()`（內建逾時保護），不要退回裸的 rAF。
+
+2. **不能直接抓畫面上的 canvas 匯出圖表** —— 圖表在未顯示的分頁裡寬高是 0，
+   `toDataURL()` 只會回傳空的 `"data:,"`。所以 `chartToPngData()` 是**用固定
+   1400×700 的離屏畫布重新繪製**，順便讓簡報裡的圖解析度固定又銳利。
+
+3. **重建圖表時不能用 `chart.options`** —— 那是 Chart.js 解析過的 proxy，
+   拿去當新圖表的 options 會噴 `Recursion detected: _scriptable->_scriptable`。
+   所以 `mountChart()` 會把原始 config 存成 `chart.$sourceConfig` 供匯出使用。
+
+4. **PptxGenJS 的 `addImage` 要的是 `"image/png;base64,..."`**，
+   但 `toDataURL()` 會多一個 `data:` 前綴，不拿掉會丟
+   「lacks a base64 header」而且整個產生流程會卡死。
+
+### 尚未驗證的部分（誠實記錄）
+
+最後的 `pptx.writeFile()`（zip 壓縮＋觸發下載）**沒有在開發環境實測成功過**——
+內嵌瀏覽器窗格的 `visibilityState` 永遠是 hidden，計時器被完全暫停，
+JSZip 的分塊壓縮跑不完（連只有一張純文字投影片的最小測試放 95 秒也沒結束）。
+**已驗證**的是：勾選、內容擷取、圖表轉圖（實際檢查過像素、確認不是空白圖）、
+以及 47 張投影片的組裝。真實瀏覽器的前景分頁應該正常，但如果使用者回報卡住，
+第一個要懷疑的是分頁在背景被節流（程式裡已有 20 秒後的提示文字）。
+
 ## 供給資料的幾個坑（做過了，別重踩）
 
 1. **九個季度的 `supply_demand_balance.status` 目前全部都是「供不應求」**，

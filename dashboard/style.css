@@ -528,6 +528,157 @@ table.data th.tight { white-space: nowrap; }
   font-size: 12px;
 }
 
+/* ── 匯出勾選 ───────────────────────────── */
+
+.export-hint {
+  color: var(--text-muted);
+  font-size: 12.5px;
+  margin: -8px 0 18px;
+}
+
+.card[data-export-title] > .card-head,
+.quarter-card > .card-head {
+  padding-right: 4px;
+}
+
+.export-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  margin-left: auto;
+  flex: none;
+}
+
+.export-check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--series-samsung);
+  cursor: pointer;
+  margin: 0;
+}
+
+.export-check:hover { color: var(--text-primary); }
+
+/* 已選取的區塊給一個明確但不吵的視覺標記 */
+.card.is-selected,
+.quarter-card.is-selected {
+  border-color: var(--series-samsung);
+  box-shadow: inset 3px 0 0 var(--series-samsung);
+}
+
+.export-bar {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 9px 12px 9px 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
+
+.export-bar[hidden] { display: none !important; }
+
+.export-count {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.export-btn {
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border);
+}
+
+.export-btn.ghost {
+  background: none;
+  color: var(--text-secondary);
+}
+
+.export-btn.ghost:hover { color: var(--text-primary); }
+
+.export-btn.primary {
+  background: var(--series-samsung);
+  border-color: var(--series-samsung);
+  color: #fff;
+  font-weight: 600;
+}
+
+.export-btn.primary:hover { filter: brightness(1.08); }
+
+.export-btn[disabled] {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+/* ── 各季度視圖 ─────────────────────────── */
+
+.quarter-section { margin-bottom: 30px; }
+
+.quarter-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.quarter-heading h2 {
+  font-size: 19px;
+  font-weight: 650;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.quarter-heading .sub {
+  color: var(--text-muted);
+  font-size: 12.5px;
+}
+
+.quarter-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 10px;
+  padding: 7px 0;
+  border-top: 1px solid var(--gridline);
+}
+
+.field-row:first-of-type { border-top: none; }
+
+.field-label {
+  color: var(--text-muted);
+  font-size: 12.5px;
+}
+
+.field-value { font-size: 13.5px; }
+
+@media (max-width: 640px) {
+  .field-row { grid-template-columns: 1fr; gap: 2px; }
+  .export-bar { right: 12px; left: 12px; bottom: 12px; justify-content: space-between; }
+}
+
 footer.site {
   color: var(--text-muted);
   font-size: 12px;
