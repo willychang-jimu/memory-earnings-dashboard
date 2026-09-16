@@ -1,0 +1,161 @@
+{
+  "company": "micron",
+  "period_label": "FY2026 Q2",
+  "calendar_quarter_equivalent": "2026 Q1（約，實際涵蓋 2025-12 ~ 2026-02）",
+  "period_start": "2025-11-28",
+  "period_end": "2026-02-26",
+  "report_date": "2026-03-18",
+  "financials": {
+    "revenue_usd_m": 23860,
+    "revenue_yoy_pct": 196.4,
+    "revenue_qoq_pct": 74.8,
+    "gross_margin_pct": 74.4,
+    "operating_margin_pct": 67.6,
+    "net_income_usd_m": 13790,
+    "eps_usd": 12.07,
+    "capex_usd_m": 5000,
+    "dram_revenue_share_pct": 79,
+    "nand_revenue_share_pct": 21,
+    "hbm_revenue_usd_m": null,
+    "notes": "數字為GAAP口徑。Non-GAAP口徑：毛利率74.9%、營益率69.0%、淨利US$14.02B、EPS US$12.20。DRAM營收約US$18.8B(占比79%，季增74%、年增207%，均價季增約65~67%)；NAND營收約US$5.0B(占比21%，季增82%、年增169%，均價季增約75~79%)，來自法說會逐字稿摘要。HBM未單獨揭露營收金額——管理層表示HBM已於2025年達成『佔DRAM營收比重目標』，現作為整體產品組合管理、不再單季拆分揭露，故設為null。本季度資本支出US$5.0B(官方新聞稿口徑，季度別)，營運現金流US$11.90B，自由現金流US$6.9B。董事會同時宣布股息調升30%(至每股US$0.15，2026-04-15發放)。"
+  },
+  "guidance": {
+    "next_period_revenue_range_usd_m": [
+      32750,
+      34250
+    ],
+    "next_period_gross_margin_range_pct": [
+      80.0,
+      82.0
+    ],
+    "capex_plan_usd_m": 25000,
+    "commentary_summary": "Q3 FY2026指引：營收US$33.5B±7.5億(GAAP與non-GAAP相同)、毛利率約81%(GAAP/non-GAAP相同)、EPS non-GAAP US$19.15±0.40(GAAP US$18.90±0.40)。全年(FY2026)資本支出計畫由Q1法說會時的US$20B再上修至『超過US$25B』，反映AI記憶體需求加速。",
+    "bit_shipment_growth_outlook": "預期產業DRAM位元出貨量2026年成長落在『低20%區間』，NAND位元成長約20%，兩者均受限於潔淨室產能與製程轉換時程，而非需求不足。"
+  },
+  "management_commentary": [
+    {
+      "speaker": "Sanjay Mehrotra (CEO)",
+      "topic": "AI與記憶體策略地位",
+      "summary": "強調AI正從根本上把記憶體由『商品』轉變為『策略性資產』，並表示2026年資料中心AI工作負載將首度佔整體產業記憶體需求逾50%。",
+      "source_index": 4
+    },
+    {
+      "speaker": "Sanjay Mehrotra (CEO)",
+      "topic": "供需缺口與終端滲透",
+      "summary": "指出中期產能僅能滿足關鍵客戶50%~67%的需求；旗艦手機搭載12GB以上DRAM的滲透率一年內由不到20%躍升至近80%，顯示高階記憶體需求快速擴散。",
+      "source_index": 4
+    },
+    {
+      "speaker": "Sanjay Mehrotra (CEO)",
+      "topic": "AI應用與HBM4量產",
+      "summary": "表示記憶體讓AI『更聰明、能力更強』，支援更長上下文視窗、更深推理鏈與多代理協作；並提到HBM4 36GB 12-high已於2026日曆年第一季開始量產出貨(主要供NVIDIA應用)，預期良率成熟速度將快於HBM3E世代。",
+      "source_index": 3
+    },
+    {
+      "speaker": "Mark Murphy (CFO)",
+      "topic": "毛利率與訂價",
+      "summary": "認為81%的Q3毛利率指引在結構性供給緊縮延續至2026年後仍具可持續性，但強調在目前高基期下，價格進一步調漲對毛利率的邊際貢獻將遞減。",
+      "source_index": 4
+    },
+    {
+      "speaker": "Mark Murphy (CFO)",
+      "topic": "資本配置優先順序",
+      "summary": "說明資本配置優先順序為：技術升級的有機投資、降低債務(三季內已降超過US$50億)、以及調升股息以反映對業務穩定性的信心；並指出供給緊張將『需要時間』緩解，主因低庫存水位與製造端限制。",
+      "source_index": 4
+    }
+  ],
+  "stock_reaction": {
+    "price_prior_close_usd": null,
+    "price_1d_after_usd": 464.85,
+    "pct_change_1d": 0.68,
+    "pct_change_1w": null,
+    "notes": "本次法說會後股價反應明顯不如Q1與Q3劇烈：Investing.com法說會逐字稿摘要顯示財報公布當晚(2026-03-18)盤後僅上漲0.68%至US$464.85，反映此前股價已因連續多季大幅上修而部分反映利多('sell the news')。查無單一可信來源明確標示前一交易日(3/18)正式收盤價，故price_prior_close_usd留null，避免以反推方式(464.85/1.0068)產生未經來源證實的數字。另有報導提及股價『年初至今上漲約70%』(截至2026年2月的報導)，以及3月Micron被納入S&P 100指數，帶來被動資金買盤，可能是財報後反應相對平淡的背景因素之一。",
+    "event_type": "法說會當日盤後",
+    "event_date": "2026-03-18"
+  },
+  "sources": [
+    {
+      "title": "Micron Technology, Inc. Reports Results for the Second Quarter of Fiscal 2026",
+      "publisher": "Micron Investor Relations",
+      "url": "https://investors.micron.com/news-releases/news-release-details/micron-technology-inc-reports-results-second-quarter-fiscal-2026",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Micron Q2 FY2026 press release (SEC exhibit 99.1)",
+      "publisher": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Micron Q2 2026: Record Revenue on AI Boom [Analysis]",
+      "publisher": "Tech Insider",
+      "url": "https://tech-insider.org/micron-q2-2026-earnings-ai-memory-market/",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Earnings call transcript: Micron Technology Q2 2026 beats forecasts with strong growth",
+      "publisher": "Investing.com",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-micron-technology-q2-2026-beats-forecasts-with-strong-growth-93CH-4569498",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Micron (MU) Q2 2026 Earnings Call Transcript",
+      "publisher": "The Motley Fool",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/03/18/micron-mu-q2-2026-earnings-call-transcript/",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Micron Stock Is Up 70% in 2026. Here's Why Analysts Still See More Upside Ahead",
+      "publisher": "TIKR Blog",
+      "url": "https://www.tikr.com/blog/micron-stock-is-up-70-in-2026-heres-why-analysts-still-see-more-upside-ahead",
+      "accessed_date": "2026-09-15"
+    }
+  ],
+  "reporting_scope": "公司整體（以記憶體為主業）",
+  "supply": {
+    "supply_demand_balance": {
+      "status": "供不應求",
+      "statement": "CEO 指出中期產能僅能滿足關鍵客戶 50%~67% 的需求，並把供需之間「前所未有的缺口」（unprecedented gap）歸因於結構性限制：HBM 的 trade ratio 較高、製程轉進時每片晶圓的位元成長下降。CFO 表示供給緊張的緩解「需要時間」，主因是低庫存水位與製造端限制。",
+      "source_index": 4
+    },
+    "bit_growth_guidance": {
+      "dram_next_quarter": null,
+      "nand_next_quarter": null,
+      "dram_full_year": "低 20% 區間（2026 日曆年產業 DRAM 位元出貨）",
+      "nand_full_year": "約 +20%（2026 日曆年產業 NAND 位元）",
+      "note": "管理層表示兩者均受限於潔淨室產能與製程轉換時程，而非需求不足。未給出次季位元成長指引。相較 FY2026 Q1 時對 DRAM 的「約 20%」說法，本季小幅上修至「低 20% 區間」。"
+    },
+    "pricing_direction": {
+      "dram": "續漲",
+      "nand": "續漲",
+      "statement": "當季 DRAM 均價季增約 65~67%、NAND 均價季增約 75~79%（法說會逐字稿摘要）。CFO 認為 81% 的次季毛利率指引在結構性供給緊縮延續至 2026 年後仍具可持續性，但強調在目前高基期下，價格進一步調漲對毛利率的邊際貢獻將遞減（incremental price increases have less effect at these high levels）——這是對「漲價效益」的保留，不是對「漲價方向」的保留。"
+    },
+    "capacity_actions": [
+      {
+        "action": "1-gamma DRAM 製程爬坡",
+        "type": "製程轉進",
+        "timing": "2026 日曆年",
+        "detail": "管理層稱是公司史上達到成熟良率最快的一次製程爬坡。出自法說會摘要報導，本檔 sources 中的逐字稿可佐證方向。"
+      },
+      {
+        "action": "新加坡先進封裝廠（HBM）",
+        "type": "新廠",
+        "timing": "2027 日曆年開始實質貢獻 HBM 供給",
+        "detail": "被定位為先進封裝的第二個 center of excellence。"
+      },
+      {
+        "action": "FY2027 建廠相關 capex 年增超過 US$100 億",
+        "type": "新廠",
+        "timing": "FY2027（約 2026-09 ~ 2027-08 日曆期間）",
+        "detail": "用於全球製造據點的長期產能建置。"
+      }
+    ],
+    "capex_direction": "大幅增加",
+    "capex_plan_text": "FY2026 全年 capex 計畫由 FY2026 Q1 法說會時的 US$20B 再上修至「超過 US$25B」，反映 AI 記憶體需求加速；本季度資本支出 US$5.0B。管理層並預告 FY2027 capex 將「明顯跳升」，其中建廠相關支出年增超過 US$100 億。",
+    "sold_out_status": "本季所查來源中未見明確重申「售罄」字眼；管理層改以「中期產能僅能滿足關鍵客戶 50%~67% 需求」「供需缺口前所未有」描述供給不足的程度。（FY2026 Q1 曾明講 2026 年 HBM 供給全數售罄。）",
+    "lta_status": "說明正從傳統的一年期 LTA 轉向多年期的策略客戶協議（Strategic Customer Agreements, SCA），並已簽下第一份五年期 SCA，目的是提供客戶供給確定性、提供公司營運模式穩定性；價格與取消條款未揭露。",
+    "hbm_progress": "HBM4 36GB 12-high 已於 2026 日曆年第一季開始量產出貨（主要供 NVIDIA 應用），預期良率成熟速度將快於 HBM3E 世代。HBM 已達成「佔 DRAM 營收比重目標」，現作為整體產品組合管理、不再單季拆分揭露營收金額（本檔 hbm_revenue_usd_m 因此設為 null）。",
+    "inventory_comment": "CFO 指出供給緊張需要時間才能緩解，主因是低庫存水位與製造端限制。",
+    "customer_allocation": "中期產能僅能滿足關鍵客戶 50%~67% 的需求。需求擴散的佐證：旗艦手機搭載 12GB 以上 DRAM 的滲透率一年內由不到 20% 躍升至近 80%。"
+  }
+}

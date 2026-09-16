@@ -1,0 +1,24 @@
+{
+  "date": "2026-05-29",
+  "bank": "KB Securities",
+  "company": "sk_hynix",
+  "related_period": null,
+  "rating": null,
+  "rating_change": "not stated",
+  "price_target": "3800000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "3000000",
+  "thesis_summary": "KB Securities 表示 SK 海力士正處於一段大型上升趨勢的初期，驅動力是預期將持續到 2028 年的記憶體供給短缺，並指出第二季客戶訂單滿足率僅 50%；agentic AI 普及所帶動的 HBM 需求，預期將使 HBM 價格年增超過 100%。",
+  "key_points": [
+    "記憶體供給短缺預期至少持續到 2028 年",
+    "第二季客戶訂單滿足率僅約 50%",
+    "在 agentic AI 需求下，HBM 價格預估年增超過 100%",
+    "該篇報導指出四家韓國本土券商的目標價一致收斂在 380 萬韓元"
+  ],
+  "source": {
+    "title": "KB Securities Raises SK hynix Target Price to 3.8 Million Won",
+    "publisher": "Seoul Economic Daily",
+    "url": "https://en.sedaily.com/finance/2026/05/28/kb-securities-raises-sk-hynix-target-price-to-38-million-won",
+    "accessed_date": "2026-09-15"
+  }
+}

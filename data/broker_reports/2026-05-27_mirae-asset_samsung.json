@@ -1,0 +1,22 @@
+{
+  "date": "2026-05-27",
+  "bank": "Mirae Asset Securities",
+  "company": "samsung",
+  "related_period": null,
+  "rating": null,
+  "rating_change": "not stated",
+  "price_target": "550000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "480000",
+  "thesis_summary": "分析師 Kim Young-gun 將這次調升定位為「記憶體評價重估」，而非獲利上修所帶動，主張即使近期已有一波上漲，韓國記憶體廠相對全球同業（美光、Kioxia）仍嚴重被低估。",
+  "key_points": [
+    "定位為評價重估，而非獲利預估的調整",
+    "指出相對美光／Kioxia 同業評價倍數仍有大幅折價"
+  ],
+  "source": {
+    "title": "Mirae Asset lifts target prices for Samsung and SK hynix, citing memory re-rating",
+    "publisher": "Aju Press",
+    "url": "https://www.ajupress.com/view/20260527144345340",
+    "accessed_date": "2026-09-15"
+  }
+}

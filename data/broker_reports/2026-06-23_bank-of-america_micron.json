@@ -1,0 +1,23 @@
+{
+  "date": "2026-06-23",
+  "bank": "Bank of America",
+  "company": "micron",
+  "related_period": "FY2026Q3",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "1500",
+  "price_target_currency": "USD",
+  "prior_price_target": "950",
+  "thesis_summary": "在美光會計年度第三季財報公布前，Bank of America 分析師 Vivek Arya 調升 12 個月目標價，隱含約 40% 的上漲空間，並同步上調 FY2026-FY2028 的非 GAAP EPS 預估。",
+  "key_points": [
+    "在 FY2026 第三季財報公布前調升目標價",
+    "隱含較當時股價約 40% 的上漲空間",
+    "FY2026/27/28 非 GAAP EPS 預估上調至 US$71.13 / US$140.24 / US$145.45"
+  ],
+  "source": {
+    "title": "Bank of America Raises Micron Target to $1,500 Ahead of Results: Are Traders Buying It?",
+    "publisher": "Yahoo Finance",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/bank-america-raises-micron-target-180000009.html",
+    "accessed_date": "2026-09-15"
+  }
+}

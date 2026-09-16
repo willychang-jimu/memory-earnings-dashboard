@@ -1,0 +1,23 @@
+{
+  "date": "2026-05-13",
+  "bank": "JPMorgan",
+  "company": "samsung",
+  "related_period": null,
+  "rating": "Overweight",
+  "rating_change": "maintained",
+  "price_target": "350000",
+  "price_target_currency": "KRW",
+  "prior_price_target": null,
+  "thesis_summary": "儘管點出在罷工疑慮下，勞動相關費用增加可能使 2026 年營業利益面臨 6-10% 的下修風險，JPMorgan 仍建議投資人「逢低買進」，理由是記憶體上升循環「更高、更久」，且 HBM 執行力持續改善。",
+  "key_points": [
+    "點出勞動成本使 2026 年營業利益面臨 6-10% 的下修風險",
+    "建議買進因罷工相關新聞而回檔的股價",
+    "指出記憶體上升循環更高更久，且 HBM 執行力持續改善"
+  ],
+  "source": {
+    "title": "'Buy the dip' in Samsung despite strike fears, says JPMorgan",
+    "publisher": "Investing.com",
+    "url": "https://www.investing.com/news/stock-market-news/buy-the-dip-in-samsung-despite-strike-fears-says-jpmorgan-4685423",
+    "accessed_date": "2026-09-15"
+  }
+}

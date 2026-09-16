@@ -1,0 +1,173 @@
+{
+  "company": "micron",
+  "period_label": "FY2026 Q3",
+  "calendar_quarter_equivalent": "2026 Q2（約，實際涵蓋 2026-03 ~ 2026-05）",
+  "period_start": "2026-02-27",
+  "period_end": "2026-05-28",
+  "report_date": "2026-06-24",
+  "financials": {
+    "revenue_usd_m": 41460,
+    "revenue_yoy_pct": 346,
+    "revenue_qoq_pct": 74,
+    "gross_margin_pct": 84.6,
+    "operating_margin_pct": 80.4,
+    "net_income_usd_m": 28243,
+    "eps_usd": 24.67,
+    "capex_usd_m": 7084,
+    "dram_revenue_share_pct": 76,
+    "nand_revenue_share_pct": 24,
+    "hbm_revenue_usd_m": 1000,
+    "notes": "數字為GAAP口徑。Non-GAAP口徑：毛利率84.9%、營益率81.2%、EPS US$25.11(對照共識US$20.49~20.71，優於預期約21~23%)。DRAM營收約US$31.3B(占比76%，季增67%、年增343%)；NAND營收約為總營收扣除DRAM後的餘額(約US$10.16B，占比約24%)。HBM營收首度有具體數字：管理層表示HBM4已『出貨超過US$10億營收』，且HBM4 12-high放量速度是上一代HBM3E 12-high的兩倍，故hbm_revenue_usd_m以『超過10億美元』的下限值1000表示，實際數字可能更高，這是公開報導中唯一一次揭露HBM具體金額的季度。資料中心營收單季逾US$250億，年化營收超過US$1000億。淨資本支出US$7.084B，營運現金流US$25.39B，調整後自由現金流US$18.3B，現金及投資部位US$30.2B。"
+  },
+  "guidance": {
+    "next_period_revenue_range_usd_m": [
+      49000,
+      51000
+    ],
+    "next_period_gross_margin_range_pct": [
+      85.0,
+      87.0
+    ],
+    "capex_plan_usd_m": 27000,
+    "commentary_summary": "Q4 FY2026指引：營收US$50.0B±10億(GAAP與non-GAAP相同)、毛利率約86%(GAAP/non-GAAP相同)、EPS non-GAAP US$31.00±1.00(GAAP US$30.73±1.00，以約11.5億股計算)。全年(FY2026)資本支出計畫再度上修，由Q2法說會時的『超過US$25B』上修至約US$27B(其中Q4單季資本支出約US$10B)；並首度揭露FY2027資本支出展望，預期將超過中值US$40B區間，主要用於擴建產能以因應AI基礎建設需求持續超過供給。",
+    "bit_shipment_growth_outlook": "預期產業DRAM需求成長落在『低至中20%區間』，NAND需求成長約20%；管理層表示目前尚無法預見記憶體供給何時能追上需求，預期DRAM與NAND供需緊張態勢將延續至2027日曆年之後。"
+  },
+  "management_commentary": [
+    {
+      "speaker": "Sanjay Mehrotra (CEO)",
+      "topic": "資料中心營收規模與HBM4進展",
+      "summary": "指出單季資料中心營收逾US$250億(年化超過US$1000億)；HBM4 12-high放量速度是HBM3E 12-high的兩倍，累計HBM4出貨營收已超過US$10億。",
+      "source_index": 5
+    },
+    {
+      "speaker": "Sanjay Mehrotra (CEO)",
+      "topic": "供需與產業結構性轉變",
+      "summary": "表示DRAM與NAND產業需求『明顯超過』供給，預期緊張狀況將延續至2027日曆年之後；認為AI已『結構性改變』記憶體產業，供給成長本身受到結構性限制，記憶體訂價與策略地位因此提升。",
+      "source_index": 5
+    },
+    {
+      "speaker": "Mark Murphy (CFO)",
+      "topic": "策略客戶協議與毛利率",
+      "summary": "說明策略客戶協議(Strategic Customer Agreements)中約定的底價(floor price)可帶來『明顯高於過去高峰』的毛利率水準，凸顯AI時代記憶體策略價值的提升；公司已簽署16項策略客戶協議，提供長期需求能見度。",
+      "source_index": 5
+    },
+    {
+      "speaker": "Mark Murphy (CFO)",
+      "topic": "資本支出上修",
+      "summary": "說明因Q4新增建廠與設備安裝計畫，FY2026全年資本支出上修至約US$27B(Q4單季約US$10B)；並預告FY2027資本支出將進一步跳升至中值US$40B以上區間，逾半數增量將用於廠房建設，以擴大產能因應AI需求持續超過供給的態勢。",
+      "source_index": 8
+    }
+  ],
+  "stock_reaction": {
+    "price_prior_close_usd": 1047.2,
+    "price_1d_after_usd": 1213.37,
+    "pct_change_1d": 15.9,
+    "pct_change_1w": null,
+    "notes": "財報於美股2026-06-24盤後公布，前一交易日(6/24)正式收盤價US$1,047.20。盤後交易initial reaction約+13.1%~+14.6%(Investing.com法說會逐字稿摘要在不同時間點分別記錄為US$1,185.90與US$1,199.52，屬盤後不同快照，非正式收盤價)。隔日(6/25)正式交易時段股價續漲，CNBC報導收盤大漲約15%並創歷史新高，市值一度超越Meta與Tesla；MacroTrends歷史股價資料顯示2026-06-25收盤價為歷史新高的US$1,213.37，本檔即以此作為『隔日收盤價』，對應漲幅約+15.9%，與CNBC所述『大漲15%』相符。",
+    "event_type": "法說會次日收盤",
+    "event_date": "2026-06-25"
+  },
+  "sources": [
+    {
+      "title": "Micron Technology, Inc. Reports Record Results for the Third Quarter of Fiscal 2026",
+      "publisher": "GlobeNewswire (Micron official press release)",
+      "url": "https://www.globenewswire.com/news-release/2026/06/24/3317151/14450/en/micron-technology-inc-reports-record-results-for-the-third-quarter-of-fiscal-2026.html",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Micron Q3 FY2026 press release (SEC exhibit 99.1)",
+      "publisher": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Micron Technology Inc (MU) Q3 2026 Earnings Call Highlights: Record Revenue and Strategic Customer Agreements",
+      "publisher": "Yahoo Finance (GuruFocus syndication)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/micron-technology-inc-mu-q3-050020645.html",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Micron Q3 FY2026 Earnings: Revenue, AI Boom & Guidance",
+      "publisher": "TradeThePool",
+      "url": "https://tradethepool.com/fundamental/micron-q3-fy2026-earnings-revenue-ai-boom-guidance/",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Earnings call transcript: Micron tops Q3 2026 estimates, shares jump 13.1%",
+      "publisher": "Investing.com",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-micron-tops-q3-2026-estimates-shares-jump-131-93CH-4759237",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Micron soars 15% after blockbuster earnings, lifting some chip stocks",
+      "publisher": "CNBC",
+      "url": "https://www.cnbc.com/2026/06/25/micron-stock-3q-earnings-memory.html",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Micron Technology - 15 Year Stock Price History",
+      "publisher": "MacroTrends",
+      "url": "https://www.macrotrends.net/stocks/charts/MU/micron-technology/stock-price-history",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Micron Q3 2026 Earnings: $100B in Contracts Signals AI Memory Cycle Break",
+      "publisher": "Tech Times",
+      "url": "https://www.techtimes.com/articles/319032/20260625/micron-q3-2026-earnings-100b-contracts-signals-ai-memory-cycle-break.htm",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "Earnings call transcript: Micron tops Q3 2026 estimates, shares jump 14.6%",
+      "publisher": "Investing.com",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-micron-tops-q3-2026-estimates-shares-jump-146-93CH-4759504",
+      "accessed_date": "2026-09-15"
+    }
+  ],
+  "reporting_scope": "公司整體（以記憶體為主業）",
+  "supply": {
+    "supply_demand_balance": {
+      "status": "供不應求",
+      "statement": "CEO 表示 DRAM 與 NAND 產業需求「明顯超過」供給，且目前尚無法預見記憶體供給何時能追上需求，預期供需緊張態勢將延續至 2027 日曆年之後；並認為 AI 已「結構性改變」記憶體產業，供給成長本身受到結構性限制。",
+      "source_index": 5
+    },
+    "bit_growth_guidance": {
+      "dram_next_quarter": null,
+      "nand_next_quarter": null,
+      "dram_full_year": "低至中 20% 區間（產業 DRAM 需求成長）",
+      "nand_full_year": "約 +20%（產業 NAND 需求成長）",
+      "note": "注意口徑：本季管理層給的是產業「需求成長」而非自身「位元出貨成長」，與 FY2026 Q1／Q2 的位元出貨口徑不完全相同，跨季比較時要留意。未給出次季位元成長指引。"
+    },
+    "pricing_direction": {
+      "dram": "續漲",
+      "nand": "續漲",
+      "statement": "CFO 說明策略客戶協議中約定的底價（floor price）可帶來「明顯高於過去高峰」的毛利率水準，凸顯 AI 時代記憶體策略價值的提升。次季毛利率指引約 86%（本季實績 84.6%），顯示報價仍在上行軌道。"
+    },
+    "capacity_actions": [
+      {
+        "action": "新增建廠與設備安裝計畫",
+        "type": "新廠",
+        "timing": "2026 年 6~8 月（日曆年，即 FY2026 Q4）",
+        "detail": "因此把 FY2026 全年 capex 上修至約 US$27B，其中該季單季約 US$10B。"
+      },
+      {
+        "action": "FY2027 產能大擴建，逾半數增量用於廠房建設",
+        "type": "新廠",
+        "timing": "約 2026 年 9 月 ~ 2027 年 8 月（日曆年）",
+        "detail": "FY2027 capex 預期超過中值 US$40B 區間，以擴大產能因應 AI 需求持續超過供給的態勢。"
+      },
+      {
+        "action": "HBM4 12-high 放量",
+        "type": "擴產",
+        "timing": "2026 年 3~5 月（日曆年）起",
+        "detail": "放量速度是上一代 HBM3E 12-high 的兩倍。"
+      }
+    ],
+    "capex_direction": "大幅增加",
+    "capex_plan_text": "FY2026 全年 capex 由 FY2026 Q2 法說會時的「超過 US$25B」再上修至約 US$27B（其中 FY2026 Q4 單季約 US$10B）；並首度揭露 FY2027 展望，預期將超過中值 US$40B 區間，逾半數增量用於廠房建設。本季淨資本支出 US$7.084B。",
+    "sold_out_status": "HBM 供給持續全數售出：2026 年 HBM 供給已在固定價格合約下售罄。次級來源的法說會摘要進一步指出 HBM3E 與 HBM4 已預訂（fully booked）至 2027 日曆年、需求延伸到 2028 年——後半段的年份細節屬摘要報導轉述，未由本檔 sources 中的原始新聞稿直接佐證。",
+    "lta_status": "已簽署 16 項策略客戶協議（Strategic Customer Agreements），提供長期需求能見度；協議中約定的底價（floor price）可帶來明顯高於過去高峰的毛利率水準。次級來源的法說會摘要另指出，管理層預期最終約有半數以上的公司營收將落在 SCA 之下，並自本季（5 月季）起開始揭露剩餘履約義務（RPO）——此段屬摘要報導轉述。",
+    "hbm_progress": "HBM4 累計出貨營收已超過 US$10 億（本檔 hbm_revenue_usd_m 以下限值 1000 表示，實際數字可能更高；這是公開報導中唯一一次揭露 HBM 具體金額的季度）；HBM4 12-high 放量速度是 HBM3E 12-high 的兩倍。",
+    "inventory_comment": "",
+    "customer_allocation": "單季資料中心營收逾 US$250 億（年化超過 US$1000 億），顯示產能高度向 AI／資料中心客戶傾斜。"
+  }
+}

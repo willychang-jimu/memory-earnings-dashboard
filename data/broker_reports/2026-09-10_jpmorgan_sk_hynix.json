@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-10",
+  "bank": "JPMorgan",
+  "company": "sk_hynix",
+  "related_period": null,
+  "rating": "Overweight",
+  "rating_change": "initiated",
+  "price_target": "245",
+  "price_target_currency": "USD",
+  "prior_price_target": null,
+  "thesis_summary": "在新啟動的研究報告中（目標價以美元計價、目標期間為 2027 年 6 月，推測是對應 ADR/GDR 掛牌的計價脈絡），JPMorgan 預期在 AI 晶片需求強勁下，記憶體上升循環將延續超過五年，未來兩年 EPS 年增 34%、毛利率約 76%、2026-27 年本益比 7.1 倍，並指出超過半數產能已鎖進長期合約，管理層的說法也暗示短缺可能持續到 2030 年。",
+  "key_points": [
+    "以美元計價的目標價 US$245，目標期間為 2027 年 6 月",
+    "預估未來兩年 EPS 年增 34%、毛利率約 76%",
+    "超過半數產能被形容為已鎖進長期合約",
+    "該篇報導指出其他分析師目標價落在 US$240-US$320，Bank of America 給予 Buy 評等、目標價 US$250"
+  ],
+  "source": {
+    "title": "SK Hynix Wins JPMorgan's Backing as a Memory Shortage Rewrites the Chip Cycle",
+    "publisher": "ad-hoc-news.de (boerse-global.de)",
+    "url": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/sk-hynix-wins-jpmorgan-s-backing-as-a-memory-shortage-rewrites-the-chip/70083387",
+    "accessed_date": "2026-09-15"
+  }
+}

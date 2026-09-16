@@ -1,0 +1,23 @@
+{
+  "date": "2026-06-15",
+  "bank": "Daiwa Securities",
+  "company": "sk_hynix",
+  "related_period": null,
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "3600000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "1670000",
+  "thesis_summary": "Daiwa 將目標價調升逾一倍，原因是改採分類加總（sum-of-the-parts）評價法，以更完整反映 SK 海力士 HBM 與高階 DRAM 產品組合在 AI 資料中心投資加速下的獲利能力。註：確切發布日期為推估值，係由二手報導還原，而非取自有明確日期的原始報導。",
+  "key_points": [
+    "改採分類加總（sum-of-the-parts）評價法",
+    "目的是把 HBM／高階 DRAM 的獲利能力與傳統記憶體分開評價",
+    "目標價較前次預估調升逾一倍"
+  ],
+  "source": {
+    "title": "SK Hynix Target Price Raised to 3.9 Million Won on Stronger Earnings, Shareholder Returns (secondary aggregation referencing Daiwa's revised valuation)",
+    "publisher": "Bloomingbit / aggregated coverage",
+    "url": "https://en.bloomingbit.io/feed/news/115724",
+    "accessed_date": "2026-09-15"
+  }
+}

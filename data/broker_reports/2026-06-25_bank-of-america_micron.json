@@ -1,0 +1,23 @@
+{
+  "date": "2026-06-25",
+  "bank": "Bank of America",
+  "company": "micron",
+  "related_period": "FY2026Q3",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "1550",
+  "price_target_currency": "USD",
+  "prior_price_target": "1500",
+  "thesis_summary": "在美光 FY2026 第三季財報公布後（當時股價年初至今已上漲逾 313%），分析師 Vivek Arya 重申 Buy 評等並小幅調高目標價，理由是記憶體上升循環的強勢延續。",
+  "key_points": [
+    "FY2026 第三季財報公布後隨即再度調升",
+    "報導指出當時股價年初至今上漲逾 313%",
+    "接續 Bank of America 兩天前自 US$950 調升至 US$1,500 的動作"
+  ],
+  "source": {
+    "title": "Micron's Run Isn't Over: BofA Lifts Price Target To $1,500 / Bank of America resets Micron stock price target after earnings",
+    "publisher": "Benzinga / TheStreet",
+    "url": "https://www.benzinga.com/analyst-stock-ratings/price-target/26/06/60059003/micron-technology-stock-bank-of-america-1500-price-target-rally-earnings-semiconductor-memory",
+    "accessed_date": "2026-09-15"
+  }
+}

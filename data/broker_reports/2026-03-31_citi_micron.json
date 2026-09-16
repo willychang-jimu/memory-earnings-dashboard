@@ -1,0 +1,23 @@
+{
+  "date": "2026-03-31",
+  "bank": "Citi",
+  "company": "micron",
+  "related_period": null,
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "425",
+  "price_target_currency": "USD",
+  "prior_price_target": "512.05",
+  "thesis_summary": "分析師 Atif Malik 調降目標價，理由是與「TurboQuant 疑慮」相關的 DRAM 現貨價走弱；但他認為 DRAM 與 NAND 的中期需求並未動搖，仍維持 Buy 評等。",
+  "key_points": [
+    "雖調降目標價，仍維持 Buy 評等",
+    "調降原因為短期 DRAM 現貨價走弱",
+    "DRAM／NAND 中期需求看法維持不變"
+  ],
+  "source": {
+    "title": "Here's What Citi and UBS Think About Micron Technology (MU)",
+    "publisher": "Insider Monkey (via Yahoo Finance)",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/citi-ubs-think-micron-technology-135535187.html",
+    "accessed_date": "2026-09-15"
+  }
+}

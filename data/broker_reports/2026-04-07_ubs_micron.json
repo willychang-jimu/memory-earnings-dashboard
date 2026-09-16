@@ -1,0 +1,22 @@
+{
+  "date": "2026-04-07",
+  "bank": "UBS",
+  "company": "micron",
+  "related_period": null,
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "535",
+  "price_target_currency": "USD",
+  "prior_price_target": "510",
+  "thesis_summary": "分析師 Timothy Arcuri 指出「DRAM 與 NAND 價格走強」，並認為記憶體超級循環有機會抵消市場對毛利率的疑慮。",
+  "key_points": [
+    "DRAM／NAND 價格走勢強於預期",
+    "潛在的記憶體超級循環被視為可抵消利潤率疑慮"
+  ],
+  "source": {
+    "title": "Here's What Citi and UBS Think About Micron Technology (MU)",
+    "publisher": "Insider Monkey (via Yahoo Finance)",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/citi-ubs-think-micron-technology-135535187.html",
+    "accessed_date": "2026-09-15"
+  }
+}

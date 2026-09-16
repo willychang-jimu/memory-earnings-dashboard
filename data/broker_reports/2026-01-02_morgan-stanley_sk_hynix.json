@@ -1,0 +1,24 @@
+{
+  "date": "2026-01-02",
+  "bank": "Morgan Stanley",
+  "company": "sk_hynix",
+  "related_period": null,
+  "rating": "Overweight",
+  "rating_change": "maintained",
+  "price_target": "840000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "730000",
+  "thesis_summary": "Morgan Stanley 將 2026/2027 年 EPS 預估分別上調 56%/63%，其 2026 年 EPS 預估高於市場共識 75%，理由是預期 2026 年記憶體價格上漲（DRAM +62%、NAND +75%），上半年強勁需求碰上製造產能限制，加上中國 H200 相關需求激增（約 US$3B 的增量），因而取消先前對 HBM3E 價格下滑的預期。",
+  "key_points": [
+    "2026/2027 年 EPS 預估上調 56%/63%，2026 年較市場共識高約 75%",
+    "預期 2026 年 DRAM 價格 +62%、NAND 價格 +75%",
+    "中國 H200 需求被視為約 US$3B 的增量驅動力",
+    "取消先前對 HBM3E 價格下滑的預期"
+  ],
+  "source": {
+    "title": "SK Hynix stock price target raised to KRW840,000 by Morgan Stanley",
+    "publisher": "Investing.com",
+    "url": "https://www.investing.com/news/analyst-ratings/sk-hynix-stock-price-target-raised-to-krw840000-by-morgan-stanley-93CH-4427699",
+    "accessed_date": "2026-09-15"
+  }
+}

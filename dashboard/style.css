@@ -1,0 +1,537 @@
+/* 記憶體三雄法說會 Dashboard — 樣式
+   配色沿用 dataviz 驗證過的分類色盤（藍/橘/青三個 slot，三家公司各一），
+   深淺色模式各自定義，不是把淺色直接反轉。 */
+
+:root {
+  color-scheme: light;
+
+  --surface-1: #fcfcfb;
+  --page-plane: #f9f9f7;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --gridline: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.1);
+
+  /* 三家公司固定色位：顏色跟著公司走，永遠不因篩選而重新配色 */
+  --series-samsung: #2a78d6;
+  --series-micron: #eb6834;
+  --series-hynix: #1baf7a;
+
+  /* 漲跌用發散色（藍↔紅），中性灰為中點 */
+  --diverge-pos: #2a78d6;
+  --diverge-neg: #d03b3b;
+  --diverge-mid: #f0efec;
+
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-critical: #d03b3b;
+
+  /* 供需鬆緊是有序刻度（越緊越深），用同一色相的階梯，不是四個不同顏色 */
+  --tight-4: #104281; /* 供不應求 */
+  --tight-3: #256abf; /* 偏緊 */
+  --tight-2: #5598e7; /* 供需平衡 */
+  --tight-1: #86b6ef; /* 供給寬鬆 */
+
+  --delta-up: #006300;
+  --delta-down: #d03b3b;
+
+  --radius-card: 14px;
+  --radius-pill: 999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --page-plane: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --gridline: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+    --series-samsung: #3987e5;
+    --series-micron: #d95926;
+    --series-hynix: #199e70;
+    --diverge-pos: #3987e5;
+    --diverge-neg: #e66767;
+    --diverge-mid: #383835;
+    --delta-up: #0ca30c;
+    --delta-down: #e66767;
+    --tight-4: #9ec5f4;
+    --tight-3: #5598e7;
+    --tight-2: #2a78d6;
+    --tight-1: #184f95;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --tight-4: #9ec5f4;
+  --tight-3: #5598e7;
+  --tight-2: #2a78d6;
+  --tight-1: #184f95;
+  --surface-1: #1a1a19;
+  --page-plane: #0d0d0d;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+  --gridline: #2c2c2a;
+  --baseline: #383835;
+  --border: rgba(255, 255, 255, 0.1);
+  --series-samsung: #3987e5;
+  --series-micron: #d95926;
+  --series-hynix: #199e70;
+  --diverge-pos: #3987e5;
+  --diverge-neg: #e66767;
+  --diverge-mid: #383835;
+  --delta-up: #0ca30c;
+  --delta-down: #e66767;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page-plane);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, "Segoe UI", "PingFang TC",
+    "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+/* ── 頁首 ───────────────────────────────── */
+
+header.site {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 650;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.meta-line {
+  color: var(--text-muted);
+  font-size: 12.5px;
+  margin-top: 6px;
+}
+
+.theme-toggle {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.theme-toggle:hover { color: var(--text-primary); }
+
+/* ── 資料來源聲明 ───────────────────────── */
+
+.disclaimer {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--status-warning);
+  border-radius: var(--radius-card);
+  padding: 12px 16px;
+  margin: 18px 0 22px;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+}
+
+.disclaimer strong { color: var(--text-primary); }
+
+/* ── 篩選列（一整排，位於所有圖表之上） ─── */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-label {
+  color: var(--text-muted);
+  font-size: 12.5px;
+  margin-right: 2px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 6px 13px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.12s ease;
+}
+
+.chip[aria-pressed="false"] { opacity: 0.45; }
+.chip:hover { border-color: var(--baseline); }
+
+.chip .key {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex: none;
+}
+
+select.filter-select {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+/* ── 分頁 ───────────────────────────────── */
+
+nav.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-bottom: -1px;
+}
+
+.tab[aria-selected="true"] {
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
+  font-weight: 600;
+}
+
+.tab:hover { color: var(--text-secondary); }
+
+.panel[hidden] { display: none !important; }
+
+/* ── 卡片 ───────────────────────────────── */
+
+.card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.card h2 {
+  font-size: 15px;
+  font-weight: 620;
+  margin: 0;
+}
+
+.card .note {
+  color: var(--text-muted);
+  font-size: 12.5px;
+  margin: 2px 0 14px;
+}
+
+.chart-box {
+  position: relative;
+  height: 320px;
+}
+
+.chart-box.short { height: 220px; }
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+/* ── 統計方塊 ───────────────────────────── */
+
+.stat-tile {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 16px 18px;
+}
+
+.stat-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.stat-label .key {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex: none;
+}
+
+.stat-value {
+  font-size: 26px;
+  font-weight: 640;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.stat-unit {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.stat-delta {
+  font-size: 12.5px;
+  margin-top: 4px;
+  color: var(--text-secondary);
+}
+
+.stat-delta .up { color: var(--delta-up); font-weight: 600; }
+.stat-delta .down { color: var(--delta-down); font-weight: 600; }
+
+.stat-period {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* ── 表格 ───────────────────────────────── */
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+table.data th,
+table.data td {
+  text-align: left;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--gridline);
+  vertical-align: top;
+}
+
+table.data th {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+table.data td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+table.data tr:last-child td { border-bottom: none; }
+
+table.data td.wide { min-width: 300px; }
+table.data td.tight,
+table.data th.tight { white-space: nowrap; }
+
+.table-scroll { overflow-x: auto; }
+
+/* 長文字欄位：固定高度預覽 + 點擊展開（不用 hover tooltip，手機點不到） */
+.clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.clamp.open {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.clamp-more {
+  color: var(--text-muted);
+  font-size: 11.5px;
+  cursor: pointer;
+  user-select: none;
+  margin-top: 2px;
+}
+
+.clamp-more:hover { color: var(--text-primary); }
+
+.na { color: var(--text-muted); }
+
+/* ── 說法比對 / 投行觀點 ────────────────── */
+
+.quote-block {
+  border-left: 2px solid var(--gridline);
+  padding-left: 14px;
+  margin: 10px 0;
+}
+
+.quote-speaker {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.company-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.company-tag .key {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  flex: none;
+}
+
+.broker-row .bank {
+  font-weight: 620;
+  color: var(--text-primary);
+}
+
+.rating-pill {
+  display: inline-block;
+  border-radius: var(--radius-pill);
+  padding: 2px 9px;
+  font-size: 11.5px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.src-link {
+  color: var(--text-secondary);
+  font-size: 12px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gridline);
+}
+
+.src-link:hover { color: var(--text-primary); }
+
+/* ── 空狀態 ─────────────────────────────── */
+
+.empty {
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: center;
+  padding: 36px 16px;
+  border: 1px dashed var(--gridline);
+  border-radius: var(--radius-card);
+}
+
+/* ── 圖表 tooltip（Chart.js 外部 tooltip 用） ── */
+
+#viz-tooltip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 40;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 11px;
+  font-size: 12.5px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  min-width: 140px;
+}
+
+#viz-tooltip .tt-title {
+  color: var(--text-muted);
+  font-size: 11.5px;
+  margin-bottom: 5px;
+}
+
+#viz-tooltip .tt-row {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-top: 3px;
+}
+
+#viz-tooltip .tt-key {
+  width: 12px;
+  height: 2px;
+  border-radius: 1px;
+  flex: none;
+  align-self: center;
+}
+
+#viz-tooltip .tt-val {
+  font-weight: 640;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+#viz-tooltip .tt-name {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+footer.site {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 36px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}

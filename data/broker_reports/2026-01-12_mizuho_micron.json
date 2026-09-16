@@ -1,0 +1,23 @@
+{
+  "date": "2026-01-12",
+  "bank": "Mizuho",
+  "company": "micron",
+  "related_period": null,
+  "rating": "Outperform",
+  "rating_change": "maintained",
+  "price_target": "390",
+  "price_target_currency": "USD",
+  "prior_price_target": "290",
+  "thesis_summary": "分析師 Vijay Rakesh 將記憶體列為 2026 年最優先看好的族群之一（與 AI 加速器、晶圓廠設備、光通訊元件並列），預期成長將自 2025 年的水準延續，但對車用、類比與消費性硬體仍抱持保留態度。",
+  "key_points": [
+    "記憶體被列為 2026 年最優先看好的半導體次族群",
+    "預期成長將自 2025 年水準溫和延續",
+    "該券商對車用／類比／消費性硬體族群維持審慎看法"
+  ],
+  "source": {
+    "title": "Mizuho Hikes Micron (MU) PT to $390 on Strong 2026 AI Memory Outlook",
+    "publisher": "Insider Monkey (via Finviz)",
+    "url": "https://finviz.com/news/273704/mizuho-hikes-micron-mu-pt-to-390-on-strong-2026-ai-memory-outlook",
+    "accessed_date": "2026-09-15"
+  }
+}

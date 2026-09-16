@@ -1,0 +1,125 @@
+{
+  "company": "sk_hynix",
+  "period_label": "2025 Q4",
+  "calendar_quarter_equivalent": "2025 Q4（SK 海力士的財報季與日曆季一致；本季僅作為 2026 各季的前導參考資料，優先度較低、查證程度不如 2026Q1 與 2026Q2 兩檔）",
+  "period_start": "2025-10-01",
+  "period_end": "2025-12-31",
+  "report_date": "2026-01-28",
+  "financials": {
+    "revenue_usd_m": 22930,
+    "revenue_yoy_pct": 66,
+    "revenue_qoq_pct": 34,
+    "gross_margin_pct": null,
+    "operating_margin_pct": null,
+    "net_income_usd_m": 10650,
+    "eps_usd": null,
+    "capex_usd_m": null,
+    "dram_revenue_share_pct": null,
+    "nand_revenue_share_pct": null,
+    "hbm_revenue_usd_m": null,
+    "revenue_krw_trillion": 32.83,
+    "operating_profit_krw_trillion": 19.2,
+    "net_income_krw_trillion": 15.25,
+    "notes": "韓元數字：營收 32.83 兆韓元（部分來源寫 32.8 兆，季增 +34%／年增 +63~66%，視來源而異）、營業利益 19.2 兆韓元（依其中一個來源為季增 +68%／年增 +137%）、淨利 15.25 兆韓元（淨利率約 46.4%、年增 +90.4%）。2025 全年：營收 97.15 兆韓元、營業利益 47.21 兆韓元（利益率 49%）、淨利 42.95 兆韓元（淨利率 44%）——創紀錄的一年，且依 TrendForce 資料，SK 海力士 FY2025 營業利益超越三星。管理層表示 FY2025 的 HBM 營收「年增超過一倍」，是締造紀錄的主要貢獻來源，但查不到 Q4 單季的具體 HBM 金額或 HBM 占 DRAM 比重。在所查核的來源中，也查不到本季 DRAM／NAND 營收占比的揭露。依任務範圍，本季查證優先度較低（屬選擇性的前導資料），缺口明顯多於 2026 Q1／Q2 兩檔——capex、毛利率、營業利益率與各產品線占比等欄位，請視為「未查證」（留空）而非「已查證確認不存在」。"
+  },
+  "guidance": {
+    "next_period_revenue_range_usd_m": [
+      null,
+      null
+    ],
+    "next_period_gross_margin_range_pct": [
+      null,
+      null
+    ],
+    "capex_plan_usd_m": null,
+    "commentary_summary": "管理層表示，隨著 HBM 與傳統伺服器記憶體需求同步爆發，2025 Q4 的成長動能進一步加速，並以 AI 市場「從訓練轉向推論」的轉變來描繪後續需求。在本檔所查核的來源中，找不到針對 2026 Q1 的具體數字指引（營收區間、capex 計畫或 bit 出貨成長率）。",
+    "bit_shipment_growth_outlook": "在所查核的來源中未找到／未量化。"
+  },
+  "management_commentary": [],
+  "stock_reaction": {
+    "price_prior_close_usd": null,
+    "price_1d_after_usd": null,
+    "pct_change_1d": null,
+    "pct_change_1w": null,
+    "notes": "本季屬優先度較低的前導資料，未深入查證——寧可留空（null）也不以估計值填入。另有報導（Benzinga，搜尋結果中沿用 2025 年 1 月的日期——注意：這可能指的是一年前的 FY2024 Q4 財報，而非本次 FY2025 Q4 財報；因日期歸屬不確定，本檔未予採用）指出，SK 海力士股價在其他季度曾出現「營收優於預期仍下跌」的情況，因此本次若出現類似型態並不令人意外，但本次財報並未取得經查證的股價資料。"
+  },
+  "sources": [
+    {
+      "title": "SK hynix Posts Record Annual Financial Results in 2025",
+      "publisher": "SK hynix Newsroom",
+      "url": "https://news.skhynix.com/en/sk-hynix-announces-fy25-financial-results/",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "SK Hynix posts record year as HBM boom supercharges profits",
+      "publisher": "Blocks and Files",
+      "url": "https://blocksandfiles.com/2026/01/28/sk-hynix-q4-2025/",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "SK hynix Smashes Records in 2025, Beats Samsung with KRW 47.2T Operating Profit",
+      "publisher": "TrendForce",
+      "url": "https://www.trendforce.com/news/2026/01/28/news-sk-hynix-smashes-records-in-2025-beats-samsung-with-krw-47-2t-operating-profit/",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "SK Hynix doubles profit in 2025 as memory shortages drive earnings beat",
+      "publisher": "CNBC",
+      "url": "https://www.cnbc.com/2026/01/28/sk-hynix-smashes-earnings-estimates-as-ai-memory-demand-drives-record-profit.html",
+      "accessed_date": "2026-09-15"
+    }
+  ],
+  "reporting_scope": "公司整體（以記憶體為主，含 Solidigm NAND）",
+  "supply": {
+    "supply_demand_balance": {
+      "status": "供不應求",
+      "statement": "官方新聞稿表示將「在供需失衡下優先滿足客戶需求、強化夥伴關係」。法說會摘要進一步指出 HBM 需求爆發、公司無法完全滿足客戶請求，且因產能限制無法接下所有訂單；管理層並以 AI 市場「從訓練轉向推論」描繪後續需求。法說會摘要部分未列入本檔 sources，屬未經獨立驗證的次級來源。",
+      "source_index": 0
+    },
+    "bit_growth_guidance": {
+      "dram_next_quarter": null,
+      "nand_next_quarter": "季減（2026 Q1，受前一季高基期影響）",
+      "dram_full_year": null,
+      "nand_full_year": null,
+      "note": "本檔 guidance.bit_shipment_growth_outlook 原記為「在所查核的來源中未找到／未量化」。上述 NAND 次季方向出自 Q4 2025 法說會重點摘要（GuruFocus／Investing.com 轉載），未列入本檔 sources，屬未經獨立驗證的次級來源，且僅為方向性描述、無數字區間。DRAM 位元成長與全年指引均未取得。"
+    },
+    "pricing_direction": {
+      "dram": "續漲",
+      "nand": "續漲",
+      "statement": "本季公司未給出明確的下一季報價指引。方向是由「AI 基礎建設需求爆發推升 DRAM 與 NAND 價格、庫存吃緊」以及營收季增 +34%／營業利益季增 +68% 的漲價驅動描述判讀而來，非管理層原話——請視為推導值。"
+    },
+    "capacity_actions": [
+      {
+        "action": "清州 M15X fab 產能及早極大化",
+        "type": "擴產",
+        "timing": "2026 年",
+        "detail": "官方新聞稿明列的 2026 方向。法說會摘要另提到在 M15X 新增 1d nm DRAM 產能（次級來源，未列入本檔 sources）。"
+      },
+      {
+        "action": "龍仁（Yongin）產業園區建設",
+        "type": "新廠",
+        "timing": "中長期",
+        "detail": "透過建廠確保中長期穩定的生產能力。"
+      },
+      {
+        "action": "清州與美國印第安納先進封裝廠建置",
+        "type": "新廠",
+        "timing": "進行中",
+        "detail": "公司表示兩地的先進封裝廠建設進度順利。"
+      },
+      {
+        "action": "321 層 NAND 與 1c nm DRAM 製程轉進加速",
+        "type": "製程轉進",
+        "timing": "2026 年",
+        "detail": "官方新聞稿列為技術推進方向。"
+      }
+    ],
+    "capex_direction": "大幅增加",
+    "capex_plan_text": "法說會摘要指出 2026 年 capex 將「顯著增加」，但管理層表示會把 capex 控制在營收的約 mid-30% 水準。本季未揭露 capex 絕對金額（本檔財務欄位的 capex 亦為未查證留空）。此 capex 說法出自 Q4 2025 法說會重點摘要（GuruFocus／Investing.com 轉載），未列入本檔 sources，屬未經獨立驗證的次級來源。對照：2026 Q2 財報才給出「KRW 40 兆區間高段」的絕對區間。",
+    "sold_out_status": "本檔所引的官方新聞稿未出現售罄宣告。次級來源的法說會摘要提到 HBM 供給吃緊、無法完全滿足客戶需求，並指 2026 年產能早在 2025 Q3 即已售罄——該說法未列入本檔 sources，屬未經獨立驗證的次級來源。",
+    "lta_status": "法說會摘要提到現有 LTA「反映客戶與公司之間強烈的相互承諾」，客戶偏好多年期合約以取得需求能見度；未揭露家數（約 10 家關鍵客戶的具體數字要到 2026 Q2 才明確揭露）。出自次級來源，未列入本檔 sources。",
+    "hbm_progress": "公司表示已於 2025 年 9 月完成 HBM4 量產準備、進入大規模生產，並規劃「次世代 HBM 的大規模量產」。FY2025 全年 HBM 營收「年增超過一倍」，是締造紀錄的主要貢獻來源，但查不到 Q4 單季的 HBM 金額或 HBM 占 DRAM 比重。",
+    "inventory_comment": "法說會摘要指出客戶庫存水位整體下降、SK 海力士自身 DRAM 庫存於 Q4 減少，並預期庫存吃緊的趨勢將延續（次級來源，未列入本檔 sources）。",
+    "customer_allocation": "因產能限制無法滿足所有客戶的需求，只能優先配置（次級來源的法說會摘要說法）。"
+  }
+}

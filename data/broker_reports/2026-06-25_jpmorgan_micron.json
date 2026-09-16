@@ -1,0 +1,24 @@
+{
+  "date": "2026-06-25",
+  "bank": "JPMorgan",
+  "company": "micron",
+  "related_period": "FY2026Q3",
+  "rating": "Overweight",
+  "rating_change": "maintained",
+  "price_target": "1540",
+  "price_target_currency": "USD",
+  "prior_price_target": "550",
+  "thesis_summary": "JPMorgan 認為美光不斷擴大的策略客戶合約（由先前的 1 份增至 16 份），使其「從循環性的大宗商品生產者，轉型為具營收與利潤率下檔保護的多年期契約供應商」；該公司會計年度第三季營收 US$41.5B 優於市場預期。",
+  "key_points": [
+    "FY2026 第三季營收 US$41.5B 優於預期",
+    "已簽署 16 份客戶合約，先前僅 1 份",
+    "合約涵蓋約 20% DRAM 與約 33% NAND 產量，效期至 2030 年",
+    "其中 14 份合約以價格下限計算，代表約 US$100B 的累計營收"
+  ],
+  "source": {
+    "title": "JPMorgan raises Micron stock price target to $1,540 on contracts",
+    "publisher": "Investing.com",
+    "url": "https://www.investing.com/news/analyst-ratings/jpmorgan-raises-micron-stock-price-target-to-1540-on-contracts-93CH-4759776",
+    "accessed_date": "2026-09-15"
+  }
+}

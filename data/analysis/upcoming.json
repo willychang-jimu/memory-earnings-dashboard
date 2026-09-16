@@ -1,0 +1,42 @@
+{
+  "_note": "下一批法說會排程。每季資料更新後要回來把已公布的那筆換成下一季，並更新 last_reviewed。日期若只是慣例推估（例如三星初估財報日），confirmed 要設 false 並在 note 說明。",
+  "last_reviewed": "2026-09-16",
+  "events": [
+    {
+      "company": "micron",
+      "label": "FY2026 Q4（含全年度）",
+      "date": "2026-09-30",
+      "covers": "約 2026 年 6–8 月，對應日曆 2026 Q3",
+      "confirmed": true,
+      "note": "美光官方新聞稿已公告，美西時間 9/30 下午 2:30 法說會。",
+      "source_url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-to-Report-Fiscal-Fourth-Quarter-Results-on-September-30-2026/default.aspx"
+    },
+    {
+      "company": "sk_hynix",
+      "label": "2026 Q3",
+      "date": "2026-10-27",
+      "covers": "日曆 2026 Q3（7–9 月）",
+      "confirmed": true,
+      "note": "",
+      "source_url": "https://www.investing.com/equities/sk-hynix-inc-earnings"
+    },
+    {
+      "company": "samsung",
+      "label": "2026 Q3 初估財報",
+      "date": "2026-10-08",
+      "covers": "日曆 2026 Q3（7–9 月）僅營收與營業利益初估值",
+      "confirmed": false,
+      "note": "日期為依慣例推估（2024 年為 10/8、2025 年為 10/14），三星尚未公告確切日期。韓廠慣例先公布初估數字，市場當天就反應完，正式法說日波動反而小。",
+      "source_url": "https://news.samsung.com/global/tag/earnings-guidance"
+    },
+    {
+      "company": "samsung",
+      "label": "2026 Q3 正式財報",
+      "date": "2026-10-29",
+      "covers": "日曆 2026 Q3（7–9 月）完整財報與法說會",
+      "confirmed": true,
+      "note": "",
+      "source_url": "https://www.investing.com/equities/samsung-electronics-co-ltd-earnings"
+    }
+  ]
+}

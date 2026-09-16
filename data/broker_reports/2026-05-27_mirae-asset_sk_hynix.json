@@ -1,0 +1,23 @@
+{
+  "date": "2026-05-27",
+  "bank": "Mirae Asset Securities",
+  "company": "sk_hynix",
+  "related_period": null,
+  "rating": null,
+  "rating_change": "not stated",
+  "price_target": "3800000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "3200000",
+  "thesis_summary": "分析師 Kim Young-gun 將這次調升定位為「記憶體評價重估」，而非獲利上修所帶動，並預估 SK 海力士 2026-2028 年股東權益報酬率平均可達 66%（相較歷史平均約 19%），驅動力來自記憶體價格上漲與 LTA 長約的擴大。",
+  "key_points": [
+    "定位為評價重估，主要並非獲利預估的調整",
+    "預估 2026-2028 年平均 ROE 為 66%，歷史平均約 19%",
+    "指出相對美光／Kioxia 同業評價倍數仍有大幅折價"
+  ],
+  "source": {
+    "title": "Mirae Asset lifts target prices for Samsung and SK hynix, citing memory re-rating",
+    "publisher": "Aju Press",
+    "url": "https://www.ajupress.com/view/20260527144345340",
+    "accessed_date": "2026-09-15"
+  }
+}

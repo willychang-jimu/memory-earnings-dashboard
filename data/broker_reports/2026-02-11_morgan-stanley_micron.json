@@ -1,0 +1,24 @@
+{
+  "date": "2026-02-11",
+  "bank": "Morgan Stanley",
+  "company": "micron",
+  "related_period": null,
+  "rating": "Overweight",
+  "rating_change": "maintained",
+  "price_target": "450",
+  "price_target_currency": "USD",
+  "prior_price_target": "350",
+  "thesis_summary": "分析師 Joseph Moore 調升目標價，理由是供給受限與 DRAM 價格急漲（現貨價較 1 月合約價上漲約 130%），並將 Nvidia 帶動的 AI 應用所產生的 HBM 需求視為關鍵成長催化劑。",
+  "key_points": [
+    "DDR5/DRAM 現貨價自 1 月合約價以來上漲約 130%",
+    "供給成長預期在 2026 年全年持續受限",
+    "HBM4 已開始出貨，2026 年供給全數分配一空",
+    "預估 2026 年 EPS 最高可達 US$52"
+  ],
+  "source": {
+    "title": "Micron Stock Pops as Morgan Stanley Raises Price Target to $450",
+    "publisher": "GuruFocus (via TradingView News)",
+    "url": "https://www.tradingview.com/news/gurufocus:c9d952f14094b:0-micron-stock-pops-as-morgan-stanley-raises-price-target-to-450/",
+    "accessed_date": "2026-09-15"
+  }
+}

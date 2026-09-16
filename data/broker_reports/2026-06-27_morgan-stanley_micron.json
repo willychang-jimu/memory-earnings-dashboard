@@ -1,0 +1,24 @@
+{
+  "date": "2026-06-27",
+  "bank": "Morgan Stanley",
+  "company": "micron",
+  "related_period": "FY2026Q3",
+  "rating": "Overweight",
+  "rating_change": "maintained",
+  "price_target": "1200",
+  "price_target_currency": "USD",
+  "prior_price_target": "1050",
+  "thesis_summary": "在美光 FY2026 第三季財報後，Morgan Stanley 強調 16 份策略客戶合約（涵蓋約 20% DRAM 產量、約三分之一 NAND 產量，效期至 2030 年），並有 US$22B 的財務承諾作為景氣下行的保護；同時預期 HBM 需求將於 2027 年突破 US$100B，較先前預估的 2028 年提前。",
+  "key_points": [
+    "16 份策略客戶合約涵蓋約 20% DRAM／約 33% NAND 產量，效期至 2030 年",
+    "客戶提供 US$22B 財務承諾（其中 US$18B 為現金）",
+    "HBM 需求預期於 2027 年突破 US$100B，早於先前預估的 2028 年",
+    "近 12 個月毛利率 72.6%、自由現金流 US$26.2B，FY2027 capex 財測高於 US$40B"
+  ],
+  "source": {
+    "title": "Morgan Stanley resets Micron stock price target on strong AI demand",
+    "publisher": "TheStreet",
+    "url": "https://www.thestreet.com/investing/stocks/mu-micron-morgan-stanley-resets-stock-price-target-on-strong-ai-demand",
+    "accessed_date": "2026-09-15"
+  }
+}

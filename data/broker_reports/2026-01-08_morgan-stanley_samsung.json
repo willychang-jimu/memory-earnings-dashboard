@@ -1,0 +1,23 @@
+{
+  "date": "2026-01-08",
+  "bank": "Morgan Stanley",
+  "company": "samsung",
+  "related_period": null,
+  "rating": "Overweight",
+  "rating_change": "maintained",
+  "price_target": "170000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "144000",
+  "thesis_summary": "分析師 Shawn Kim 指出這是一輪「獲利急速復甦循環」，以 6.2 倍 2026 年預估本益比評價，並認為評價有機會重估至 2.0 倍股價淨值比，驅動力來自先進 DRAM 製程、HBM 動能與新平台機會，顯示這是一段跨越數年的上升循環。",
+  "key_points": [
+    "評價基礎為 6.2 倍 2026 年預估本益比，有機會重估至 2.0 倍股價淨值比",
+    "先進 DRAM 製程與 HBM 被視為主要驅動力",
+    "上調 2026-2027 年 EPS 預估"
+  ],
+  "source": {
+    "title": "Samsung Electronics price target raised to KRW 170,000 by Morgan Stanley",
+    "publisher": "Investing.com",
+    "url": "https://www.investing.com/news/analyst-ratings/samsung-electronics-price-target-raised-to-krw-170000-by-morgan-stanley-93CH-4436832",
+    "accessed_date": "2026-09-15"
+  }
+}

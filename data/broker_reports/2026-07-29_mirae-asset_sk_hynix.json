@@ -1,0 +1,25 @@
+{
+  "date": "2026-07-29",
+  "bank": "Mirae Asset Securities",
+  "company": "sk_hynix",
+  "related_period": "2026Q2",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "2800000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "4200000",
+  "thesis_summary": "分析師 Kim Young-gun 在股價因 NAND flash 價格下跌與財務槓桿疑慮而回檔後，調降評價倍數（股價淨值比由 6.5 倍降至 4.6 倍），但形容這波跌勢「相對基本面而言過度」，並指出 AI 帶動的需求穩健、自由現金流預估強勁（至 2027 年達 440 兆韓元）以及可期待的股東回饋；同時點出中國對手 CXMT 掛牌與微影設備國產化為短期利空。",
+  "key_points": [
+    "大幅調降目標價源自評價倍數下修，而非看法翻空",
+    "指出 NAND 價格下跌與資產負債表槓桿疑慮拖累股價",
+    "預估至 2027 年自由現金流達 440 兆韓元",
+    "點出 CXMT 掛牌與中國微影技術國產化為競爭風險",
+    "預估 2026 年營業利益為 266.8 兆韓元"
+  ],
+  "source": {
+    "title": "Mirae Asset Cuts SK hynix Target to 2.8 Million Won From 4.2 Million",
+    "publisher": "Seoul Economic Daily",
+    "url": "https://en.sedaily.com/finance/2026/07/29/mirae-asset-cuts-sk-hynix-target-to-28-million-won-from-42",
+    "accessed_date": "2026-09-15"
+  }
+}

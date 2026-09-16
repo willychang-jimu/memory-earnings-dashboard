@@ -1,0 +1,23 @@
+{
+  "date": "2026-06-03",
+  "bank": "Morgan Stanley",
+  "company": "micron",
+  "related_period": null,
+  "rating": "Overweight",
+  "rating_change": "maintained",
+  "price_target": "1050",
+  "price_target_currency": "USD",
+  "prior_price_target": "520",
+  "thesis_summary": "Morgan Stanley 大幅調升目標價，理由是需求強勁與記憶體供給吃緊，並指出美光、三星與 SK 海力士合計掌握全球近 90% 的記憶體產出，短缺「沒有速效解方」；分析師 Joseph Moore 預期這波短缺將持續兩到三年甚至更久。",
+  "key_points": [
+    "記憶體三大廠掌握全球約 90% 產出",
+    "供給短缺預期將持續 2-3 年以上",
+    "AI 需求被視為定價能力的主要驅動力"
+  ],
+  "source": {
+    "title": "Morgan Stanley doubles Micron price target to $1,050, citing strong chip demand and supply tightness",
+    "publisher": "Pluang News Feed (aggregating Morgan Stanley note coverage)",
+    "url": "https://pluang.com/en/news-feed/morgan-stanley-naikkan-target-harga-saham-micron",
+    "accessed_date": "2026-09-15"
+  }
+}

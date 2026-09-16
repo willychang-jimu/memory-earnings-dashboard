@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>記憶體三雄供貨追蹤</title>
+<!-- 資源加版本參數：改版後強制瀏覽器重抓，避免載到舊的 JS/CSS（手機主畫面捷徑特別容易卡快取）。改動 app.js / style.css 後記得同步更新這個日期。 -->
+<link rel="stylesheet" href="style.css?v=20260916b">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <div>
+      <h1>記憶體三雄供貨追蹤</h1>
+      <p class="subtitle">三星 Samsung ・ 美光 Micron ・ SK 海力士 SK Hynix — 2026 年起逐季法說會的供給、供需與供貨說法交叉比對</p>
+      <p class="meta-line" id="meta-line">載入中…</p>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" type="button">切換深／淺色</button>
+  </header>
+
+  <div class="disclaimer">
+    <strong>這個頁面在追什麼：</strong>三家記憶體供應商每一季法說會上，對<strong>自己的供給能力</strong>講了什麼——擴產動作、位元出貨成長、供需鬆緊、報價方向、是否售罄、長約綁了多少。財務數字放在「財務數字（輔助）」分頁備查，不是主角。<br>
+    <strong>資料來源說明：</strong>取自三家公司官方 IR 揭露與公開財經媒體報導，每筆都附出處連結（見「原始資料」分頁）。
+    投行觀點欄位僅收錄<strong>公開新聞已轉述的</strong>評等／目標價與論點摘要，<strong>不是研究報告全文</strong>，覆蓋度取決於公開報導多寡。
+    查不到的數字一律顯示「—」，不以估計值填補。
+    三家財報週期不同（美光為財年制），跨公司比較時以「對應日曆季」對齊。<br>
+    <strong>口徑差異（最重要的一點）：</strong>三星<strong>沒有</strong>單獨揭露記憶體事業的財務數字，本頁採用其 DS 部門（記憶體＋System LSI＋晶圓代工）數字；
+    SK 海力士與美光則是公司整體。三家數字並非同一口徑的「純記憶體」business，比較的是趨勢與獲利結構，不是絕對規模的對等競爭。
+  </div>
+
+  <div class="filters" id="filters">
+    <div class="filter-group">
+      <span class="filter-label">公司</span>
+      <button class="chip" type="button" data-company="samsung" aria-pressed="true">
+        <span class="key" style="background: var(--series-samsung)"></span>三星</button>
+      <button class="chip" type="button" data-company="micron" aria-pressed="true">
+        <span class="key" style="background: var(--series-micron)"></span>美光</button>
+      <button class="chip" type="button" data-company="sk_hynix" aria-pressed="true">
+        <span class="key" style="background: var(--series-hynix)"></span>SK 海力士</button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">期間</span>
+      <select class="filter-select" id="range-select">
+        <option value="all">全部季度</option>
+        <option value="4">近 4 季</option>
+        <option value="2">近 2 季</option>
+      </select>
+    </div>
+  </div>
+
+  <nav class="tabs" id="tabs" role="tablist">
+    <button class="tab" role="tab" data-panel="panel-supply" aria-selected="true">供給與供需</button>
+    <button class="tab" role="tab" data-panel="panel-guidance" aria-selected="false">管理層說法 / Guidance</button>
+    <button class="tab" role="tab" data-panel="panel-broker" aria-selected="false">投行觀點</button>
+    <button class="tab" role="tab" data-panel="panel-financial" aria-selected="false">財務數字（輔助）</button>
+    <button class="tab" role="tab" data-panel="panel-raw" aria-selected="false">原始資料</button>
+  </nav>
+
+  <!-- ── 供給與供需（主視圖） ───────────── -->
+  <section class="panel" id="panel-supply" role="tabpanel">
+    <div class="card">
+      <div class="card-head"><h2>下一批資料什麼時候有</h2></div>
+      <p class="note">目前收錄到 2026 Q2。下列是三家接下來的法說會排程，到日期後把新一季資料補進 <code>data/</code> 再跑一次 <code>scripts/normalize.py</code> 與 <code>scripts/build_manifest.py</code> 即可。</p>
+      <div class="table-scroll"><table class="data" id="upcoming-table"></table></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2>值得注意的分歧</h2>
+        <span class="note">整理者觀察，非公司說法</span>
+      </div>
+      <p class="note">三家目前<strong>每一季都說供不應求</strong>，所以「狀態」欄位本身看不出差別——真正的資訊藏在細節的不一致裡。以下是把三家同一季的說法並排後浮現的矛盾，每則都標明依據哪幾季的資料，可自行回「原始資料」分頁對照。</p>
+      <div id="divergence-list"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>供需狀態時間軸</h2></div>
+      <p class="note">三家在各季法說會上如何描述供需鬆緊。目前九季全部都是「供不應求」——<strong>這件事本身就是重點：到現在為止沒有任何一家鬆口</strong>。哪天這欄開始出現「偏緊」或「供需平衡」，就是轉折訊號。</p>
+      <div class="table-scroll"><table class="data" id="supply-balance-table"></table></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>供給面對照矩陣</h2></div>
+      <p class="note">逐季逐家的供給指標並排。位元出貨成長（bit growth）是供給增加的直接指標；capex 與新廠動作是未來 2~3 年供給的先行指標。<br>
+      <strong>位元成長欄要看括號裡的口徑</strong>：有些季度公司給的是「自家位元出貨成長」（供給），有些給的是「產業需求成長」（需求），兩者不能直接對比——括號內已逐格標明，沒有統一改寫，因為改寫就等於竄改公司原本的說法。</p>
+      <div class="table-scroll"><table class="data" id="supply-matrix-table"></table></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>報價方向：三家說法是否一致</h2></div>
+      <p class="note">同一季三家對 DRAM／NAND 報價走勢的描述。說法出現分歧的季度，通常比三家異口同聲時更值得注意。</p>
+      <div class="table-scroll"><table class="data" id="pricing-table"></table></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>擴產與產能動作</h2></div>
+      <p class="note">宣布過的新廠、設備、產能配置決策，依時間排列。這是判斷未來供給何時真正放量的依據。</p>
+      <div id="capacity-timeline"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>售罄狀態與長約（LTA）</h2></div>
+      <p class="note">「賣光了」「已簽長約鎖定」這類說法代表供給已被預定，是供貨緊俏最直接的證據。</p>
+      <div class="table-scroll"><table class="data" id="soldout-table"></table></div>
+    </div>
+  </section>
+
+  <!-- ── 財務數字對比 ───────────────────── -->
+  <section class="panel" id="panel-financial" role="tabpanel" hidden>
+    <div class="grid-3" id="kpi-row"></div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2>營收趨勢（指數化，各家首季 = 100）</h2>
+      </div>
+      <p class="note">三家報表幣別不同（美光美元、三星與海力士韓元），直接把絕對金額畫在同一軸上會誤導，因此改用各自首季為基準的指數比較成長斜率。原始絕對金額見下方分圖與「原始資料」分頁。三星為 DS 部門口徑，與另兩家的公司整體口徑不同。</p>
+      <div class="chart-box"><canvas id="chart-revenue-index"></canvas></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2>營收絕對金額（各家原幣別，分開比例尺）</h2>
+      </div>
+      <p class="note">刻意拆成三張小圖：不同幣別與量級共用一個 Y 軸沒有意義。</p>
+      <div class="grid-3" id="revenue-small-multiples"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2>獲利率對比</h2>
+      </div>
+      <p class="note">百分比是共同單位，可以直接畫在同一軸上比較。</p>
+      <div class="chart-box" id="margin-box"><canvas id="chart-margin"></canvas></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2>資本支出（Capex，各家原幣別）</h2>
+      </div>
+      <p class="note">記憶體產業的 capex 是供給側的先行指標，同樣因幣別不同而分開呈現。</p>
+      <div class="grid-3" id="capex-small-multiples"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2>DRAM / NAND 營收結構</h2>
+      </div>
+      <p class="note">各家揭露顆粒度不同，未揭露的季度不會補值。</p>
+      <div class="grid-3" id="mix-small-multiples"></div>
+    </div>
+  </section>
+
+  <!-- ── 管理層說法 ─────────────────────── -->
+  <section class="panel" id="panel-guidance" role="tabpanel" hidden>
+    <div class="card">
+      <div class="card-head"><h2>次季財測（Guidance）對照</h2></div>
+      <p class="note">美光給明確數字區間；三星與海力士多為質化展望，以文字摘要呈現。</p>
+      <div class="table-scroll"><table class="data" id="guidance-table"></table></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>管理層說法：依主題彙整</h2></div>
+      <p class="note">把三家歷季的發言按主題收攏（供需與供貨、報價、HBM、擴產、位元出貨），同一主題內由新到舊排列，看同一件事各家說法怎麼演變、誰先轉向。內容為公開資料的摘要改寫，非逐字稿全文。</p>
+    </div>
+    <div id="commentary-list"></div>
+  </section>
+
+  <!-- ── 投行觀點 ───────────────────────── -->
+  <section class="panel" id="panel-broker" role="tabpanel" hidden>
+    <div class="card">
+      <div class="card-head"><h2>投行評等 / 目標價異動</h2></div>
+      <p class="note">依機構分開列示。僅收錄公開新聞已報導的內容，附原始報導連結。</p>
+      <div class="table-scroll"><table class="data" id="broker-table"></table></div>
+    </div>
+  </section>
+
+  <!-- ── 原始資料 ───────────────────────── -->
+  <section class="panel" id="panel-raw" role="tabpanel" hidden>
+    <div class="card">
+      <div class="card-head"><h2>逐季完整數字</h2></div>
+      <p class="note">圖表上的每個數值都可在此查到，並附出處。</p>
+      <div class="table-scroll"><table class="data" id="raw-table"></table></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><h2>資料出處清單</h2></div>
+      <div id="sources-list"></div>
+    </div>
+  </section>
+
+  <footer class="site">
+    本頁為個人研究整理，非投資建議。數字以各公司官方公告為準，如與本頁不符請以官方為準。
+  </footer>
+</div>
+
+<div id="viz-tooltip" role="tooltip" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="app.js?v=20260916b"></script>
+</body>
+</html>

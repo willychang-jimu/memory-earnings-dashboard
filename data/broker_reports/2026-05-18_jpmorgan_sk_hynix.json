@@ -1,0 +1,24 @@
+{
+  "date": "2026-05-18",
+  "bank": "JPMorgan",
+  "company": "sk_hynix",
+  "related_period": null,
+  "rating": "Overweight",
+  "rating_change": "maintained",
+  "price_target": "3000000",
+  "price_target_currency": "KRW",
+  "prior_price_target": null,
+  "thesis_summary": "JPMorgan 認為記憶體晶片正進入由 AI 驅動的結構性成長階段，而非傳統景氣循環；由於 LTA 長約降低了獲利波動，該行偏好以本益比而非股價淨值比評價，並指出 SK 海力士至 2027 年的自由現金流預估達 240 兆韓元。報告同時提醒罷工、LTA 遞延與供給過剩等風險。",
+  "key_points": [
+    "主張評價基礎應由股價淨值比轉向本益比，因需求具 AI 結構性",
+    "LTA 長約被視為可降低獲利波動",
+    "預估至 2027 年自由現金流達 240 兆韓元",
+    "點名風險：LTA 遞延、AI 需求放緩、供給過剩"
+  ],
+  "source": {
+    "title": "JPMorgan Raises Samsung, SK hynix Targets on Structural Memory Growth",
+    "publisher": "Seoul Economic Daily",
+    "url": "https://en.sedaily.com/finance/2026/05/18/jpmorgan-raises-samsung-sk-hynix-targets-on-structural",
+    "accessed_date": "2026-09-15"
+  }
+}

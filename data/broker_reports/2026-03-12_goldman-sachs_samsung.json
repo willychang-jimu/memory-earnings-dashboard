@@ -1,0 +1,23 @@
+{
+  "date": "2026-03-12",
+  "bank": "Goldman Sachs",
+  "company": "samsung",
+  "related_period": null,
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "260000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "205000",
+  "thesis_summary": "Goldman Sachs 以記憶體價格上漲與需求強勁為由調升目標價，並指出即使 PC／智慧型手機的終端需求並不特別強勁，供給短缺依然持續，因為 AI server 需求正吸收大量記憶體供給。",
+  "key_points": [
+    "2024 年營業利益預估由 18.1 兆韓元上調至 23.9 兆韓元",
+    "AI server 需求被視為正吸收可觀的記憶體供給",
+    "PC／智慧型手機終端需求被形容為並不特別強勁"
+  ],
+  "source": {
+    "title": "Goldman Sachs Raises Samsung, SK Hynix Targets on Memory Boom",
+    "publisher": "Seoul Economic Daily",
+    "url": "https://en.sedaily.com/news/2026/03/12/goldman-sachs-raises-samsung-sk-hynix-targets-on-memory-boom",
+    "accessed_date": "2026-09-15"
+  }
+}

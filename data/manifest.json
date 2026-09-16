@@ -1,0 +1,59 @@
+{
+  "generated_note": "此檔案由 scripts/build_manifest.py 自動產生，不要手動編輯。",
+  "companies": [
+    "samsung",
+    "micron",
+    "sk_hynix"
+  ],
+  "quarters": {
+    "samsung": [
+      "2025Q4.json",
+      "2026Q1.json",
+      "2026Q2.json"
+    ],
+    "micron": [
+      "FY2026Q1.json",
+      "FY2026Q2.json",
+      "FY2026Q3.json"
+    ],
+    "sk_hynix": [
+      "2025Q4.json",
+      "2026Q1.json",
+      "2026Q2.json"
+    ]
+  },
+  "broker_reports": [
+    "2026-01-02_morgan-stanley_sk_hynix.json",
+    "2026-01-08_morgan-stanley_samsung.json",
+    "2026-01-12_mizuho_micron.json",
+    "2026-02-02_morgan-stanley_samsung.json",
+    "2026-02-02_morgan-stanley_sk_hynix.json",
+    "2026-02-11_morgan-stanley_micron.json",
+    "2026-03-12_goldman-sachs_samsung.json",
+    "2026-03-12_goldman-sachs_sk_hynix.json",
+    "2026-03-31_citi_micron.json",
+    "2026-04-07_ubs_micron.json",
+    "2026-05-03_citi_samsung.json",
+    "2026-05-13_jpmorgan_samsung.json",
+    "2026-05-18_jpmorgan_samsung.json",
+    "2026-05-18_jpmorgan_sk_hynix.json",
+    "2026-05-27_mirae-asset_samsung.json",
+    "2026-05-27_mirae-asset_sk_hynix.json",
+    "2026-05-28_ubs_micron.json",
+    "2026-05-29_kb-securities_sk_hynix.json",
+    "2026-06-03_morgan-stanley_micron.json",
+    "2026-06-15_daiwa_sk_hynix.json",
+    "2026-06-23_bank-of-america_micron.json",
+    "2026-06-25_bank-of-america_micron.json",
+    "2026-06-25_goldman-sachs_micron.json",
+    "2026-06-25_jpmorgan_micron.json",
+    "2026-06-25_kb-securities_samsung.json",
+    "2026-06-27_morgan-stanley_micron.json",
+    "2026-07-22_kb-securities_sk_hynix.json",
+    "2026-07-23_kb-securities_samsung.json",
+    "2026-07-29_mirae-asset_sk_hynix.json",
+    "2026-09-03_citi_samsung.json",
+    "2026-09-03_citi_sk_hynix.json",
+    "2026-09-10_jpmorgan_sk_hynix.json"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-07-22",
+  "bank": "KB Securities",
+  "company": "sk_hynix",
+  "related_period": "2026Q2",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "4200000",
+  "price_target_currency": "KRW",
+  "prior_price_target": null,
+  "thesis_summary": "KB Securities 表示 SK 海力士轉向 AI 記憶體提升了獲利的可預測性，預估大型科技／AI 資料中心的銷售占比將由 2017 年的 30% 升至 2027 年的 70%，並主張 AI 效率提升會壓低服務成本、進而推升採用率，而非壓抑記憶體需求。",
+  "key_points": [
+    "預估 AI／資料中心客戶占比由 2017 年的 30% 升至 2027 年的 70%",
+    "引用 Google／Meta 今年 AI capex 預估分別為 270 兆／220 兆韓元",
+    "主張 AI 效率提升帶動採用率成長，而非減少記憶體需求"
+  ],
+  "source": {
+    "title": "KB Securities Keeps SK hynix Buy Rating, 4.2 Million Won Target on AI Data Center Sales",
+    "publisher": "Seoul Economic Daily",
+    "url": "https://en.sedaily.com/finance/2026/07/22/kb-securities-keeps-sk-hynix-buy-rating-42-million-won",
+    "accessed_date": "2026-09-15"
+  }
+}

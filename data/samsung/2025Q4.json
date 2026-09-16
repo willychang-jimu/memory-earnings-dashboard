@@ -1,0 +1,112 @@
+{
+  "company": "samsung",
+  "period_label": "2025 Q4",
+  "calendar_quarter_equivalent": "2025 Q4",
+  "period_start": "2025-10-01",
+  "period_end": "2025-12-31",
+  "report_date": "2026-01-29",
+  "preliminary_guidance_date": null,
+  "disclosure_note": "OPTIONAL LEAD-IN DATA POINT (lower priority per task scope) -- included for trend context ahead of 2026 Q1/Q2. Researched in less depth than the 2026 quarters; treat as a partial record.",
+  "financials": {
+    "dram_nand_commentary": "Strong conventional (non-HBM) DRAM demand cited alongside expanding HBM sales; overall price increases noted across memory products.",
+    "hbm_commentary": "Samsung said it would 'begin delivering HBM4 products this quarter [Q1 2026]', including an '11.7Gbps performance' variant, framed as an effort to restore leadership in the high-end HBM segment after ceding ground to competitors in HBM3E.",
+    "notes": "圖表採用 DS 部門數字（三星未單獨揭露記憶體事業的財務數字）。 DS = Memory + System LSI + Foundry 三者合計，不等於純記憶體。營收季增（+33%）為來源原文所載。本次查證未取得年增率、美元換算值或營業利益率。曾找到一項數字「FY2025 研發投資合計 KRW37.7 trillion，其中 Q4 貢獻約 KRW10.9 trillion」，但這看來是研發支出而非 capex——標記為不確定／可能是來源標示錯誤，因此未當成 capex 數字呈現。2025 Q4 的真實 capex 在本次查證中未獲確認。記憶體事業：三星 2025 Q4 新聞稿僅以文字定性描述記憶體事業表現：「單季營收與營業利益雙創新高」，動能來自「傳統 DRAM 需求強勁，同時 HBM 銷售擴大，且價格全面上漲」，並明確表示以高階產品組合（HBM、伺服器 DDR5、企業級 SSD）為優先。未揭露任何獨立於 DS 合計之外的韓元／美元數字。",
+    "revenue_krw_trillion": 44.0,
+    "revenue_usd_m": null,
+    "revenue_yoy_pct": null,
+    "revenue_qoq_pct": 33,
+    "operating_profit_krw_trillion": 16.4,
+    "operating_margin_pct": null,
+    "gross_margin_pct": null,
+    "capex_krw_trillion": null,
+    "dram_revenue_share_pct": null,
+    "nand_revenue_share_pct": null
+  },
+  "guidance": {
+    "next_period_revenue_range_usd_m": [
+      null,
+      null
+    ],
+    "next_period_gross_margin_range_pct": [
+      null,
+      null
+    ],
+    "capex_plan_usd_m": null,
+    "commentary_summary": "針對 2026 Q1，三星僅做定性展望：持續聚焦高附加價值的 AI 產品、如期放量出貨 HBM4（目標奪回高階 HBM 的領先地位）、擴大 DDR5、SOCAMM2 與 GDDR7 的銷售，並為推論（inference）工作負載擴產高效能 TLC NAND。",
+    "bit_shipment_growth_outlook": "未揭露／本次查證未取得。"
+  },
+  "management_commentary": [],
+  "stock_reaction": {
+    "price_prior_close_usd": null,
+    "price_1d_after_usd": null,
+    "pct_change_1d": null,
+    "pct_change_1w": null,
+    "notes": "本次未查證——不在主要任務範圍內（任務要求優先處理 2026 各季）。"
+  },
+  "sources": [
+    {
+      "title": "Samsung Electronics Announces Fourth Quarter and FY 2025 Results",
+      "publisher": "Samsung Newsroom (Belgium mirror of Global Newsroom)",
+      "url": "https://news.samsung.com/be/samsung-electronics-announces-fourth-quarter-and-fy-2025-results",
+      "accessed_date": "2026-09-15"
+    }
+  ],
+  "reporting_scope": "DS 部門（記憶體＋System LSI＋晶圓代工，非純記憶體）",
+  "divisions": {
+    "consolidated": {
+      "revenue_krw_trillion": null,
+      "operating_profit_krw_trillion": 20.07,
+      "notes": "2025 Q4 全公司營業利益約 KRW20.07tn，是在 2026 Q1 的報導中被引用為「2026 Q1 成長三倍所超越的前一季高點」；本次查證並未對照三星自家的 2025 Q4 新聞稿獨立複核。合併營收數字未獲確認——寧可留空（null）也不估計。"
+    },
+    "ds_division": {
+      "revenue_krw_trillion": 44.0,
+      "revenue_qoq_pct": 33,
+      "operating_profit_krw_trillion": 16.4,
+      "operating_margin_pct": null,
+      "notes": "DS = Memory + System LSI + Foundry 三者合計，不等於純記憶體。營收季增（+33%）為來源原文所載。本次查證未取得年增率、美元換算值或營業利益率。"
+    },
+    "memory_business": {
+      "revenue_krw_trillion": null,
+      "operating_profit_krw_trillion": null,
+      "notes": "三星 2025 Q4 新聞稿僅以文字定性描述記憶體事業表現：「單季營收與營業利益雙創新高」，動能來自「傳統 DRAM 需求強勁，同時 HBM 銷售擴大，且價格全面上漲」，並明確表示以高階產品組合（HBM、伺服器 DDR5、企業級 SSD）為優先。未揭露任何獨立於 DS 合計之外的韓元／美元數字。"
+    },
+    "capex": {
+      "capex_company_krw_trillion": null,
+      "notes": "曾找到一項數字「FY2025 研發投資合計 KRW37.7 trillion，其中 Q4 貢獻約 KRW10.9 trillion」，但這看來是研發支出而非 capex——標記為不確定／可能是來源標示錯誤，因此未當成 capex 數字呈現。2025 Q4 的真實 capex 在本次查證中未獲確認。"
+    }
+  },
+  "supply": {
+    "supply_demand_balance": {
+      "status": "供不應求",
+      "statement": "新聞稿以文字定性描述：傳統 DRAM 需求強勁、HBM 銷售同步擴大，且記憶體產品「價格全面上漲」，單季營收與營業利益雙創新高，並明確以高階產品組合（HBM、伺服器 DDR5、企業級 SSD）優先配置。注意：三星本季新聞稿並未直接使用供需失衡的字眼，此狀態是由「價格全面上漲＋高階產品優先配置」的描述判讀而來，非管理層原話。",
+      "source_index": 0
+    },
+    "bit_growth_guidance": {
+      "dram_next_quarter": "低個位數 % QoQ（2026 Q1）",
+      "nand_next_quarter": "中個位數 % QoQ（2026 Q1）",
+      "dram_full_year": null,
+      "nand_full_year": null,
+      "note": "本檔 guidance.bit_shipment_growth_outlook 原記為「未揭露／本次查證未取得」。上述次季指引出自 Futurum Group 對 2025 Q4 法說會的分析報導（DRAM 低個位數係因庫存水位偏低 lean inventories，NAND 中個位數係低基期），該來源未列入本檔 sources，屬未經獨立驗證的次級來源。未取得全年位元成長指引。"
+    },
+    "pricing_direction": {
+      "dram": "續漲",
+      "nand": "續漲",
+      "statement": "新聞稿描述記憶體產品價格全面上漲（price increases noted across memory products），並以高附加價值產品優先出貨。未給出具體漲幅數字，也未給出下一季的報價指引。"
+    },
+    "capacity_actions": [
+      {
+        "action": "DRAM 1c nm 與 NAND V9 先進製程產能加速建置",
+        "type": "製程轉進",
+        "timing": "2026 全年",
+        "detail": "財務長表示 2026 年將「明顯增加」capex，重點放在加速先進製程產能的建置。出自 Futurum Group 對法說會的分析報導，未列入本檔 sources，屬未經獨立驗證的次級來源。"
+      }
+    ],
+    "capex_direction": "增加",
+    "capex_plan_text": "財務長表示 2026 年 capex 將較前一年「明顯增加」（meaningful increase），重點投入 DRAM 1c nm 與 NAND V9 先進製程產能——此說法出自 Futurum Group 對法說會的分析報導，未列入本檔 sources。2025 Q4 當季 capex 絕對金額在本次查證中未獲確認（曾找到的 KRW10.9tn 疑為研發支出而非 capex，因此未採用）。",
+    "sold_out_status": "",
+    "lta_status": "",
+    "hbm_progress": "表示將於 2026 Q1 開始交付 HBM4 產品，包含 11.7Gbps 效能版本，定位為在 HBM3E 世代失去領先後重新奪回高階 HBM 領導地位的努力。",
+    "inventory_comment": "2026 Q1 的 DRAM 位元出貨指引偏低被歸因於庫存水位偏低（lean inventories）——出自 Futurum Group 法說會分析，未列入本檔 sources。",
+    "customer_allocation": "明確表示以高階產品組合（HBM、伺服器 DDR5、企業級 SSD）為優先配置方向。未揭露個別客戶的分配比例。"
+  }
+}

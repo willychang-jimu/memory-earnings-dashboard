@@ -1,0 +1,24 @@
+{
+  "date": "2026-06-25",
+  "bank": "Goldman Sachs",
+  "company": "micron",
+  "related_period": "FY2026Q3",
+  "rating": "Neutral",
+  "rating_change": "maintained",
+  "price_target": "1100",
+  "price_target_currency": "USD",
+  "prior_price_target": "900",
+  "thesis_summary": "Goldman Sachs 在美光繳出強勁季報與財測後調升目標價，形容 16 份含價格上下限條款的策略客戶合約「是重大正面因素」，但維持 Neutral 評等，認為風險報酬比均衡；若產業供給紀律能維持到 2028 年，該行將轉趨樂觀。",
+  "key_points": [
+    "16 份客戶合約涵蓋約 20% DRAM／約 30% NAND 產量",
+    "價格上下限條款被視為有助於支撐更高的獲利評價倍數",
+    "維持 Neutral：雖調升目標價，仍認為風險報酬比均衡",
+    "若全產業的供給成長紀律延續至 2028 年以後，將轉趨樂觀"
+  ],
+  "source": {
+    "title": "Goldman Sachs raises Micron stock price target on strong results",
+    "publisher": "Investing.com",
+    "url": "https://www.investing.com/news/analyst-ratings/goldman-sachs-raises-micron-stock-price-target-on-strong-results-93CH-4759746",
+    "accessed_date": "2026-09-15"
+  }
+}

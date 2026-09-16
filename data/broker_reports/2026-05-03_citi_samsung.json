@@ -1,0 +1,24 @@
+{
+  "date": "2026-05-03",
+  "bank": "Citi",
+  "company": "samsung",
+  "related_period": "2026Q1",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "300000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "320000",
+  "thesis_summary": "Citi 因勞動相關風險小幅調降目標價，警告高額績效獎金提列與可能的工會罷工行動恐壓抑短期獲利；該行將 2026/2027 年營業利益預估分別下調 10%/11%，但基於較長期的記憶體基本面維持 Buy 評等。",
+  "key_points": [
+    "因勞動成本風險，2026/2027 年營業利益預估分別下調 10%/11%",
+    "點出 HBM 量產認證可能延後",
+    "維持 Buy，延續 AI 帶動記憶體短缺的論點",
+    "指出主要客戶已提前下單至 2027 年"
+  ],
+  "source": {
+    "title": "Citi Cuts Samsung Electronics Target Price on Union Risks, Maintains Buy",
+    "publisher": "Seoul Economic Daily",
+    "url": "https://en.sedaily.com/finance/2026/05/03/citi-cuts-samsung-electronics-target-price-on-union-risks",
+    "accessed_date": "2026-09-15"
+  }
+}

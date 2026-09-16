@@ -1,0 +1,46 @@
+{
+  "_note": "這個檔案記的是【整理者的觀察】，不是公司說法本身。每一則都必須指向 supporting 裡列出的季度檔案，讀者可以自己回去對照原文。新增一季資料後要回頭檢查這裡是否需要更新。",
+  "last_reviewed": "2026-09-16",
+  "items": [
+    {
+      "quarter": "2026 Q2",
+      "topic": "報價漲幅",
+      "headline": "同一季的 DRAM 漲價幅度，三星是海力士的一倍以上",
+      "detail": "三星揭露當季 DRAM 混合 ASP 季增落在中 40% 區間，SK 海力士同季只有約 30%。NAND 方向還相反：三星從高 80% 收斂到高 60%，海力士卻從中 30% 擴大到中 50%。同一個市場、同一季、同樣的產品，實現價格差這麼多，通常代表產品組合（HBM／伺服器 DDR5 佔比）與既有合約條件不同，而不是市場報價本身分歧。",
+      "companies": ["samsung", "sk_hynix"],
+      "supporting": ["samsung/2026Q2.json", "sk_hynix/2026Q2.json"]
+    },
+    {
+      "quarter": "2026 Q2",
+      "topic": "供給增速",
+      "headline": "都說吃緊，但海力士下一季要多放出來的量是三星的兩倍",
+      "detail": "SK 海力士指引 2026 Q3 自家 DRAM 位元出貨季增約 +10%，三星同期只給中個位數 %。兩家同時形容市場供不應求，但實際打算增加的供給差距明顯——這是判斷「誰會先鬆動價格」的直接線索。注意兩者口徑都是自家出貨，可比。",
+      "companies": ["samsung", "sk_hynix"],
+      "supporting": ["samsung/2026Q2.json", "sk_hynix/2026Q2.json"]
+    },
+    {
+      "quarter": "2026 Q1",
+      "topic": "漲勢持續性",
+      "headline": "海力士是唯一主動說過「漲勢可能放緩」的一家",
+      "detail": "SK 海力士在 2026 Q1 法說會指引 DRAM／NAND 漲價「可能延續到 Q2，但之後漲勢可能放緩」。這是資料涵蓋的九個季度裡，三家公司唯一一次主動提出漲勢趨緩的可能性。同一季三星宣告 HBM4 已售罄、美光形容供需缺口「前所未見」，語氣完全相反。",
+      "companies": ["sk_hynix"],
+      "supporting": ["sk_hynix/2026Q1.json", "samsung/2026Q1.json", "micron/FY2026Q2.json"]
+    },
+    {
+      "quarter": "2026 Q2",
+      "topic": "售罄說法",
+      "headline": "「售罄」這個詞，兩家在同一季悄悄不講了",
+      "detail": "美光仍明講 HBM 已預訂到 2027 日曆年、需求延伸到 2028；SK 海力士則不再使用「售罄」字眼，改講「已與約 10 家關鍵客戶簽定 LTA」；三星也沒有重申上一季的 HBM4 完全售罄說法，改用「整體仍供不應求」。用詞從「賣光了」換成「簽了長約」是實質不同的兩件事——前者是供給被搶完，後者是把供給鎖進合約，值得持續追蹤是不是轉折的開始。",
+      "companies": ["samsung", "micron", "sk_hynix"],
+      "supporting": ["samsung/2026Q2.json", "micron/FY2026Q3.json", "sk_hynix/2026Q2.json"]
+    },
+    {
+      "quarter": "全期間",
+      "topic": "資本支出態度",
+      "headline": "三星是唯一沒有「大幅」增加 capex 的一家",
+      "detail": "涵蓋的九個季度裡，美光與 SK 海力士的 capex 方向幾乎都是大幅增加，三星則一路維持在「增加」。capex 是未來 2~3 年供給的先行指標，三星相對保守的投資態度，意味著它自己也不急著把供給放出來。",
+      "companies": ["samsung"],
+      "supporting": ["samsung/2025Q4.json", "samsung/2026Q1.json", "samsung/2026Q2.json"]
+    }
+  ]
+}

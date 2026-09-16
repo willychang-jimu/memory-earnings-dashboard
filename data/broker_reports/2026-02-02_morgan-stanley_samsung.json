@@ -1,0 +1,23 @@
+{
+  "date": "2026-02-02",
+  "bank": "Morgan Stanley",
+  "company": "samsung",
+  "related_period": null,
+  "rating": "Overweight",
+  "rating_change": "maintained",
+  "price_target": "210000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "170000",
+  "thesis_summary": "在同時調升三星／SK 海力士目標價的報告中，Morgan Stanley 表示整體記憶體半導體供給「已經全數賣到 2027 年」，並預測一段長達數年的「超級循環」，2027 年營業利益有機會與美國大型科技公司比肩——這與該行 2024 年偏空的「寒冬論」是完全相反的轉向。",
+  "key_points": [
+    "預期記憶體「超級循環」將延續至 2027 年",
+    "記憶體供給被形容為已賣到明年（2027 年）",
+    "代表 Morgan Stanley 自 2024 年偏空記憶體立場的轉向"
+  ],
+  "source": {
+    "title": "Morgan Stanley Drastically Raises Price Targets for Samsung and SK Hynix, Forecasts Memory \"Supercycle\" to Last Through 2027",
+    "publisher": "BigGo Finance",
+    "url": "https://finance.biggo.com/news/4XbBHZwBy4YEFZDUZU2-",
+    "accessed_date": "2026-09-15"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "company": "sk_hynix",
+  "period_label": "2026 Q1",
+  "calendar_quarter_equivalent": "2026 Q1（SK 海力士的財報季與日曆季一致）",
+  "period_start": "2026-01-01",
+  "period_end": "2026-03-31",
+  "report_date": "2026-04-23",
+  "financials": {
+    "revenue_usd_m": 35500,
+    "revenue_yoy_pct": 198,
+    "revenue_qoq_pct": 60,
+    "gross_margin_pct": 79.27,
+    "operating_margin_pct": 72,
+    "net_income_usd_m": 27200,
+    "eps_usd": null,
+    "capex_usd_m": null,
+    "dram_revenue_share_pct": 78,
+    "nand_revenue_share_pct": 21,
+    "hbm_revenue_usd_m": null,
+    "revenue_krw_trillion": 52.5763,
+    "operating_profit_krw_trillion": 37.6103,
+    "net_income_krw_trillion": 40.3459,
+    "notes": "韓元數字（官方）：營收 52.5763 兆韓元、營業利益 37.6103 兆韓元（營業利益率 72%）、淨利 40.3459 兆韓元（淨利率 77%）。營業利益季增 +96%／年增 +405%；淨利季增 +165%／年增 +398%。上方的美元數字是第三方換算（Blocks and Files），非公司揭露。毛利率 79.27% 出自 MacroMicro 的推導數列（信心度較低——並非 SK 海力士在新聞稿中直接公布的數字；請視為近似值）。DRAM／NAND 營收占比（78%／21%）是從 SK 海力士自家 2026 Q2 簡報回推得出，該簡報把 Q1 列為前一季對照基準——Q1 新聞稿本身並未單獨載明此數字。本季查不到單獨揭露的 HBM 營收金額或 HBM 占 DRAM 比重（不同於 FY2025 年度新聞稿，當時載明 HBM 營收「年增超過一倍」）。capex 據稱年增超過 30%（定性描述，未揭露絕對金額）。DRAM ASP 季增約中 60% 區間；NAND ASP 季增約中 30% 區間。"
+  },
+  "guidance": {
+    "next_period_revenue_range_usd_m": [
+      null,
+      null
+    ],
+    "next_period_gross_margin_range_pct": [
+      null,
+      null
+    ],
+    "capex_plan_usd_m": null,
+    "commentary_summary": "管理層表示 2026 全年 capex 將「較前一年大幅增加」，優先投入 M15X 新廠爬坡、龍仁（Yongin）產業園區基礎建設整備，以及取得 EUV 設備（本次財報未給出絕對韓元／美元金額；具體區間要到 Q2 財報才提出）。指引 DRAM／NAND 漲價可能延續到 2026 Q2，但之後漲勢可能放緩。HBM4E 規劃於 2026 下半年送樣，量產目標訂在 2027 年。管理層表示，客戶未來三年的 HBM 需求已經超過 SK 海力士的規劃產能。",
+    "bit_shipment_growth_outlook": "本次財報未量化；僅有定性指引（見 commentary_summary）。"
+  },
+  "management_commentary": [
+    {
+      "speaker": "Park Jun-duk（DRAM 行銷負責人）",
+      "topic": "記憶體價格展望",
+      "summary": "表示現貨價漲勢趨緩並非市場見頂的訊號，只是暫時的歇息；近期漲價反映的是供需的結構性轉變，而非短期失衡。",
+      "source_index": 2
+    },
+    {
+      "speaker": "Park Jun-duk（DRAM 行銷負責人）",
+      "topic": "AI 伺服器需求",
+      "summary": "表示主要客戶的記憶體需求全面成長，而供應商難以輕易增產來滿足。",
+      "source_index": 2
+    },
+    {
+      "speaker": "Kim Ki-tae（HBM 業務與行銷負責人）",
+      "topic": "HBM4／客戶需求",
+      "summary": "表示客戶未來三年的 HBM 需求已遠超過 SK 海力士的供給能力，公司正與主要客戶合作開發 HBM4，以配合客戶的量產時程。",
+      "source_index": 2
+    }
+  ],
+  "stock_reaction": {
+    "price_prior_close_usd": null,
+    "price_1d_after_usd": null,
+    "pct_change_1d": null,
+    "pct_change_1w": null,
+    "notes": "無法從可直接取得的原始來源獨立查證 2026-04-23 財報前後一日的 KRX（000660）確切收盤價，因此寧可留空（null）也不估計。定性來看，韓國財經媒體（韓經 Magazine、Daum）報導財報後出現獲利了結賣壓——營業利益 37.6 兆韓元雖創紀錄，卻低於市場部分偏高的預期（有報導引述市場共識約 40 兆韓元）；BNK 投資證券並於 2026-04-27 將評等由買進（Buy）調降至持有（Hold）（同時維持 130 萬韓元目標價），理由是獲利能力的提升落後於 ASP 的漲幅。"
+  },
+  "sources": [
+    {
+      "title": "SK hynix Announces 1Q26 Financial Results",
+      "publisher": "SK hynix Newsroom",
+      "url": "https://news.skhynix.com/en/q1-2026-business-results/",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "SK hynix Announces 1Q26 Financial Results",
+      "publisher": "PR Newswire",
+      "url": "https://www.prnewswire.com/news-releases/sk-hynix-announces-1q26-financial-results-302750959.html",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "[000660.KS Q1 2026 Earnings Call] SK Hynix Shatters Records with 144% Revenue Surge to 52.1 Trillion Won, Driven by Insatiable AI Memory Demand",
+      "publisher": "BigGo Finance",
+      "url": "https://finance.biggo.com/news/KR_000660.KS_2026-04-23",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "SK Hynix memory, NAND revenues explode as prices rocket",
+      "publisher": "Blocks and Files",
+      "url": "https://www.blocksandfiles.com/flash/2026/04/23/sk-hynix-memory-nand-revenues-explode-as-prices-rocket/5218671",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "SK hynix Q2 2026 slides: record revenue, 76% operating margin (used for Q1 DRAM/NAND revenue-share comparison figures shown on the Q2 slide)",
+      "publisher": "Investing.com",
+      "url": "https://www.investing.com/news/company-news/sk-hynix-q2-2026-slides-record-revenue-76-operating-margin-93CH-4818489",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "South Korea - SK Hynix [000660] - Gross Margin",
+      "publisher": "MacroMicro",
+      "url": "https://en.macromicro.me/series/17633/kr-000660_ks-gross_profit_ratio_original",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "\"SK하이닉스, 지금 사지 마라\"...충격 전망 나왔다 (BNK downgrade coverage)",
+      "publisher": "Hankyung Magazine (한경매거진)",
+      "url": "https://magazine.hankyung.com/business/article/202604281814b",
+      "accessed_date": "2026-09-15"
+    },
+    {
+      "title": "SK하이닉스, 1분기 역대 최대 실적…향후 주가 전망은?",
+      "publisher": "Daum News (via Yonhap/wire)",
+      "url": "https://v.daum.net/v/20260423090307784",
+      "accessed_date": "2026-09-15"
+    }
+  ],
+  "reporting_scope": "公司整體（以記憶體為主，含 Solidigm NAND）",
+  "supply": {
+    "supply_demand_balance": {
+      "status": "供不應求",
+      "statement": "DRAM 行銷負責人 Park Jun-duk 表示主要客戶的記憶體需求全面成長，而供應商難以輕易增產來滿足；HBM 業務與行銷負責人 Kim Ki-tae 表示客戶未來三年的 HBM 需求已遠超過 SK 海力士的供給能力。管理層並強調近期漲價反映的是供需的結構性轉變，而非短期失衡。",
+      "source_index": 2
+    },
+    "bit_growth_guidance": {
+      "dram_next_quarter": null,
+      "nand_next_quarter": null,
+      "dram_full_year": null,
+      "nand_full_year": null,
+      "note": "本次財報未量化位元出貨成長指引，僅有定性說明（客戶未來三年的 HBM 需求已超過規劃產能）。當季揭露的是價格面：DRAM ASP 季增約中 60% 區間、NAND ASP 季增約中 30% 區間。具體的位元成長區間要到 2026 Q2 財報才提出。"
+    },
+    "pricing_direction": {
+      "dram": "續漲",
+      "nand": "續漲",
+      "statement": "重要保留：管理層指引 DRAM／NAND 漲價「可能延續到 2026 Q2，但之後漲勢可能放緩」——這是三家公司在 2026 上半年唯一一次主動提出漲勢可能趨緩的說法。同一場法說會上，DRAM 行銷負責人 Park Jun-duk 另表示現貨價漲勢趨緩並非市場見頂的訊號、只是暫時的歇息。此處狀態取「續漲」是依據其對次季（Q2）的指引；之後的放緩風險請以本段說明為準。"
+    },
+    "capacity_actions": [
+      {
+        "action": "M15X 新廠產能爬坡（2026 capex 第一優先）",
+        "type": "新廠",
+        "timing": "2026 年",
+        "detail": "管理層列為 2026 年 capex 的首要投入方向。"
+      },
+      {
+        "action": "龍仁（Yongin）產業園區基礎建設整備",
+        "type": "新廠",
+        "timing": "2026 年（基礎建設階段）",
+        "detail": "為中長期產能預作準備。"
+      },
+      {
+        "action": "取得 EUV 設備",
+        "type": "設備",
+        "timing": "2026 年",
+        "detail": "與 M15X 爬坡、龍仁整備並列為 2026 capex 三大用途。"
+      }
+    ],
+    "capex_direction": "大幅增加",
+    "capex_plan_text": "管理層表示 2026 全年 capex 將「較前一年大幅增加」，優先投入 M15X 新廠爬坡、龍仁產業園區基礎建設整備，以及取得 EUV 設備。本次財報未給出絕對韓元／美元金額（具體區間要到 2026 Q2 財報才提出）。另有定性說法指 capex 年增超過 30%（未揭露絕對金額）。",
+    "sold_out_status": "未使用「售罄」字眼。HBM 業務負責人 Kim Ki-tae 表示客戶未來三年的 HBM 需求已遠超過 SK 海力士的規劃產能——實質等同供給已被需求鎖滿，但公司並未做出如 Micron／三星那樣的明確 sold out 宣告。",
+    "lta_status": "本季未揭露長約家數（約 10 家關鍵客戶完成 LTA 的說法要到 2026 Q2 財報才明確揭露）。",
+    "hbm_progress": "正與主要客戶合作開發 HBM4，以配合客戶的量產時程；HBM4E 規劃於 2026 下半年送樣，量產目標訂在 2027 年。本季查不到單獨揭露的 HBM 營收金額或 HBM 占 DRAM 比重。",
+    "inventory_comment": "",
+    "customer_allocation": "客戶未來三年的 HBM 需求已超過公司規劃產能，供給分配因此受限（Kim Ki-tae）。"
+  }
+}

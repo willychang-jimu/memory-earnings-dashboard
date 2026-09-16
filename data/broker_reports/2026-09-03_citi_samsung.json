@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-03",
+  "bank": "Citi",
+  "company": "samsung",
+  "related_period": "2026Q3",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "430000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "450000",
+  "thesis_summary": "Citi 小幅調降目標價，理由是匯率壓力預期將侵蝕第三季獲利，並將部分下調歸因於估計約 5 兆韓元的匯率影響，加上約 5 兆韓元的額外績效獎金成本；但該行仍認為多年期 LTA 長約與有限的記憶體供給會持續支撐這波上升循環。",
+  "key_points": [
+    "調降源自匯率逆風，而非記憶體需求看法改變",
+    "估計第三季有約 5 兆韓元匯率拖累，加上約 5 兆韓元額外獎金成本",
+    "維持 Buy，理由是多年期 LTA 合約與供給有限"
+  ],
+  "source": {
+    "title": "Citi Trims Price Targets for Samsung Electronics, SK hynix on Currency Drag",
+    "publisher": "Seoul Economic Daily",
+    "url": "https://en.sedaily.com/news/2026/09/03/citi-trims-price-targets-for-samsung-electronics-sk-hynix",
+    "accessed_date": "2026-09-15"
+  }
+}

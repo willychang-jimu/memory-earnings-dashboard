@@ -1,0 +1,23 @@
+{
+  "date": "2026-07-23",
+  "bank": "KB Securities",
+  "company": "samsung",
+  "related_period": "2026Q3",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "600000",
+  "price_target_currency": "KRW",
+  "prior_price_target": null,
+  "thesis_summary": "研究部主管 Kim Dong-won 維持原目標價，預估將連續第三季優於市場預期，第三季營業利益年增約 805% 至約 110 兆韓元，理由是 HBM4 產能在 2027-2028 年仍受限，加上大型科技公司持續投入 AI 基礎建設。",
+  "key_points": [
+    "預估 2026 年第三季營業利益年增 805% 至約 110 兆韓元",
+    "指出 HBM4 產能限制將延續至 2027-2028 年",
+    "認為大型科技公司視 AI 投資不足的風險高於投資過度"
+  ],
+  "source": {
+    "title": "KB Securities Keeps 600,000 Won Target on Samsung, Sees Third Straight Earnings Beat",
+    "publisher": "Seoul Economic Daily",
+    "url": "https://en.sedaily.com/finance/2026/07/23/kb-securities-keeps-600000-won-target-on-samsung-sees-third",
+    "accessed_date": "2026-09-15"
+  }
+}
