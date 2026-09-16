@@ -20,6 +20,9 @@ const state = {
   exportSelection: new Set(), // 要匯出成簡報的區塊（以 data-export-title 為 key）
   collapsedQuarters: new Set(), // 收折起來的季度；預設只展開最新一季
   collapsedInit: false,
+  search: "",      // 搜尋關鍵字
+  hits: [],        // 目前標黃的節點
+  hitIndex: -1,    // 「下一筆」跳到第幾個
 };
 
 /* ── 工具 ───────────────────────────────── */
@@ -1319,6 +1322,168 @@ function renderRaw() {
   if (!seen.size) showEmpty(list, "尚無出處資料。");
 }
 
+/* ── 搜尋與螢光標記 ─────────────────────── */
+
+/** 在已渲染的內容裡逐個文字節點找出關鍵字，包成 <mark> 標黃。
+    直接改 DOM 而不是重組字串——用 innerHTML 拼接會破壞既有的事件處理，
+    而且內容含使用者資料，拼 HTML 等於開一個注入破口。 */
+function highlightMatches(query) {
+  const q = (query || "").trim().toLowerCase();
+  if (!q) return [];
+
+  const hits = [];
+  document.querySelectorAll(".panel").forEach((panel) => {
+    const walker = document.createTreeWalker(panel, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        // 勾選框的說明文字、已經標過的部分都不再處理
+        if (parent.closest(".export-check") || parent.tagName === "MARK") {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    const targets = [];
+    while (walker.nextNode()) targets.push(walker.currentNode);
+
+    targets.forEach((node) => {
+      const text = node.nodeValue;
+      const lower = text.toLowerCase();
+      if (!lower.includes(q)) return;
+
+      const frag = document.createDocumentFragment();
+      let pos = 0;
+      let idx = lower.indexOf(q);
+      while (idx !== -1) {
+        if (idx > pos) frag.appendChild(document.createTextNode(text.slice(pos, idx)));
+        const mark = document.createElement("mark");
+        mark.className = "hit";
+        mark.textContent = text.slice(idx, idx + q.length);
+        frag.appendChild(mark);
+        hits.push(mark);
+        pos = idx + q.length;
+        idx = lower.indexOf(q, pos);
+      }
+      if (pos < text.length) frag.appendChild(document.createTextNode(text.slice(pos)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  });
+
+  return hits;
+}
+
+/** 命中如果藏在收折的季度或收合的長文字裡就看不到，要自動打開 */
+function revealHits(hits) {
+  hits.forEach((mark) => {
+    const clamp = mark.closest(".clamp");
+    if (clamp && !clamp.classList.contains("open")) {
+      clamp.classList.add("open");
+      const toggle = clamp.parentElement?.querySelector(".clamp-more");
+      if (toggle) toggle.textContent = "收合 ▴";
+    }
+    const body = mark.closest(".quarter-body");
+    if (body?.hidden) {
+      body.hidden = false;
+      const section = body.closest(".quarter-section");
+      const toggle = section?.querySelector(".quarter-toggle");
+      const label = section?.querySelector("h2")?.textContent;
+      if (toggle) {
+        toggle.textContent = "▾";
+        toggle.setAttribute("aria-expanded", "true");
+      }
+      if (label) state.collapsedQuarters.delete(label);
+    }
+  });
+}
+
+/** 分頁上顯示各自的命中數，否則使用者不會知道別的分頁也有結果 */
+function updateTabBadges() {
+  document.querySelectorAll(".tab").forEach((tab) => {
+    tab.querySelector(".tab-badge")?.remove();
+    const panel = document.getElementById(tab.dataset.panel);
+    const n = panel ? panel.querySelectorAll("mark.hit").length : 0;
+    if (n) {
+      const badge = el("span", "tab-badge", String(n));
+      tab.appendChild(badge);
+    }
+  });
+}
+
+/** 把舊的標記還原成純文字。
+    不能只靠 renderAll —— 卡片說明那類寫死在 index.html 的內容不會被重畫，
+    舊標記會一直殘留，造成計數對不上、畫面上留著上一次搜尋的黃色。 */
+function clearHighlights() {
+  document.querySelectorAll("mark.hit").forEach((m) => {
+    const parent = m.parentNode;
+    if (!parent) return;
+    parent.replaceChild(document.createTextNode(m.textContent), m);
+    parent.normalize();
+  });
+}
+
+function applySearch() {
+  const status = document.getElementById("search-status");
+  const next = document.getElementById("search-next");
+  const clear = document.getElementById("search-clear");
+  const q = state.search;
+
+  clearHighlights();
+  state.hits = [];
+  state.hitIndex = -1;
+  clear.hidden = !q;
+
+  if (!q) {
+    status.textContent = "";
+    next.hidden = true;
+    updateTabBadges();
+    return;
+  }
+
+  const hits = highlightMatches(q);
+  revealHits(hits);
+  updateTabBadges();
+
+  state.hits = hits;
+
+  if (!hits.length) {
+    status.textContent = "找不到符合的內容";
+    next.hidden = true;
+    return;
+  }
+
+  const activePanel = document.querySelector(".panel:not([hidden])");
+  const inThisTab = activePanel ? activePanel.querySelectorAll("mark.hit").length : 0;
+  status.textContent = `找到 ${hits.length} 筆${
+    inThisTab === hits.length ? "" : `（本分頁 ${inThisTab} 筆，其餘在其他分頁）`
+  }`;
+  next.hidden = false;
+}
+
+/** 跳到下一筆命中；跨分頁時自動切換分頁 */
+function gotoNextHit() {
+  const hits = state.hits || [];
+  if (!hits.length) return;
+  state.hitIndex = (state.hitIndex + 1) % hits.length;
+  const mark = hits[state.hitIndex];
+  if (!mark.isConnected) return;
+
+  hits.forEach((m) => m.classList.remove("current"));
+  mark.classList.add("current");
+
+  const panel = mark.closest(".panel");
+  if (panel?.hidden) {
+    const tab = document.querySelector(`.tab[data-panel="${panel.id}"]`);
+    tab?.click();
+  }
+  mark.scrollIntoView({ block: "center", behavior: "smooth" });
+
+  const status = document.getElementById("search-status");
+  status.textContent = `第 ${state.hitIndex + 1} / ${hits.length} 筆`;
+}
+
 /* ── 匯出勾選 ───────────────────────────── */
 
 /* 以 data-export-title 當 key，重繪後勾選狀態才不會掉 */
@@ -1710,6 +1875,7 @@ function renderAll() {
   renderSoldOut();
   renderRaw();
   attachExportCheckboxes(); // 一定要在最後：重繪後要把勾選狀態接回新的 DOM
+  applySearch();            // 重繪會洗掉舊的標記，要重新標一次
 }
 
 /* ── 互動 ───────────────────────────────── */
@@ -1742,6 +1908,32 @@ document.getElementById("tabs").addEventListener("click", (e) => {
   tab.setAttribute("aria-selected", "true");
   document.getElementById(tab.dataset.panel).hidden = false;
   Object.values(state.charts).forEach((c) => c.resize());
+});
+
+let searchTimer = null;
+document.getElementById("search-input").addEventListener("input", (e) => {
+  const value = e.target.value;
+  clearTimeout(searchTimer);
+  // 稍微延遲再搜，邊打字邊整頁重繪會很頓
+  searchTimer = setTimeout(() => {
+    state.search = value;
+    applySearch(); // 只重標記，不整份重畫：比較快，也不會讓收折狀態跳掉
+  }, 180);
+});
+
+document.getElementById("search-input").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    gotoNextHit();
+  }
+});
+
+document.getElementById("search-next").addEventListener("click", gotoNextHit);
+
+document.getElementById("search-clear").addEventListener("click", () => {
+  document.getElementById("search-input").value = "";
+  state.search = "";
+  applySearch();
 });
 
 document.getElementById("export-pptx").addEventListener("click", generatePptx);

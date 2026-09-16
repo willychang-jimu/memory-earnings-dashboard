@@ -166,6 +166,119 @@ h1 {
 
 .disclaimer strong { color: var(--text-primary); }
 
+/* ── 搜尋 ───────────────────────────────── */
+
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.search-box {
+  position: relative;
+  flex: 1 1 380px;
+  max-width: 560px;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 13px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+#search-input {
+  width: 100%;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px 76px 10px 36px;
+}
+
+#search-input::placeholder { color: var(--text-muted); }
+
+#search-input:focus {
+  outline: none;
+  border-color: var(--series-samsung);
+}
+
+/* Safari 的 search 欄位內建清除鈕會跟自訂的重疊 */
+#search-input::-webkit-search-decoration,
+#search-input::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+.search-clear {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.search-clear:hover { color: var(--text-primary); }
+.search-clear[hidden] { display: none !important; }
+
+.search-status {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.search-next {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 13px;
+  padding: 7px 13px;
+  cursor: pointer;
+}
+
+.search-next:hover { color: var(--text-primary); border-color: var(--baseline); }
+.search-next[hidden] { display: none !important; }
+
+/* 黃色螢光筆。兩種模式都用深色字＋亮黃底，才像真的用麥克筆畫過。 */
+mark.hit {
+  background: #fde047;
+  color: #0b0b0b;
+  padding: 0 2px;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* 目前跳到的那一筆，加一圈橘色外框做區別 */
+mark.hit.current {
+  background: #fb923c;
+  box-shadow: 0 0 0 2px rgba(251, 146, 60, 0.45);
+}
+
+/* 分頁上的命中數徽章，讓使用者知道別的分頁也有結果 */
+.tab-badge {
+  display: inline-block;
+  margin-left: 6px;
+  background: #fde047;
+  color: #0b0b0b;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  padding: 1px 7px;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ── 篩選列（一整排，位於所有圖表之上） ─── */
 
 .filters {

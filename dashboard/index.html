@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>記憶體三雄供貨追蹤</title>
 <!-- 資源加版本參數：改版後強制瀏覽器重抓，避免載到舊的 JS/CSS（手機主畫面捷徑特別容易卡快取）。改動 app.js / style.css 後記得同步更新這個日期。 -->
-<link rel="stylesheet" href="style.css?v=20260916q">
+<link rel="stylesheet" href="style.css?v=20260916s">
 </head>
 <body>
 <div class="wrap">
@@ -28,6 +28,17 @@
     三家財報週期不同（美光為財年制），跨公司比較時以「對應日曆季」對齊。<br>
     <strong>口徑差異（最重要的一點）：</strong>三星<strong>沒有</strong>單獨揭露記憶體事業的財務數字，本頁採用其 DS 部門（記憶體＋System LSI＋晶圓代工）數字；
     SK 海力士與美光則是公司整體。三家數字並非同一口徑的「純記憶體」business，比較的是趨勢與獲利結構，不是絕對規模的對等競爭。
+  </div>
+
+  <div class="search-row">
+    <div class="search-box">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input type="search" id="search-input" autocomplete="off" spellcheck="false"
+             placeholder="搜尋所有內容：HBM4、售罄、平澤、Morgan Stanley、capex…">
+      <button type="button" class="search-clear" id="search-clear" hidden>清除</button>
+    </div>
+    <span class="search-status" id="search-status"></span>
+    <button type="button" class="search-next" id="search-next" hidden>下一筆 ↓</button>
   </div>
 
   <div class="filters" id="filters">
@@ -187,6 +198,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="vendor/pptxgen.bundle.js"></script>
-<script src="app.js?v=20260916q"></script>
+<script src="app.js?v=20260916s"></script>
 </body>
 </html>
