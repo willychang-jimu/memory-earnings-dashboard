@@ -9,17 +9,20 @@
     "samsung": [
       "2025Q4.json",
       "2026Q1.json",
-      "2026Q2.json"
+      "2026Q2.json",
+      "2026Q3.json"
     ],
     "micron": [
       "FY2026Q1.json",
       "FY2026Q2.json",
-      "FY2026Q3.json"
+      "FY2026Q3.json",
+      "FY2026Q4.json"
     ],
     "sk_hynix": [
       "2025Q4.json",
       "2026Q1.json",
-      "2026Q2.json"
+      "2026Q2.json",
+      "2026Q3.json"
     ]
   },
   "broker_reports": [

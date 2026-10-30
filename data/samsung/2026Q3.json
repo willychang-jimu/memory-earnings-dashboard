@@ -1,0 +1,235 @@
+{
+  "company": "samsung",
+  "period_label": "2026 Q3",
+  "calendar_quarter_equivalent": "2026 Q3",
+  "period_start": "2026-07-01",
+  "period_end": "2026-09-30",
+  "report_date": "2026-10-29",
+  "preliminary_guidance_date": "2026-10-08",
+  "disclosure_note": "三星兩階段揭露：2026-10-08 公布初估財報（僅全公司營收約 195 兆韓元、營業利益約 107.4 兆韓元，無部門拆分），2026-10-29 公布完整財報（含 DS 部門、capex）並舉行法說會。以下數字除另有註明外，皆出自 10-29 的完整財報與法說會。資料整理限制：本次整理時三星官網新聞室無法直接開啟，數字取自搜尋引擎索引的官方新聞稿摘要與 Investing.com、GuruFocus、亞洲經濟（asiae）等報導。",
+  "financials": {
+    "dram_nand_commentary": "法說會：DRAM 位元出貨季增低～中個位數 %、NAND 季增中個位數 %；DRAM ASP 季增約 20%、NAND ASP 季增十幾 % 高段（high-teens）。",
+    "hbm_commentary": "HBM4 銷售季增超過三倍（與上一季指引一致），HBM4 占 HBM 總銷售約 60%。HBM4E 已於 5 月全球首家送樣、客戶回饋正面，計畫 2027 上半年量產。未揭露 HBM 營收的韓元／美元絕對金額。",
+    "revenue_krw_trillion": 147.1,
+    "revenue_usd_m": null,
+    "revenue_yoy_pct": null,
+    "revenue_qoq_pct": 15,
+    "operating_profit_krw_trillion": 106.5,
+    "operating_margin_pct": 72,
+    "gross_margin_pct": null,
+    "capex_krw_trillion": 27.2,
+    "dram_revenue_share_pct": null,
+    "nand_revenue_share_pct": null,
+    "notes": "圖表採用 DS 部門數字（三星未單獨揭露記憶體事業的財務數字）。 DS（Device Solutions）= Memory + System LSI + Foundry 三者合計，並非純記憶體。DS 營業利益 106.5 兆韓元約占全公司 99.2%。季增率（營收約 +15%、營業利益約 +19%）與營業利益率（72%＝106.5／147.1）為本整理者依上一季 DS 數字（127.5／89.2 兆韓元）自行計算，非三星公布值。注意：有報導把 147.1 兆韓元寫成「記憶體」營收，另一則報導寫記憶體營收 140.7 兆韓元——本檔判斷 147.1 為 DS 部門、140.7 為記憶體事業，但兩者未能對照原始簡報確認。 2026 Q3 全公司 capex 約 29 兆韓元，其中 DS 約 27.2 兆韓元（約 94%），較 Q2 的 16.8 兆韓元季增約 12.2 兆韓元（本整理者計算）。2026 全年 capex 指引 84.4 兆韓元，較 2025 年增加 31.7 兆韓元；有一則次級來源（KuCoin）稱其中 DS 約 76.8 兆韓元，可信度較低。注意：3 月公布的「全公司逾 110 兆韓元」計畫據報含研發，與這裡的設備投資口徑不同，不可直接比較。數字取自法說會逐字稿的搜尋摘要，未能對照官方簡報原文。 記憶體事業：三星新聞稿稱記憶體單季營收與營業利益皆創歷史新高。記憶體營收 140.7 兆韓元出自單一次級報導，未能與官方簡報交叉確認；記憶體營業利益未單獨揭露（SBS 在完整財報前引述業界預估約 110 兆韓元，那是預估值、且高於 DS 實際的 106.5 兆，本檔不採用）。"
+  },
+  "guidance": {
+    "next_period_revenue_range_usd_m": [
+      null,
+      null
+    ],
+    "next_period_gross_margin_range_pct": [
+      null,
+      null
+    ],
+    "capex_plan_usd_m": null,
+    "commentary_summary": "三星不提供正式的季度財測。2026 Q4 定性展望：全公司獲利持續成長、由 DS 帶動。記憶體供給吃緊預期持續，2027 年短缺會「更嚴重」，供給受限可能延續到 2028 年；位元產能從傳統 DRAM 移轉到 HBM 會形成實體上的供給限制。管理層並表示 2027 年增加的 capex，因設備交期與建廠時間長，預期不會對 2028 年的位元產出帶來實質提升。",
+    "bit_shipment_growth_outlook": "2026 Q4：DRAM 位元出貨季增十幾 % 中～高段（mid-to-high teens）、NAND 季增十幾 % 中段（mid-teens）（出自法說會，經搜尋摘要轉述，僅一至兩個來源）。"
+  },
+  "management_commentary": [
+    {
+      "speaker": "三星記憶體事業管理層",
+      "topic": "2027 HBM 售罄",
+      "summary": "表示 2027 年 HBM 供給量已在議定的目標價格下售罄，但客戶仍持續要求追加供貨。",
+      "source_index": 0
+    },
+    {
+      "speaker": "三星記憶體事業管理層",
+      "topic": "多年期合約",
+      "summary": "已與 10 家主要客戶簽訂多年期合約，另與 10 家洽談中。",
+      "source_index": 0
+    },
+    {
+      "speaker": "三星記憶體事業管理層",
+      "topic": "供給限制",
+      "summary": "位元產能從傳統 DRAM 移往 HBM 會形成實體供給限制；2027 年增加的 capex 因設備交期與建廠時間，預期不會實質提升 2028 年的位元產出。",
+      "source_index": 1
+    },
+    {
+      "speaker": "三星記憶體事業管理層",
+      "topic": "HBM4／HBM4E",
+      "summary": "HBM4 銷售 Q3 季增逾三倍、占 HBM 總銷售約 60%；HBM4E 計畫於 2027 上半年量產。",
+      "source_index": 2
+    }
+  ],
+  "stock_reaction": {
+    "price_prior_close_usd": null,
+    "price_1d_after_usd": null,
+    "pct_change_1d": null,
+    "pct_change_1w": null,
+    "notes": "前端不呈現股價分析，本季未整理。",
+    "event_type": null,
+    "event_date": null
+  },
+  "sources": [
+    {
+      "title": "Earnings call transcript: Samsung Electronics posts record Q3 2026 profit",
+      "publisher": "Investing.com",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-samsung-electronics-posts-record-q3-2026-profit-93CH-4981365",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Samsung Electronics Co Ltd (WBO:SSUN) (Q3 2026) Earnings Call Highlights: Record 100 Trillion Won Operating Profit, HBM4 Sold Out Through 2027",
+      "publisher": "GuruFocus",
+      "url": "https://www.gurufocus.com/news/9150265/samsung-electronics-co-ltd-wbossun-q3-2026-earnings-call-highlights-record-100-trillion-won-operating-profit-hbm4-sold-out-through-2027",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "[Conference Call] Samsung Electronics: \"Q3 HBM4 Revenue Surges More Than Threefold... Next Year's Supply Already Sold Out\"",
+      "publisher": "The Asia Business Daily",
+      "url": "https://www.asiae.co.kr/en/article/enterprise-CEO/2026102911191454019",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Samsung Electronics Announces Third Quarter 2026 Results",
+      "publisher": "Samsung Newsroom",
+      "url": "https://news.samsung.com/global/samsung-electronics-announces-third-quarter-2026-results",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Samsung Electronics' Q3 Operating Profit Hits Record 107.4 Trillion Won... DS Alone Earns 106.5 Trillion Won",
+      "publisher": "The Asia Business Daily",
+      "url": "https://www.asiae.co.kr/en/article/enterprise-CEO/2026102910253883793",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Samsung Electronics Announces Earnings Guidance for Third Quarter 2026",
+      "publisher": "Samsung Newsroom",
+      "url": "https://news.samsung.com/global/samsung-electronics-announces-earnings-guidance-for-third-quarter-2026",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Samsung Says Memory Shortages Will Get Worse in 2027 & Supply Constraints Will Persist Into 2028, Up To 70% Capacity Secured By Long-Term Agreement Customers",
+      "publisher": "Wccftech",
+      "url": "https://wccftech.com/samsung-memory-shortages-worse-in-2027-supply-constraints-persist-into-2028/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Samsung Q3 2026 Earnings: Profit Miss, $21B Dividend and 2027 Chip Shortage Outlook",
+      "publisher": "KuCoin Blog",
+      "url": "https://www.kucoin.com/blog/samsung-q3-2026-earnings-profit-miss-dividend-2027-chip-shortage",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "[삼성전자 Q3 2026 Earnings Call] Samsung Posts First-Ever KRW 100 Trillion Quarterly Operating Profit as AI Memory Demand Sells Out 2027 HBM Supply",
+      "publisher": "BigGo Finance",
+      "url": "https://finance.biggo.com/news/KR_005930.KS_2026-10-29",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Samsung Chip Profit Misses 0.22T Won, But AI Holds",
+      "publisher": "tech-insider.org",
+      "url": "https://tech-insider.org/samsung-q3-2026-chip-profit-miss-107-44-trillion-won-ai-hbm4/",
+      "accessed_date": "2026-10-30"
+    }
+  ],
+  "supply": {
+    "supply_demand_balance": {
+      "status": "供不應求",
+      "statement": "管理層表示記憶體供給吃緊會持續，2027 年短缺「更嚴重」，供給受限可能延續到 2028 年；位元產能從傳統 DRAM 移往 HBM 會形成實體上的供給限制，而 2027 年增加的 capex 因設備交期與建廠時間，預期不會實質提升 2028 年的位元產出。",
+      "source_index": 1
+    },
+    "bit_growth_guidance": {
+      "dram_next_quarter": "十幾 % 中～高段 QoQ（2026 Q4）",
+      "nand_next_quarter": "十幾 % 中段 QoQ（2026 Q4）",
+      "dram_full_year": null,
+      "nand_full_year": null,
+      "note": "Q4 指引僅見於一至兩則法說會摘要，未能對照逐字稿原文確認。當季實績對照上一季指引：DRAM 位元出貨季增低～中個位數 %（指引中個位數 %，略低於指引）；NAND 季增中個位數 %（指引高個位數 %，未達）。Q4 的跳升幅度很大，下一季要回頭核對是否兌現。"
+    },
+    "pricing_direction": {
+      "dram": "續漲",
+      "nand": "續漲",
+      "statement": "當季混合 ASP 季增 DRAM 約 20%、NAND 十幾 % 高段。漲勢仍在，但季增幅度連續第二季大幅收斂：DRAM 從 Q1 低 90% → Q2 中 40% → Q3 約 20%；NAND 從 Q1 高 80% → Q2 高 60% → Q3 高十幾 %。2027 年 HBM 已在議定的目標價格下售罄。"
+    },
+    "capacity_actions": [
+      {
+        "action": "HBM4E 量產",
+        "type": "產能配置",
+        "timing": "2027 上半年",
+        "detail": "5 月已全球首家送樣，客戶回饋正面。"
+      },
+      {
+        "action": "位元產能由傳統 DRAM 移往 HBM",
+        "type": "產能配置",
+        "timing": "持續進行",
+        "detail": "管理層明言這會成為實體上的供給限制——同樣的晶圓，做 HBM 能產出的位元數較少。"
+      },
+      {
+        "action": "2026 capex 大幅提高",
+        "type": "擴產",
+        "timing": "2026 全年",
+        "detail": "全年 capex 指引 84.4 兆韓元，較 2025 年增加 31.7 兆韓元；Q3 單季約 29 兆韓元（DS 約 27.2 兆）。管理層說 2027 增加的投資對 2028 年位元產出幫助有限。"
+      }
+    ],
+    "capex_direction": "大幅增加",
+    "capex_plan_text": "2026 Q3 全公司 capex 約 29 兆韓元（DS 約 27.2 兆，約 94%），較 Q2 的 16.8 兆韓元季增約 73%。2026 全年 capex 指引 84.4 兆韓元，年增 31.7 兆韓元（約 +60%）。管理層表示 2027 年增加的 capex，因設備交期與建廠時間長，預期不會實質提升 2028 年的位元產出。未單獨揭露純記憶體的 capex。",
+    "sold_out_status": "重新使用「售罄」：2027 年 HBM 供給量已在議定的目標價格下售罄，客戶仍持續要求追加供貨（上一季沒有重申售罄說法，Q1 曾說 2026 年 HBM4 售罄）。",
+    "lta_status": "已與 10 家主要客戶簽訂多年期合約，另與 10 家洽談中。Wccftech 報導稱 LTA 客戶最多鎖定約 70% 產能——此比例僅見於該篇報導標題，未能對照逐字稿確認。",
+    "hbm_progress": "HBM4 銷售 Q3 季增逾三倍（兌現上一季指引），占 HBM 總銷售約 60%（上一季指引下半年「遠高於 60%」，Q3 剛好約 60%）。HBM4E 計畫 2027 上半年量產。",
+    "inventory_comment": "",
+    "customer_allocation": "產能持續往 HBM 與伺服器產品傾斜；DS 營業利益占全公司 99.2%，手機／家電（DX）部門據報虧損，反映記憶體漲價也推高了自家終端產品的成本。"
+  },
+  "reporting_scope": "DS 部門（記憶體＋System LSI＋晶圓代工，非純記憶體）",
+  "divisions": {
+    "consolidated": {
+      "revenue_krw_trillion": 195.3,
+      "revenue_usd_m": null,
+      "revenue_yoy_pct": null,
+      "revenue_qoq_pct": 14,
+      "operating_profit_krw_trillion": 107.4,
+      "operating_profit_usd_m": null,
+      "operating_profit_yoy_pct": null,
+      "operating_profit_qoq_pct": 20,
+      "operating_margin_pct": null,
+      "notes": "全公司數字，僅供對照參考。全球科技公司首度單季營業利益突破 100 兆韓元。初估財報（10-08）營業利益區間 107.3~107.5 兆韓元，市場事前預估約 106 兆韓元；另有報導稱半導體部門獲利比市場預期少約 0.22 兆韓元。去年同期（2025 Q3）營業利益 12.17 兆韓元、營收 86.06 兆韓元。DX（手機／家電）部門據次級報導出現約 0.8 兆韓元營業虧損。"
+    },
+    "ds_division": {
+      "revenue_krw_trillion": 147.1,
+      "revenue_usd_m": null,
+      "revenue_yoy_pct": null,
+      "revenue_qoq_pct": 15,
+      "operating_profit_krw_trillion": 106.5,
+      "operating_profit_usd_m": null,
+      "operating_profit_yoy_pct": null,
+      "operating_profit_qoq_pct": 19,
+      "operating_margin_pct": 72,
+      "gross_margin_pct": null,
+      "notes": "DS（Device Solutions）= Memory + System LSI + Foundry 三者合計，並非純記憶體。DS 營業利益 106.5 兆韓元約占全公司 99.2%。季增率（營收約 +15%、營業利益約 +19%）與營業利益率（72%＝106.5／147.1）為本整理者依上一季 DS 數字（127.5／89.2 兆韓元）自行計算，非三星公布值。注意：有報導把 147.1 兆韓元寫成「記憶體」營收，另一則報導寫記憶體營收 140.7 兆韓元——本檔判斷 147.1 為 DS 部門、140.7 為記憶體事業，但兩者未能對照原始簡報確認。"
+    },
+    "memory_business": {
+      "revenue_krw_trillion": 140.7,
+      "revenue_usd_m": null,
+      "revenue_yoy_pct": null,
+      "revenue_qoq_pct": null,
+      "operating_profit_krw_trillion": null,
+      "operating_profit_usd_m": null,
+      "operating_profit_yoy_pct": null,
+      "operating_profit_qoq_pct": null,
+      "operating_margin_pct": null,
+      "gross_margin_pct": null,
+      "dram_bit_growth_qoq_pct": "low-to-mid single digit increase QoQ",
+      "nand_bit_growth_qoq_pct": "mid single digit increase QoQ",
+      "dram_asp_change_qoq_pct": "~20% increase (QoQ)",
+      "nand_asp_change_qoq_pct": "high-teens increase (QoQ)",
+      "server_dram_bit_share": null,
+      "notes": "三星新聞稿稱記憶體單季營收與營業利益皆創歷史新高。記憶體營收 140.7 兆韓元出自單一次級報導，未能與官方簡報交叉確認；記憶體營業利益未單獨揭露（SBS 在完整財報前引述業界預估約 110 兆韓元，那是預估值、且高於 DS 實際的 106.5 兆，本檔不採用）。"
+    },
+    "capex": {
+      "capex_company_krw_trillion": 29.0,
+      "capex_ds_krw_trillion": 27.2,
+      "capex_display_krw_trillion": null,
+      "capex_qoq_change_krw_trillion": 12.2,
+      "capex_usd_m": null,
+      "notes": "2026 Q3 全公司 capex 約 29 兆韓元，其中 DS 約 27.2 兆韓元（約 94%），較 Q2 的 16.8 兆韓元季增約 12.2 兆韓元（本整理者計算）。2026 全年 capex 指引 84.4 兆韓元，較 2025 年增加 31.7 兆韓元；有一則次級來源（KuCoin）稱其中 DS 約 76.8 兆韓元，可信度較低。注意：3 月公布的「全公司逾 110 兆韓元」計畫據報含研發，與這裡的設備投資口徑不同，不可直接比較。數字取自法說會逐字稿的搜尋摘要，未能對照官方簡報原文。"
+    }
+  }
+}

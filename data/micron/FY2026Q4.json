@@ -1,0 +1,179 @@
+{
+  "company": "micron",
+  "period_label": "FY2026 Q4",
+  "calendar_quarter_equivalent": "2026 Q3（約，實際涵蓋 2026-06 ~ 2026-08）",
+  "period_start": "2026-05-29",
+  "period_end": "2026-09-03",
+  "report_date": "2026-09-30",
+  "financials": {
+    "revenue_usd_m": 54230,
+    "revenue_yoy_pct": 379,
+    "revenue_qoq_pct": 31,
+    "gross_margin_pct": 86.8,
+    "operating_margin_pct": null,
+    "net_income_usd_m": 37701,
+    "eps_usd": 32.87,
+    "capex_usd_m": 10770,
+    "dram_revenue_share_pct": 73,
+    "nand_revenue_share_pct": 26,
+    "hbm_revenue_usd_m": null,
+    "notes": "數字為 GAAP 口徑（營收 US$54.23B、淨利 US$37.701B、稀釋 EPS US$32.87）。Non-GAAP：毛利率約 87.0%（季增 210 個基點）、EPS US$33.42（市場共識約 US$31.61）。營收超過上一季給的指引 US$50.0B±1.0B。DRAM 營收約 US$39.8B（占 73%）、NAND 營收創新高約 US$14.1B（占 26%）。HBM 本季未揭露具體金額，公司僅表示 HBM 營收成長速度快於公司整體營收，故 hbm_revenue_usd_m 留 null。營業利益率在查得的報導中未見明確數字，留 null。淨資本支出 US$10.77B（FY2026 全年 US$27.37B，與上一季上修後的約 US$27B 指引相符）。FY2026 全年營收 US$133.188B、全年毛利率 81.1%。資料整理限制：本次整理時美光官網（investors.micron.com／q4cdn）無法直接開啟，以上數字取自搜尋引擎索引的官方新聞稿／SEC 8-K 摘要與 Investing.com、Yahoo Finance、CNBC 等報導，部分媒體之間有 GAAP／non-GAAP 混用的情況（例如有一則報導出現明顯錯誤的 EPS US$75.52，已排除）。"
+  },
+  "guidance": {
+    "next_period_revenue_range_usd_m": [
+      60000,
+      63000
+    ],
+    "next_period_gross_margin_range_pct": [
+      null,
+      null
+    ],
+    "capex_plan_usd_m": null,
+    "commentary_summary": "FY2027 Q1（約 2026 年 9~11 月）指引：營收 US$61.5B±1.5B（市場共識約 US$57B）、non-GAAP 稀釋 EPS US$38.15±1.00（GAAP US$37.84±1.00）、毛利率約 86.25%（不同報導寫 86.25% 或約 86.3%，本檔不轉成區間）。財務長表示 FY2027 Q1 應該是 FY2027 全年毛利率的「底部」。資本支出：FY2027 Q1 約 US$11.5B、FY2027 上半年約 US$25B，下半年會更高；FY2027 全年 capex 較先前計畫（上一季說的「超過中值 US$40B 區間」）再上修，但查得的報導未見新的全年總數，故 capex_plan_usd_m 留 null。上修的大部分是廠房營建 capex，用於 2028 日曆年底之後才會上線的無塵室。",
+    "bit_shipment_growth_outlook": "本季未在查得的報導中看到 FY2027 位元出貨成長的具體數字。當季實績：DRAM 位元出貨季增中個位數 %。"
+  },
+  "management_commentary": [
+    {
+      "speaker": "Sanjay Mehrotra (CEO)",
+      "topic": "供需展望",
+      "summary": "表示記憶體與儲存的供需狀況在 FY2027 與 FY2028 會比 FY2026「更加吃緊」（much tighter）；限制因素包括 AI 需求、無塵室空間不足、製程微縮帶來的位元增量遞減，以及 HBM 較高的晶圓換算比（trade ratio）。",
+      "source_index": 1
+    },
+    {
+      "speaker": "Sanjay Mehrotra (CEO)",
+      "topic": "2027 HBM 合約",
+      "summary": "表示已就 2027 日曆年絕大部分的 HBM 位元供給完成協議，價格較 2026 年大幅調升；2027 年 HBM 價格在日曆年初重設，將縮小 HBM 與傳統 DRAM 的獲利差距。",
+      "source_index": 1
+    },
+    {
+      "speaker": "Mark Murphy (CFO)",
+      "topic": "當季 DRAM 出貨與報價",
+      "summary": "DRAM 位元出貨季增中個位數 %，價格季增落在十幾 % 高段（high-teens），反映產業供給吃緊。",
+      "source_index": 2
+    },
+    {
+      "speaker": "Mark Murphy (CFO)",
+      "topic": "FY2027 capex 與毛利率",
+      "summary": "FY2027 Q1 capex 約 US$11.5B、上半年約 US$25B、下半年更高；增加的大部分是營建 capex，用於加速 2028 日曆年底之後上線的無塵室。並表示 FY2027 Q1 應是 FY2027 毛利率的底部。",
+      "source_index": 3
+    }
+  ],
+  "stock_reaction": {
+    "price_prior_close_usd": null,
+    "price_1d_after_usd": null,
+    "pct_change_1d": null,
+    "pct_change_1w": null,
+    "notes": "前端不呈現股價分析，本季未整理。僅記錄：據 Yahoo Finance／Stocktwits 報導，財報公布後盤後股價一度下跌，原因是上修的 capex 預期蓋過了財報與指引優於預期的效果。",
+    "event_type": null,
+    "event_date": null
+  },
+  "sources": [
+    {
+      "title": "Micron Technology, Inc. Reports Record Results for the Fourth Quarter and Full Year of Fiscal 2026 (SEC exhibit 99.1)",
+      "publisher": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Earnings call transcript: Micron tops Q4 2026 estimates as demand stays hot",
+      "publisher": "Investing.com",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-micron-tops-q4-2026-estimates-as-demand-stays-hot-93CH-4925992",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Micron Technology, Inc. Fiscal Q4 2026 Earnings Call Prepared Remarks",
+      "publisher": "Micron Investor Relations",
+      "url": "https://investors.micron.com/files/doc_financials/2026/q4/Q4-FY26-Prepared-Remarks.pdf",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "MU Stock Drops After Hours: Micron's Heightened Capex Forecast Overpowers Q4 Beat, Expectation-Beating Q1 Guidance",
+      "publisher": "Yahoo Finance (Stocktwits)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/mu-stock-drops-hours-micron-222532422.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Micron Q4 2026 slides: record $54B revenue, tight supply outlook",
+      "publisher": "Investing.com",
+      "url": "https://www.investing.com/news/company-news/micron-q4-2026-slides-record-54b-revenue-tight-supply-outlook-93CH-4926010",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Micron beats on earnings and issues strong guidance as data center revenue jumps 11-fold",
+      "publisher": "CNBC",
+      "url": "https://www.cnbc.com/2026/09/30/micron-mu-q4-earnings-report-2026.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Micron (MU) Q4 FY2026 Earnings Call: Memory Supply Tight Through 2028",
+      "publisher": "TradingKey",
+      "url": "https://www.tradingkey.com/news/transcripts/262195863-tradingkey",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Micron forecasts Q1 2027 revenue of $61.5B ± $1.5B (8-K summary)",
+      "publisher": "StockTitan",
+      "url": "https://www.stocktitan.net/sec-filings/MU/8-k-micron-technology-inc-reports-material-event-adfaaa1a1e55.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Micron Technology Inc (MU) (Q4 2026) Earnings Call Highlights",
+      "publisher": "Yahoo Finance (GuruFocus syndication)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/micron-technology-inc-mu-q4-090022460.html",
+      "accessed_date": "2026-10-30"
+    }
+  ],
+  "reporting_scope": "公司整體（以記憶體為主業）",
+  "supply": {
+    "supply_demand_balance": {
+      "status": "供不應求",
+      "statement": "CEO 表示記憶體與儲存的供需狀況在 FY2027 與 FY2028 會比 FY2026「更加吃緊」；供給受限的原因包括無塵室空間不足、製程微縮帶來的位元增量遞減，以及 HBM 較高的晶圓換算比。措辭從上一季的「緊張延續到 2027 日曆年之後」進一步升級為「2027、2028 會更緊」。",
+      "source_index": 1
+    },
+    "bit_growth_guidance": {
+      "dram_next_quarter": null,
+      "nand_next_quarter": null,
+      "dram_full_year": null,
+      "nand_full_year": null,
+      "note": "查得的報導中沒有本季給出的次季或 FY2027 位元成長指引。當季實績：DRAM 位元出貨季增中個位數 %（自家出貨口徑）。"
+    },
+    "pricing_direction": {
+      "dram": "續漲",
+      "nand": "續漲",
+      "statement": "當季 DRAM 價格季增落在十幾 % 高段（high-teens）。2027 日曆年 HBM 價格已大幅調升、並在年初重設。次季毛利率指引約 86.25%，與本季約 87% 大致持平——財務長稱 FY2027 Q1 是 FY2027 毛利率的底部。NAND 本季營收創新高，但查得的報導未給出 NAND 報價季變動幅度。"
+    },
+    "capacity_actions": [
+      {
+        "action": "HBM 先進封裝廠進度超前",
+        "type": "新廠",
+        "timing": "初期產出預計 2027 日曆年初",
+        "detail": "出自 FY2026 Q4 法說會準備稿。"
+      },
+      {
+        "action": "愛達荷（Idaho）新 DRAM 廠",
+        "type": "新廠",
+        "timing": "2027 年中（日曆年）開始產出",
+        "detail": "依次級來源的法說會摘要：開始產出後，對供給的實質影響會再落後數季。"
+      },
+      {
+        "action": "新加坡 NAND 新廠",
+        "type": "新廠",
+        "timing": "2028 下半年（日曆年）產出",
+        "detail": "營建按計畫進行。"
+      },
+      {
+        "action": "FY2027 營建 capex 上修，加速無塵室",
+        "type": "新廠",
+        "timing": "無塵室 2028 日曆年底之後上線",
+        "detail": "FY2027 capex 較先前計畫上修，增量大部分為廠房營建；這批產能對 2027 年的供給沒有幫助。"
+      }
+    ],
+    "capex_direction": "大幅增加",
+    "capex_plan_text": "本季淨 capex US$10.77B，FY2026 全年 US$27.37B。FY2027：Q1 約 US$11.5B、上半年約 US$25B、下半年更高；全年較上一季「超過中值 US$40B 區間」的說法再上修（新全年總數未見於查得的報導）。增量大部分是營建 capex，對應 2028 日曆年底之後才上線的無塵室。",
+    "sold_out_status": "已就 2027 日曆年絕大部分（vast majority）的 HBM 位元供給完成協議，且價格較 2026 年大幅調升。次級來源摘要另稱 FY2027 超過 75% 的產出已被承諾（committed）——此數字屬摘要報導轉述，未在原始新聞稿中直接看到。",
+    "lta_status": "管理層表示策略客戶協議（SCA）讓公司對財務表現的持續性「更有信心」；本季在查得的報導中未見新的協議家數（上一季為 16 項）。",
+    "hbm_progress": "HBM 營收成長速度快於公司整體營收；本季未揭露 HBM 具體金額。2027 年 HBM 量價已大致談定。",
+    "inventory_comment": "",
+    "customer_allocation": "CNBC 報導資料中心營收年增約 11 倍，產能持續向 AI／資料中心客戶傾斜。"
+  }
+}

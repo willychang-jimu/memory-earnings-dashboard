@@ -1,46 +1,150 @@
 {
   "_note": "這個檔案記的是【整理者的觀察】，不是公司說法本身。每一則都必須指向 supporting 裡列出的季度檔案，讀者可以自己回去對照原文。新增一季資料後要回頭檢查這裡是否需要更新。",
-  "last_reviewed": "2026-09-16",
+  "last_reviewed": "2026-10-30",
   "items": [
+    {
+      "quarter": "2026 Q3",
+      "topic": "報價漲幅",
+      "headline": "還在漲，但三家的漲幅同時明顯收斂",
+      "detail": "同一季的季增 ASP：三星 DRAM 約 20%（Q2 中 40%、Q1 低 90%）、NAND 高十幾 %（Q2 高 60%）；SK 海力士 DRAM 20% 高段（Q2 約 30%）、NAND 中 20%（Q2 中 50%）；美光 DRAM 十幾 % 高段。方向都還是「續漲」，所以報價方向表看不出變化，但漲幅的「二階導數」已經連續轉弱，NAND 收斂得比 DRAM 快。三家嘴上都說 2027 更緊，價格動能卻在降溫——這兩件事哪一個先轉向，是接下來最值得盯的地方。",
+      "companies": [
+        "samsung",
+        "micron",
+        "sk_hynix"
+      ],
+      "supporting": [
+        "samsung/2026Q3.json",
+        "sk_hynix/2026Q3.json",
+        "micron/FY2026Q4.json",
+        "samsung/2026Q2.json",
+        "sk_hynix/2026Q2.json"
+      ]
+    },
+    {
+      "quarter": "2026 Q3",
+      "topic": "供給增速",
+      "headline": "Q3 出貨大多沒達標，卻同時預告 Q4 供給大跳升",
+      "detail": "對照上一季自己給的指引：三星 DRAM 位元出貨只成長低～中個位數 %（指引中個位數）、NAND 中個位數（指引高個位數），雙雙略低；海力士 DRAM 約 +10% 達標，NAND 反而小幅季減（指引低個位數成長）。也就是 Q3 實際放出的供給比公司自己說的還少。但到了 Q4，三星指引 DRAM 季增十幾 % 中～高段、海力士 DRAM 中 20%——兩家同時預告一次性的大量出貨。Q4 數字若兌現，是本輪循環最大的一次單季供給增量；若再度落空，代表供給瓶頸比口頭說的更硬。口徑皆為自家位元出貨，可比；三星 Q4 指引僅見於一至兩則法說會摘要。",
+      "companies": [
+        "samsung",
+        "sk_hynix"
+      ],
+      "supporting": [
+        "samsung/2026Q2.json",
+        "samsung/2026Q3.json",
+        "sk_hynix/2026Q2.json",
+        "sk_hynix/2026Q3.json"
+      ]
+    },
+    {
+      "quarter": "2026 Q3",
+      "topic": "缺貨期間",
+      "headline": "短缺會持續多久，三家給的終點差了兩年",
+      "detail": "美光：FY2027、FY2028 會比 2026 更緊；三星：2027 更嚴重、供給受限可能延續到 2028；SK 海力士：需求超過供給延續到 2030。三家在同一季都把時間拉長了，但海力士講得最遠。值得對照的是，三家講的同時也是自己的長約年限——海力士 LTA 涵蓋 2027–2028 年一半以上產能，「到 2030」並沒有合約支撐，比較接近展望而非已鎖定的事實。",
+      "companies": [
+        "samsung",
+        "micron",
+        "sk_hynix"
+      ],
+      "supporting": [
+        "micron/FY2026Q4.json",
+        "samsung/2026Q3.json",
+        "sk_hynix/2026Q3.json"
+      ]
+    },
+    {
+      "quarter": "2026 Q3",
+      "topic": "售罄說法",
+      "headline": "「售罄」又回來了——這次賣的是 2027 年",
+      "detail": "上一季三家悄悄不講售罄（見 2026 Q2 那則）。這一季：三星明講 2027 年 HBM 供給已在議定目標價下售罄、客戶還要追加；美光說 2027 日曆年絕大部分 HBM 位元已談定、價格大幅調升；海力士 LTA 客戶從約 10 家增到 14 家、涵蓋 2027–2028 年一半以上產能。上一季擔心的「轉折」沒有發生，反而是把售罄的時間軸往後推了一年。",
+      "companies": [
+        "samsung",
+        "micron",
+        "sk_hynix"
+      ],
+      "supporting": [
+        "samsung/2026Q3.json",
+        "micron/FY2026Q4.json",
+        "sk_hynix/2026Q3.json",
+        "samsung/2026Q2.json"
+      ]
+    },
+    {
+      "quarter": "全期間",
+      "topic": "資本支出態度",
+      "headline": "三家都在大幅加碼 capex，但都說 2028 年前幫不上忙",
+      "detail": "三星原本是唯一只「增加」而非「大幅增加」capex 的一家（2025 Q4、2026 Q1），2026 Q2 起也轉為大幅增加，Q3 單季 capex 約 29 兆韓元、全年指引 84.4 兆。至此三家方向一致。但這一季三家同時強調時間差：美光 FY2027 上修的 capex 主要是 2028 年底後才上線的無塵室；三星說 2027 增加的投資不會實質提升 2028 年位元產出；海力士 2027 capex 大增，主力是龍仁第一座廠。capex 是 2~3 年後供給的先行指標——這一波投資真正放出產能的時間點落在 2028 年底以後，那才是供給可能轉鬆的窗口。",
+      "companies": [
+        "samsung",
+        "micron",
+        "sk_hynix"
+      ],
+      "supporting": [
+        "samsung/2025Q4.json",
+        "samsung/2026Q1.json",
+        "samsung/2026Q2.json",
+        "samsung/2026Q3.json",
+        "micron/FY2026Q4.json",
+        "sk_hynix/2026Q3.json"
+      ]
+    },
     {
       "quarter": "2026 Q2",
       "topic": "報價漲幅",
       "headline": "同一季的 DRAM 漲價幅度，三星是海力士的一倍以上",
       "detail": "三星揭露當季 DRAM 混合 ASP 季增落在中 40% 區間，SK 海力士同季只有約 30%。NAND 方向還相反：三星從高 80% 收斂到高 60%，海力士卻從中 30% 擴大到中 50%。同一個市場、同一季、同樣的產品，實現價格差這麼多，通常代表產品組合（HBM／伺服器 DDR5 佔比）與既有合約條件不同，而不是市場報價本身分歧。",
-      "companies": ["samsung", "sk_hynix"],
-      "supporting": ["samsung/2026Q2.json", "sk_hynix/2026Q2.json"]
+      "companies": [
+        "samsung",
+        "sk_hynix"
+      ],
+      "supporting": [
+        "samsung/2026Q2.json",
+        "sk_hynix/2026Q2.json"
+      ]
     },
     {
       "quarter": "2026 Q2",
       "topic": "供給增速",
       "headline": "都說吃緊，但海力士下一季要多放出來的量是三星的兩倍",
       "detail": "SK 海力士指引 2026 Q3 自家 DRAM 位元出貨季增約 +10%，三星同期只給中個位數 %。兩家同時形容市場供不應求，但實際打算增加的供給差距明顯——這是判斷「誰會先鬆動價格」的直接線索。注意兩者口徑都是自家出貨，可比。",
-      "companies": ["samsung", "sk_hynix"],
-      "supporting": ["samsung/2026Q2.json", "sk_hynix/2026Q2.json"]
+      "companies": [
+        "samsung",
+        "sk_hynix"
+      ],
+      "supporting": [
+        "samsung/2026Q2.json",
+        "sk_hynix/2026Q2.json"
+      ]
     },
     {
       "quarter": "2026 Q1",
       "topic": "漲勢持續性",
       "headline": "海力士是唯一主動說過「漲勢可能放緩」的一家",
-      "detail": "SK 海力士在 2026 Q1 法說會指引 DRAM／NAND 漲價「可能延續到 Q2，但之後漲勢可能放緩」。這是資料涵蓋的九個季度裡，三家公司唯一一次主動提出漲勢趨緩的可能性。同一季三星宣告 HBM4 已售罄、美光形容供需缺口「前所未見」，語氣完全相反。",
-      "companies": ["sk_hynix"],
-      "supporting": ["sk_hynix/2026Q1.json", "samsung/2026Q1.json", "micron/FY2026Q2.json"]
+      "detail": "SK 海力士在 2026 Q1 法說會指引 DRAM／NAND 漲價「可能延續到 Q2，但之後漲勢可能放緩」。這是資料涵蓋的十二個季度裡，三家公司唯一一次主動提出漲勢趨緩的可能性。同一季三星宣告 HBM4 已售罄、美光形容供需缺口「前所未見」，語氣完全相反。",
+      "companies": [
+        "sk_hynix"
+      ],
+      "supporting": [
+        "sk_hynix/2026Q1.json",
+        "samsung/2026Q1.json",
+        "micron/FY2026Q2.json"
+      ]
     },
     {
       "quarter": "2026 Q2",
       "topic": "售罄說法",
       "headline": "「售罄」這個詞，兩家在同一季悄悄不講了",
       "detail": "美光仍明講 HBM 已預訂到 2027 日曆年、需求延伸到 2028；SK 海力士則不再使用「售罄」字眼，改講「已與約 10 家關鍵客戶簽定 LTA」；三星也沒有重申上一季的 HBM4 完全售罄說法，改用「整體仍供不應求」。用詞從「賣光了」換成「簽了長約」是實質不同的兩件事——前者是供給被搶完，後者是把供給鎖進合約，值得持續追蹤是不是轉折的開始。",
-      "companies": ["samsung", "micron", "sk_hynix"],
-      "supporting": ["samsung/2026Q2.json", "micron/FY2026Q3.json", "sk_hynix/2026Q2.json"]
-    },
-    {
-      "quarter": "全期間",
-      "topic": "資本支出態度",
-      "headline": "三星是唯一沒有「大幅」增加 capex 的一家",
-      "detail": "涵蓋的九個季度裡，美光與 SK 海力士的 capex 方向幾乎都是大幅增加，三星則一路維持在「增加」。capex 是未來 2~3 年供給的先行指標，三星相對保守的投資態度，意味著它自己也不急著把供給放出來。",
-      "companies": ["samsung"],
-      "supporting": ["samsung/2025Q4.json", "samsung/2026Q1.json", "samsung/2026Q2.json"]
+      "companies": [
+        "samsung",
+        "micron",
+        "sk_hynix"
+      ],
+      "supporting": [
+        "samsung/2026Q2.json",
+        "micron/FY2026Q3.json",
+        "sk_hynix/2026Q2.json"
+      ]
     }
   ]
 }

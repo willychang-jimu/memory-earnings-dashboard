@@ -1,0 +1,170 @@
+{
+  "company": "sk_hynix",
+  "period_label": "2026 Q3",
+  "calendar_quarter_equivalent": "2026 Q3（SK 海力士的財報季與日曆季一致）",
+  "period_start": "2026-07-01",
+  "period_end": "2026-09-30",
+  "report_date": "2026-10-27",
+  "financials": {
+    "revenue_usd_m": null,
+    "revenue_yoy_pct": 328,
+    "revenue_qoq_pct": 32,
+    "gross_margin_pct": null,
+    "operating_margin_pct": 80,
+    "net_income_usd_m": null,
+    "eps_usd": null,
+    "capex_usd_m": null,
+    "dram_revenue_share_pct": null,
+    "nand_revenue_share_pct": null,
+    "hbm_revenue_usd_m": null,
+    "notes": "韓元數字（官方新聞稿，屬未經查核的初步數字）：營收約 104.6 兆韓元（首度單季突破 100 兆韓元，季增約 32%、年增約 328%）、營業利益約 83.3 兆韓元（營業利益率 80%，季增約 38%、年增約 632%）、淨利約 39.8 兆韓元（季減約 58%）。淨利下滑來自業外：投資資產評價損失約 22.9 兆韓元、匯兌損失約 11.6 兆韓元，與本業供需無關。DRAM／NAND 營收占比僅見一則次級評論（約 75%／24%），未能對照公司資料，故欄位留 null。本季查不到單獨揭露的 HBM 營收金額或 capex 實績金額。美元換算值（有報導寫約 US$78.9B）為第三方換算，未採用。股東回饋：2026 年合計約 100 兆韓元（現金股利約 30 兆、註銷庫藏股約 60 兆），部分 Q3 股利為出售 Kioxia 持股獲利的特別股利。資料整理限制：本次整理時 SK 海力士官網新聞室無法直接開啟，以上數字取自搜尋引擎索引的 PR Newswire 新聞稿與 GuruFocus、Motley Fool、BigGo 等法說會摘要。",
+    "revenue_krw_trillion": 104.6,
+    "operating_profit_krw_trillion": 83.3,
+    "net_income_krw_trillion": 39.8
+  },
+  "guidance": {
+    "next_period_revenue_range_usd_m": [
+      null,
+      null
+    ],
+    "next_period_gross_margin_range_pct": [
+      null,
+      null
+    ],
+    "capex_plan_usd_m": null,
+    "commentary_summary": "2026 Q4：DRAM 位元出貨季增約中 20% 區間（中 20%），NAND 季增中個位數 %；預期 HBM4 在 Q4 的出貨量與營收占比都將超越 HBM3E。2027 年：DRAM 可實現需求成長約中 20% 區間、NAND 高十幾 %，並預期需求超過供給的狀態延續到 2030 年。2027 capex 將較 2026 年「大幅增加」，用於先進製程設備（加速轉進 1c 製程）與龍仁第一座廠的爬坡，具體金額未揭露。公司引述全球 CSP 的 2027 capex 預估年增逾 60%。",
+    "bit_shipment_growth_outlook": "2026 Q4：DRAM 季增中 20% 區間、NAND 季增中個位數 %。2027 全年需求：DRAM 中 20% 區間、NAND 高十幾 %。"
+  },
+  "management_commentary": [
+    {
+      "speaker": "Kim Woo-hyun（財務長）",
+      "topic": "HBM4 量產",
+      "summary": "表示 HBM4 已於第三季全面量產並出貨；HBM、伺服器 DRAM 與企業級 SSD 價格連續第二季上漲。",
+      "source_index": 1
+    },
+    {
+      "speaker": "SK 海力士管理層",
+      "topic": "長期供貨協議",
+      "summary": "表示已與包含主要雲端業者在內的 14 家關鍵客戶簽訂長期協議（LTA），涵蓋 2027 與 2028 年總產能的一半以上。",
+      "source_index": 2
+    },
+    {
+      "speaker": "SK 海力士管理層",
+      "topic": "供需展望",
+      "summary": "預期即使大幅投資產能，供給受限的狀態仍會延續到 2030 年；2027 年 DRAM 可實現需求成長約中 20% 區間、NAND 高十幾 %。",
+      "source_index": 3
+    },
+    {
+      "speaker": "SK 海力士管理層",
+      "topic": "2027 資本支出",
+      "summary": "2027 capex 將較 2026 年大幅增加，主要驅動是龍仁第一座廠與先進製程設備；未揭露具體金額。",
+      "source_index": 4
+    }
+  ],
+  "stock_reaction": {
+    "price_prior_close_usd": null,
+    "price_1d_after_usd": null,
+    "pct_change_1d": null,
+    "pct_change_1w": null,
+    "notes": "前端不呈現股價分析，本季未整理。",
+    "event_type": null,
+    "event_date": null
+  },
+  "sources": [
+    {
+      "title": "SK hynix Announces 3Q26 Financial Results",
+      "publisher": "PR Newswire",
+      "url": "https://www.prnewswire.com/news-releases/sk-hynix-announces-3q26-financial-results-302921407.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "SK hynix Inc (SKHY) (Q3 2026) Earnings Call Highlights: Record KRW104.6 Trillion Revenue and 80% Operating Margin as HBM4 Ramps",
+      "publisher": "GuruFocus",
+      "url": "https://www.gurufocus.com/news/9150253/sk-hynix-inc-skhy-q3-2026-earnings-call-highlights-record-krw1046-trillion-revenue-and-80-operating-margin-as-hbm4-ramps",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "SK hynix (SKHY) Q3 2026 Earnings Call Transcript",
+      "publisher": "The Motley Fool",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/10/28/sk-hynix-skhy-q3-2026-earnings-call-transcript/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "SK hynix Earnings Hit an 80% Margin, and It Says the Memory Shortage Runs to 2030",
+      "publisher": "Hardware Busters",
+      "url": "https://hwbusters.com/news/sk-hynix-earnings-hit-an-80-margin-and-it-says-the-memory-shortage-runs-to-2030/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "SKHY Q3 Earnings Call Highlights AI Demand and HBM4 Expansion",
+      "publisher": "TradingView (Zacks)",
+      "url": "https://www.tradingview.com/news/zacks:31f8c53ca094b:0-skhy-q3-earnings-call-highlights-ai-demand-and-hbm4-expansion/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "Earnings call transcript: SK hynix posts record Q3 2026 results, shares jump after hours",
+      "publisher": "Investing.com",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-sk-hynix-posts-record-q3-2026-results-shares-jump-after-hours-93CH-4977343",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "[SK hynix Q3 2026 Earnings Call] SK hynix Posts Record KRW 104.6 Trillion Revenue, 80% Operating Margin",
+      "publisher": "BigGo Finance",
+      "url": "https://finance.biggo.com/news/US_SKHY_2026-10-27",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "title": "SK hynix Announces 3Q26 Financial Results",
+      "publisher": "SK hynix Newsroom",
+      "url": "https://news.skhynix.com/en/q3-2026-business-results/",
+      "accessed_date": "2026-10-30"
+    }
+  ],
+  "reporting_scope": "公司整體（以記憶體為主，含 Solidigm NAND）",
+  "supply": {
+    "supply_demand_balance": {
+      "status": "供不應求",
+      "statement": "管理層預期即使大幅投資產能，需求超過供給的狀態仍會延續到 2030 年——比美光（2028）、三星（2028）講得都更遠。並引述全球 CSP 的 2027 capex 預估年增逾 60%。",
+      "source_index": 3
+    },
+    "bit_growth_guidance": {
+      "dram_next_quarter": "中 20% 區間 QoQ（2026 Q4）",
+      "nand_next_quarter": "中個位數 % QoQ（2026 Q4，含 Solidigm）",
+      "dram_full_year": "中 20% 區間（2027 可實現需求成長）",
+      "nand_full_year": "高十幾 %（2027 可實現需求成長）",
+      "note": "口徑：次季是自家「位元出貨」指引，全年是產業「需求成長」指引，兩者不可直接相加或對比。當季實績對照上一季指引：DRAM 位元出貨季增約 10%（指引約 10%，達標）；NAND 位元出貨小幅季減（指引低個位數 % 成長，未達），公司解釋為產品組合轉向 321 層 TLC 企業級 SSD 等高價值產品。"
+    },
+    "pricing_direction": {
+      "dram": "續漲",
+      "nand": "續漲",
+      "statement": "當季 DRAM ASP 季增 20% 高段（high-20%），由 HBM4 與傳統 DRAM 報價帶動，與 Q2 的約 30% 相近、略為收斂；NAND ASP 季增中 20% 區間，較 Q2 的中 50% 區間明顯收斂。財務長表示 HBM、伺服器 DRAM 與企業級 SSD 價格連續第二季上漲。本季未給出明確的下一季報價指引。"
+    },
+    "capacity_actions": [
+      {
+        "action": "M15X 滿載",
+        "type": "擴產",
+        "timing": "2026 年底",
+        "detail": "公司預期 M15X 於 2026 年底達到滿載產能。"
+      },
+      {
+        "action": "龍仁（Yongin）第一座廠爬坡",
+        "type": "新廠",
+        "timing": "2027 年",
+        "detail": "是 2027 capex 大增的主要驅動；有報導稱第一期將於明年全面運轉（上一季說法為無塵室 2027 年初完成）。"
+      },
+      {
+        "action": "加速轉進 1c 製程",
+        "type": "製程轉換",
+        "timing": "2027 年",
+        "detail": "2027 capex 用於先進製程設備的部分。"
+      }
+    ],
+    "capex_direction": "大幅增加",
+    "capex_plan_text": "2027 capex 將較 2026 年「大幅增加」，用於龍仁第一座廠爬坡與先進製程（1c）設備，具體金額未揭露。2026 全年指引沿用上一季「KRW 40 兆區間高段」的說法（本季未見更新）；有一則次級來源寫 2026 capex 超過 US$29.9B，僅單一來源，未採用。",
+    "sold_out_status": "本季仍未使用「售罄」字眼；改以「LTA 涵蓋 2027、2028 年一半以上產能」表述。有一則次級來源的摘要稱 DRAM 與 HBM 產出實質上已賣到 2029 年，但這比公司陳述的 2027–2028 涵蓋範圍更廣，可信度存疑；另有報導稱明年的 HBM 議約已完成。",
+    "lta_status": "LTA 客戶從上一季的約 10 家增加到 14 家（含主要雲端業者），涵蓋 2027 與 2028 年總產能的一半以上。注意：14 家這個數字在部分搜尋結果中未出現，來源為 GuruFocus 法說會摘要。",
+    "hbm_progress": "HBM4 已於 Q3 全面量產出貨；預期 Q4 HBM4 的出貨量與營收占比都將超越 HBM3E。本季未揭露 HBM 營收金額或占 DRAM 比重。",
+    "inventory_comment": "",
+    "customer_allocation": "NAND 產品組合轉向 321 層 TLC 企業級 SSD 等高價值產品，因此 NAND 位元出貨小幅季減——寧可少出貨也要提高組合，是供給端「不追量」的訊號。"
+  }
+}
