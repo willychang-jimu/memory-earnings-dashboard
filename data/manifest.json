@@ -57,6 +57,13 @@
     "2026-07-29_mirae-asset_sk_hynix.json",
     "2026-09-03_citi_samsung.json",
     "2026-09-03_citi_sk_hynix.json",
-    "2026-09-10_jpmorgan_sk_hynix.json"
+    "2026-09-10_jpmorgan_sk_hynix.json",
+    "2026-10-01_goldman-sachs_micron.json",
+    "2026-10-01_morgan-stanley_micron.json",
+    "2026-10-01_rosenblatt_micron.json",
+    "2026-10-28_citi_sk_hynix.json",
+    "2026-10-29_bnk_sk_hynix.json",
+    "2026-10-29_yuanta_sk_hynix.json",
+    "2026-10-30_yuanta_samsung.json"
   ]
 }

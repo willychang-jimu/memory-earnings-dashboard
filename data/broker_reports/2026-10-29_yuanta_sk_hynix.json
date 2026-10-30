@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-29",
+  "bank": "Yuanta Securities",
+  "company": "sk_hynix",
+  "related_period": "2026Q3",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "3700000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "3300000",
+  "thesis_summary": "上調目標價約 12%，論點是記憶體到明年實質上已經賣完（報導標題原文為「Memory effectively sold out through next year」），並預估 2026 Q4 營業利益超過 118 兆韓元。",
+  "key_points": [
+    "目標價 330 萬 → 370 萬韓元，維持 Buy",
+    "預估 Q4 營業利益逾 118 兆韓元",
+    "核心論點：記憶體供給到 2027 年實質售罄",
+    "報導另稱國內券商目標價區間落在 165 萬～400 萬韓元（SK 證券、教保證券最高 400 萬）"
+  ],
+  "source": {
+    "title": "SK hynix price target raised to 3.7 million won ... \"Memory effectively sold out through next year\"",
+    "publisher": "Financial News (fnnews)",
+    "url": "https://en.fnnews.com/news/202610290827040552",
+    "accessed_date": "2026-10-30"
+  }
+}

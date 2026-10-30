@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-28",
+  "bank": "Citi",
+  "company": "sk_hynix",
+  "related_period": "2026Q3",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "3000000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "3000000",
+  "thesis_summary": "3Q26 財報後維持 Buy 與 300 萬韓元目標價，但把 2026 Q4 營業利益預估由 89.8 兆韓元大幅上調至 107 兆韓元，反映報價與出貨都比原先假設更強。",
+  "key_points": [
+    "維持 Buy、目標價 300 萬韓元不變",
+    "Q4 營業利益預估 89.8 兆 → 107 兆韓元"
+  ],
+  "source": {
+    "title": "Major Banks: Citi: SK Hynix reports strong Q3 results, reiterates",
+    "publisher": "Futu News",
+    "url": "https://news.futunn.com/en/post/1002696128/major-banks-citi-sk-hynix-reports-strong-q3-results-reiterates",
+    "accessed_date": "2026-10-30"
+  }
+}

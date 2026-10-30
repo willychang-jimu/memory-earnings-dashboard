@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-01",
+  "bank": "Morgan Stanley",
+  "company": "micron",
+  "related_period": "FY2026Q4",
+  "rating": "Overweight",
+  "rating_change": "maintained",
+  "price_target": "1200",
+  "price_target_currency": "USD",
+  "prior_price_target": "1200",
+  "thesis_summary": "財報後維持 Overweight 與 US$1,200 目標價（分析師 Joseph Moore），未上調。查得的公開報導僅列於評等異動表，未轉述具體論點。",
+  "key_points": [
+    "維持 Overweight、目標價 US$1,200 不變",
+    "同篇報導指出追蹤美光的 26 位分析師中 25 位給予 Buy，平均目標價約 US$1,430",
+    "報導稱財報後股價先跌、後隨各家上調目標價而收復跌幅"
+  ],
+  "source": {
+    "title": "Micron Stock Erases Losses As Analysts Lift Price Targets",
+    "publisher": "Benzinga",
+    "url": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/10/62120688/micron-stock-erases-post-earnings-losses-analyst-price-targets",
+    "accessed_date": "2026-10-30"
+  }
+}

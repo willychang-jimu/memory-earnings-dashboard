@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-29",
+  "bank": "BNK Investment & Securities",
+  "company": "sk_hynix",
+  "related_period": "2026Q3",
+  "rating": "Hold",
+  "rating_change": "maintained",
+  "price_target": "1650000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "1480000",
+  "thesis_summary": "少數維持中立看法的券商：目標價小幅上調但維持 Hold，報導轉述的理由是擔憂記憶體需求放緩。BNK 自 2026 年 4 月起就是 Hold，7 月曾因「下半年需求可能放緩與供過於求」把目標價由 185 萬降到 148 萬韓元。其目標價與最高的 400 萬韓元相差逾一倍，反映市場對循環高點時間的看法分歧。",
+  "key_points": [
+    "目標價 148 萬 → 165 萬韓元，維持 Hold",
+    "理由：擔憂記憶體需求放緩（報導轉述，未見報告原文）",
+    "是國內券商中最低的目標價",
+    "165 萬這個數字在部分搜尋結果中查無對應，僅見 fnnews／JKN 報導"
+  ],
+  "source": {
+    "title": "The brokerage that had set a target of 1.48 million won also raises its target price for SK hynix",
+    "publisher": "Financial News (fnnews)",
+    "url": "https://en.fnnews.com/news/202610290852411020",
+    "accessed_date": "2026-10-30"
+  }
+}

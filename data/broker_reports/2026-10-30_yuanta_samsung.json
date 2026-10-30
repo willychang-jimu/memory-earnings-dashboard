@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-30",
+  "bank": "Yuanta Securities",
+  "company": "samsung",
+  "related_period": "2026Q3",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "690000",
+  "price_target_currency": "KRW",
+  "prior_price_target": "630000",
+  "thesis_summary": "三星 Q3 完整財報後上調目標價。同篇報導指出營收（195.25 兆韓元）與淨利（75.14 兆韓元）都低於 FnGuide 共識（約 200.3 兆／87.4 兆），股價在創紀錄獲利下仍下跌；同期韓華維持 58 萬韓元、BNK 維持偏保守的 27 萬韓元。",
+  "key_points": [
+    "目標價 63 萬 → 69 萬韓元",
+    "韓華（Hanwha）維持 58 萬韓元",
+    "BNK 維持 27 萬韓元，看法最保守",
+    "營收與淨利低於市場共識，股價財報後下跌"
+  ],
+  "source": {
+    "title": "Samsung Q3 profit hits record $80.4 billion as shares fall on earnings miss",
+    "publisher": "Korea JoongAng Daily",
+    "url": "https://www.koreajoongangdaily.com/business/samsungs-record-804b-q3-profit-fails-to-impress-investors/12944742",
+    "accessed_date": "2026-10-30"
+  }
+}

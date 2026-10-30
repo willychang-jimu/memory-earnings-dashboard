@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-01",
+  "bank": "Goldman Sachs",
+  "company": "micron",
+  "related_period": "FY2026Q4",
+  "rating": "Neutral",
+  "rating_change": "maintained",
+  "price_target": "1250",
+  "price_target_currency": "USD",
+  "prior_price_target": "1100",
+  "thesis_summary": "財報後上調目標價但維持 Neutral。依公開報導轉述，分析師 James Schneider 認為風險報酬已較平衡，主要顧慮是 2028 年起記憶體供給增加可能壓抑報價——這是少數明確點出「供給何時轉鬆」時間點的投行觀點，與美光自己「FY2027、FY2028 更緊」的說法形成對照。",
+  "key_points": [
+    "目標價 US$1,100 → US$1,250，維持 Neutral",
+    "核心顧慮：2028 年起供給增加可能壓抑價格",
+    "另有報導稱美光已有 26 項長期協議、涵蓋至 FY2030 預估營收約 35%——僅見單一來源（Yahoo Finance 轉述），未經查證",
+    "注意：另一則轉述 Yonhap 的報導寫 Goldman 維持 US$1,100 目標價，兩來源不一致"
+  ],
+  "source": {
+    "title": "Goldman Sachs Raises Micron Stock Price Target After Earnings",
+    "publisher": "Yahoo Finance",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-raises-micron-stock-153237756.html",
+    "accessed_date": "2026-10-30"
+  }
+}

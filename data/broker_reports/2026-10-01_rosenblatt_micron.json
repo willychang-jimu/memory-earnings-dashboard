@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-01",
+  "bank": "Rosenblatt",
+  "company": "micron",
+  "related_period": "FY2026Q4",
+  "rating": "Buy",
+  "rating_change": "maintained",
+  "price_target": "1900",
+  "price_target_currency": "USD",
+  "prior_price_target": "1500",
+  "thesis_summary": "財報與 FY2027 Q1 指引優於預期後，大幅上調目標價並維持 Buy（分析師 Kevin Cassidy）。",
+  "key_points": [
+    "目標價 US$1,500 → US$1,900，維持 Buy",
+    "同日 DA Davidson 上調至 US$2,100（原 US$2,000）、Mizuho 上調至 US$1,400（原 US$1,300），均依 Benzinga 轉述"
+  ],
+  "source": {
+    "title": "5-star analyst resets Micron stock target after $37.7 billion windfall",
+    "publisher": "TheStreet",
+    "url": "https://www.thestreet.com/investing/stocks/micron-stock-rosenblatt-price-target",
+    "accessed_date": "2026-10-30"
+  }
+}
