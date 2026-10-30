@@ -1,0 +1,508 @@
+{
+  "_note": "2027 年產能與供給對應的彙整。這是【整理者彙整與推估】，不是公司說法：每一列都標明依據類型（公司說法／研究機構預估／媒體轉述／整理者推論），並附出處。個別客戶向哪家拿多少貨，三家都不揭露，查不到的一律寫「查無公開資料」，不要用推估值填滿。新一季資料進來、或研究機構更新 2027 展望時要回頭更新，並改 last_reviewed。",
+  "last_reviewed": "2026-10-30",
+  "scope": "以 DRAM（含 HBM）為主，NAND 只列方向。",
+  "industry": [
+    {
+      "item": "2027 DRAM 位元供給成長",
+      "value": "約 +24%",
+      "basis": "研究機構預估",
+      "detail": "TrendForce 2027 展望：成長來自新廠與製程轉換，但新產能的實質產出要到 2028 年才明顯。",
+      "sources": [
+        "tf_2027_outlook"
+      ]
+    },
+    {
+      "item": "2027 DRAM 需求成長（公司說法）",
+      "value": "約中 20% 區間",
+      "basis": "公司說法",
+      "detail": "SK 海力士 3Q26 法說會給的 2027 可實現需求成長。和上一列的供給 +24% 放在一起看，缺口不大但仍是負值——與 TrendForce「2027 缺口擴大」的判斷一致。口徑不同（公司需求 vs 研究機構供給），只能看方向，不能精確相減。",
+      "sources": [],
+      "supporting": [
+        "sk_hynix/2026Q3.json"
+      ]
+    },
+    {
+      "item": "DRAM 供需充足率",
+      "value": "2026 約 -1%~-2%，2027 缺口擴大",
+      "basis": "研究機構預估",
+      "detail": "TrendForce：需求成長持續超過供給擴張，HBM 每位元耗用的晶圓遠多於傳統 DRAM，限制了 2027 的整體位元供給。",
+      "sources": [
+        "tf_2027_outlook"
+      ]
+    },
+    {
+      "item": "伺服器 DRAM＋HBM 位元供給",
+      "value": "約 +27%",
+      "basis": "研究機構預估",
+      "detail": "TrendForce：主要靠下半年新廠爬坡。比整體 DRAM 的 +24% 高，代表給 PC／手機的傳統 DRAM 增速會低於整體平均（整理者推論）。供給仍不足，TrendForce 指 NVIDIA 已因此下修 Rubin Ultra 的 HBM 配置。",
+      "sources": [
+        "tf_rubin"
+      ]
+    },
+    {
+      "item": "HBM 位元出貨成長",
+      "value": "+50%~60%",
+      "basis": "研究機構預估",
+      "detail": "TrendForce 2026 年 8 月：仍不足以跟上需求。",
+      "sources": [
+        "tf_rubin"
+      ]
+    },
+    {
+      "item": "HBM 占 DRAM 晶圓投片",
+      "value": "2025 約 18% → 2026 約 22% → 2027 約 30%",
+      "basis": "研究機構預估／公司說法",
+      "detail": "同期 HBM 只占 DRAM 位元供給約 8% → 9% → 13%。晶圓占比是位元占比的兩倍多，這就是「HBM 吃掉傳統 DRAM 產能」的量化說法。三星主管也公開說 2027 年 HBM 會占產業 DRAM 產能近 30%。",
+      "sources": [
+        "tf_hbm_share"
+      ]
+    },
+    {
+      "item": "2027 HBM 混合平均售價",
+      "value": "約 +121% YoY",
+      "basis": "研究機構預估",
+      "detail": "TrendForce 2026-09-29 上修。三家法說會也都說 2027 年 HBM 價格大幅調升。",
+      "sources": [
+        "tf_hbm_asp"
+      ],
+      "supporting": [
+        "samsung/2026Q3.json",
+        "micron/FY2026Q4.json"
+      ]
+    },
+    {
+      "item": "記憶體占主要 CSP 資本支出",
+      "value": "約 68%（2027，DRAM＋NAND）",
+      "basis": "研究機構預估",
+      "detail": "TrendForce：代表雲端業者願意付的價格與預付款，是其他客戶群比不上的。",
+      "sources": [
+        "tf_csp_capex"
+      ]
+    },
+    {
+      "item": "NAND 2027 供需",
+      "value": "下半年轉鬆",
+      "basis": "研究機構預估",
+      "detail": "TrendForce：高層數製程轉換與新廠逐步爬坡，使 2027 NAND 位元供給成長明顯高於 2026，2H27 供給成長開始超過需求。和 DRAM 方向分歧——對 PC 品牌而言，SSD 可能比 DRAM 先鬆。",
+      "sources": [
+        "tf_2027_outlook"
+      ]
+    },
+    {
+      "item": "DRAM 營收市占（2Q26）",
+      "value": "三星 39.4%｜SK 海力士 24.9%｜美光 23.3%｜CXMT 9.5%",
+      "basis": "研究機構統計",
+      "detail": "TrendForce 2Q26 排名。三家合計約 88%，Apple 執行長也說過 DRAM 市場「基本上就是三家」。海力士市占季減是因為 HBM 占其位元出貨比重最高、ASP 漲幅相對受限。",
+      "sources": [
+        "tf_2q26_share",
+        "apple_tg"
+      ]
+    }
+  ],
+  "suppliers": [
+    {
+      "company": "samsung",
+      "role": "傳統 DRAM 最大供應商；PC／手機客戶最依賴的一家",
+      "capacity_2027": "P5（平澤）產線據報 2027 年開始下單設備，可能支撐約每月 15 萬片的投資（單一論壇彙整，可信度低）。公司自己說法：2027 增加的 capex 因設備交期與建廠時間，不會實質提升 2028 年的位元產出。",
+      "bit_outlook_2027": "未給全年數字。2026 Q4 DRAM 位元出貨指引季增十幾 % 中～高段。",
+      "hbm_2027": "2027 HBM 已在議定目標價下售罄；HBM4E 2027 上半年量產。三星主管預估 2027 年 HBM 占產業 DRAM 產能近 30%。",
+      "contract_coverage": "多年期合約已簽 10 家、洽談 10 家（法說會）。韓國媒體轉述：2027 年傳統記憶體產量約 70% 以 5 年期合約給大型科技公司；KB 證券估大型科技公司占三星 2027 年 DRAM／NAND／HBM 量約 80%（兩數字口徑不同，均屬媒體轉述）。",
+      "supply_view": "2027 短缺「更嚴重」，供給受限可能延續到 2028。",
+      "takeaway": "三星 HBM 比重低於海力士，又是傳統 DRAM 市占最大的一家，所以 PC 品牌與手機廠 2027 年能多拿到多少貨，三星的配置最關鍵。但若 70%~80% 已被大型科技公司鎖走，留給 PC／手機的彈性有限。另外三星手機（MX）有自家記憶體當緩衝，這是其他 Android 品牌沒有的。",
+      "supporting": [
+        "samsung/2026Q3.json"
+      ],
+      "sources": [
+        "samsung_lta",
+        "tf_hbm_share",
+        "samsung_p5"
+      ]
+    },
+    {
+      "company": "sk_hynix",
+      "role": "HBM 龍頭；位元出貨中 HBM 比重最高",
+      "capacity_2027": "目前約每月 55 萬片 DRAM 晶圓，目標 2030~31 年約 100 萬片（The Elec 報導）。M15X 公司說 2026 年底滿載（有報導稱 2027 年約每月 8 萬片，未經公司證實）；龍仁第一座廠據報 2027 年 2 月開始第一期裝機，整座廠到 2030 上半年才加滿約每月 36 萬片。",
+      "bit_outlook_2027": "2027 DRAM 可實現需求成長中 20% 區間、NAND 高十幾 %（需求口徑）。2026 Q4 DRAM 出貨指引季增中 20% 區間。",
+      "hbm_2027": "Q4 起 HBM4 出貨量與營收占比超越 HBM3E；據報明年 HBM 議約已完成。分析師估其占 NVIDIA Vera Rubin HBM4 約 60%~70%。",
+      "contract_coverage": "LTA 14 家（含主要雲端業者），涵蓋 2027~2028 年總產能一半以上。據報 Google、Microsoft 正與其洽簽多年期傳統 DRAM／DDR5 長約。",
+      "supply_view": "需求超過供給延續到 2030 年。",
+      "takeaway": "產能最向 HBM 傾斜，2027 年新增的傳統 DRAM 主要先給有長約的雲端業者；PC／手機客戶從海力士能拿到的增量最少。龍仁要到 2028 年後才是實質增量。",
+      "supporting": [
+        "sk_hynix/2026Q3.json"
+      ],
+      "sources": [
+        "tf_hynix_cap",
+        "tt_yongin",
+        "csp_lta",
+        "alphasense",
+        "rubin_share"
+      ]
+    },
+    {
+      "company": "micron",
+      "role": "美系唯一大廠；已退出消費性零售（Crucial）",
+      "capacity_2027": "愛達荷新 DRAM 廠 2027 年中開始產出，但對供給的實質影響要再晚數季；HBM 先進封裝廠 2027 年初初期產出；新加坡 NAND 廠 2028 下半年。FY2027 上修的 capex 主要是 2028 年底後才上線的無塵室。",
+      "bit_outlook_2027": "未見 FY2027 位元成長數字；公司說 FY2027、FY2028 供需比 2026「更緊」。",
+      "hbm_2027": "2027 日曆年絕大部分 HBM 位元已談定、價格大幅調升。NVIDIA Vera Rubin 的 HBM4 份額說法分歧：有洩漏資料稱美光為零，黃仁勳則確認三家都通過認證。",
+      "contract_coverage": "策略客戶協議（SCA）上一季為 16 項；次級來源稱 FY2027 超過 75% 產出已被承諾。",
+      "supply_view": "FY2027、FY2028 比 2026 更緊；新產能 2028 年底後才上線。",
+      "takeaway": "2025 年 12 月宣布退出 Crucial 消費性品牌，理由正是要把供給留給「更大的策略客戶」，2026 年 2 月後停止出貨——零售／DIY 通路少了一個主要來源。PC 品牌（OEM）仍可向美光採購，但美光明確把優先順序放在資料中心與策略客戶。",
+      "supporting": [
+        "micron/FY2026Q4.json"
+      ],
+      "sources": [
+        "crucial",
+        "rubin_tpu",
+        "rubin_cert"
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "segment": "AI 加速器 HBM",
+      "examples": "NVIDIA、AMD、Google TPU 等",
+      "security": "高",
+      "security_note": "量已談定、價格大漲；但總量仍不足，NVIDIA 已下修 Rubin Ultra 的 HBM 配置。",
+      "demand_note": "2027 HBM 位元出貨 +50%~60% 仍追不上需求。",
+      "by_supplier": {
+        "samsung": "2027 HBM 已售罄；分析師估占 Vera Rubin HBM4 約 25%~30%。",
+        "micron": "2027 絕大部分 HBM 位元已談定；Vera Rubin 份額說法分歧（0% 到約 20% 都有）。",
+        "sk_hynix": "據報明年 HBM 議約已完成；分析師估占 Vera Rubin HBM4 約 60%~70%。"
+      },
+      "sources": [
+        "tf_rubin",
+        "rubin_share",
+        "rubin_tpu",
+        "rubin_cert"
+      ]
+    },
+    {
+      "segment": "雲端業者伺服器 DRAM／企業級 SSD",
+      "examples": "Google、Microsoft、Meta、Amazon",
+      "security": "高",
+      "security_note": "3~5 年期長約＋預付款＋價格區間條款，是優先順位最高的傳統 DRAM 客戶。",
+      "demand_note": "記憶體約占 2027 年主要 CSP 資本支出 68%。",
+      "by_supplier": {
+        "samsung": "據報 2027 年傳統記憶體約 70% 以 5 年期合約給大型科技公司。",
+        "micron": "SCA 長約（上一季 16 項），未揭露個別客戶。",
+        "sk_hynix": "LTA 14 家含主要雲端業者，涵蓋 2027~28 年過半產能；據報 Google、Microsoft 洽簽多年期長約。"
+      },
+      "sources": [
+        "tf_lta",
+        "samsung_lta",
+        "csp_lta",
+        "alphasense",
+        "tf_csp_capex"
+      ]
+    },
+    {
+      "segment": "PC 品牌大廠",
+      "examples": "Lenovo、HP、Dell（及 Asus、Acer）",
+      "security": "中",
+      "security_note": "已簽 2027 年 DRAM／SSD 長約，但「保量不保價」：2026 上半年只拿到需求量的 70%~80%，2027 年零組件成本預估再漲 10%~20%，品牌轉向企業客戶以消化成本。",
+      "demand_note": "HP 財務長 2026 年 2 月說記憶體成本季增約 100%；Dell 表示與記憶體夥伴保持彈性。",
+      "by_supplier": {
+        "samsung": "查無公開資料（未揭露個別 PC 品牌的配置）。三星傳統 DRAM 市占最大，推估為 PC 品牌最主要來源（整理者推論）。",
+        "micron": "查無公開資料。美光退出 Crucial 零售、把供給留給策略客戶，OEM 仍可採購但非優先。",
+        "sk_hynix": "查無公開資料。HBM 比重最高，可分給 PC 的傳統 DRAM 增量推估最少（整理者推論）。"
+      },
+      "sources": [
+        "pc_lta",
+        "pc_lta2",
+        "dell_cnbc",
+        "crucial"
+      ]
+    },
+    {
+      "segment": "Apple",
+      "examples": "iPhone、Mac",
+      "security": "中",
+      "security_note": "採購量大、議價力強，但仍受限：據郭明錤，A20 晶片產量可能因 LPDDR 不足少 10%~20%；嘗試找 CXMT 當第四家供應商，報導說法分歧（有說已破局）。",
+      "demand_note": "Tim Cook：DRAM 市場「基本上就是三家」。",
+      "by_supplier": {
+        "samsung": "查無公開的 2027 配置資料。",
+        "micron": "查無公開的 2027 配置資料。",
+        "sk_hynix": "查無公開的 2027 配置資料。"
+      },
+      "sources": [
+        "apple_cxmt",
+        "apple_tg"
+      ]
+    },
+    {
+      "segment": "Android 手機品牌",
+      "examples": "小米、OPPO、vivo、傳音",
+      "security": "低",
+      "security_note": "沒有三星手機的自家記憶體緩衝，也沒有 Apple 的議價力；2026 年已下修出貨目標，PC 大廠簽了長約後手機廠更顯弱勢。",
+      "demand_note": "OPPO 據報提議 4~6 季的 LPDDR 長約（屬提議、未證實成交）；OPPO、vivo 曾拒絕三星的 Q3 報價。",
+      "by_supplier": {
+        "samsung": "曾向 OPPO、vivo 開出 Q3 漲價報價遭拒（報導）；OPPO 長約提議對象含三星。",
+        "micron": "查無公開資料。",
+        "sk_hynix": "OPPO 長約提議對象含 SK 海力士（報導）。"
+      },
+      "sources": [
+        "android_kh",
+        "android_cut",
+        "android_reject",
+        "pc_lta2"
+      ]
+    },
+    {
+      "segment": "通路／DIY／中小客戶",
+      "examples": "模組廠、白牌、零售",
+      "security": "最低",
+      "security_note": "報導稱 2027 年產能已談完、「沒有新買家的位置」；有拿到配置的客戶也只拿到原需求的約 60%~70%，且要求預付款。",
+      "demand_note": "美光 Crucial 退出零售後，消費端少了一個主要品牌來源。",
+      "by_supplier": {
+        "samsung": "查無公開資料。",
+        "micron": "已退出 Crucial 消費性零售（2026 年 2 月後停止出貨）。",
+        "sk_hynix": "查無公開資料。"
+      },
+      "sources": [
+        "sold_2027",
+        "sold_2027b",
+        "crucial"
+      ]
+    }
+  ],
+  "takeaways": [
+    {
+      "headline": "2027 供貨優先順位：AI HBM ＞ 雲端業者 ＞ PC 大廠 ≈ Apple ＞ Android ＞ 通路",
+      "detail": "決定順位的不是誰需求大，而是誰簽了多年期長約、付了預付款。HBM 與雲端業者已鎖定；PC 大廠到 2026 年 10 月才傳出完成 2027 年長約；Android 品牌連長約都還在提議階段。",
+      "sources": [
+        "tf_lta",
+        "pc_lta",
+        "android_kh",
+        "sold_2027"
+      ]
+    },
+    {
+      "headline": "給 PC／手機的傳統 DRAM，增速會低於整體 +24%",
+      "detail": "整體 DRAM 位元 +24%，但伺服器＋HBM 是 +27%、HBM 本身 +50%~60%，而且 HBM 占晶圓的比重（約 30%）是占位元比重（約 13%）的兩倍多。算下來留給 PC／手機的增量，比總數看起來少得多（整理者推論，非研究機構數字）。",
+      "sources": [
+        "tf_2027_outlook",
+        "tf_rubin",
+        "tf_hbm_share"
+      ]
+    },
+    {
+      "headline": "PC 品牌的長約是「保量不保價」，而且保的量可能還是打折",
+      "detail": "Lenovo、HP、Dell 的 2027 年長約解決的是有沒有貨，不是價格；2026 上半年實際只拿到需求的 70%~80%。各品牌向哪家拿多少貨：查無公開資料。",
+      "sources": [
+        "pc_lta",
+        "pc_lta2"
+      ]
+    },
+    {
+      "headline": "新產能真正放量在 2028 年後，三家說法一致",
+      "detail": "海力士 M15X 2026 年底滿載是 2027 年最主要的實際增量；美光愛達荷 2027 年中開始產出但影響晚數季；三星說 2027 年的 capex 不會實質提升 2028 年產出；海力士龍仁 2027 年才開始裝機。2027 年的供給增量大多來自製程轉換，不是新廠。",
+      "sources": [
+        "tt_yongin"
+      ],
+      "supporting": [
+        "micron/FY2026Q4.json",
+        "samsung/2026Q3.json",
+        "sk_hynix/2026Q3.json"
+      ]
+    },
+    {
+      "headline": "要先鬆的可能是 NAND，不是 DRAM——這是最早的轉折訊號",
+      "detail": "TrendForce 預估 NAND 在 2027 下半年供給成長超過需求，DRAM 則缺口擴大。對 PC 品牌而言，SSD 成本可能比記憶體先降。哪天三家法說會開始講 NAND「偏緊」而不是「供不應求」，就是驗證點。",
+      "sources": [
+        "tf_2027_outlook"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "tf_2027_outlook",
+      "title": "Diverging Memory Market Outlook in 2027 as DRAM Supply Remains Tight While NAND Flash Supply Conditions Ease",
+      "publisher": "TrendForce",
+      "url": "https://www.trendforce.com/presscenter/news/20260730-13158.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "tf_rubin",
+      "title": "DRAM Supply to Remain Tight in 2027, Prompting NVIDIA to Lower HBM Configurations for Rubin Ultra",
+      "publisher": "TrendForce",
+      "url": "https://www.trendforce.com/presscenter/news/20260804-13166.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "tf_csp_capex",
+      "title": "Memory Prices Soar; DRAM and NAND Flash to Account for 68% of Major CSP CapEx in 2027",
+      "publisher": "TrendForce",
+      "url": "https://www.trendforce.com/presscenter/news/20260825-13198.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "tf_hbm_share",
+      "title": "[News] Samsung Sees HBM Taking Nearly 30% of Industry DRAM Capacity in 2027, Up From 20% Currently",
+      "publisher": "TrendForce News（轉述 Reuters）",
+      "url": "https://www.trendforce.com/news/2026/09/29/news-samsung-sees-hbm-taking-nearly-30-of-industry-dram-capacity-in-2027-up-from-20-currently/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "tf_hbm_asp",
+      "title": "TrendForce Lifts 2027 HBM ASP Forecast to +121%",
+      "publisher": "Silicon Analysts",
+      "url": "https://siliconanalysts.com/market/trendforce-lifts-2027-hbm-asp-forecast-to-121-hbm4-stack-seen-doubling-to-1-300-2026-10-01",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "tf_2q26_share",
+      "title": "DRAM industry revenue surges 59.5% in Q2 as supply lags demand（TrendForce 2Q26 排名）",
+      "publisher": "Evertiq",
+      "url": "https://evertiq.com/news/2026-09-07-dram-industry-revenue-surges-595-in-q2-as-supply-lags-demand",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "tf_lta",
+      "title": "[News] From Annual Deals to 3–5 Year LTAs: Samsung and SK hynix Reportedly Reset Big Tech Memory Contracts",
+      "publisher": "TrendForce News",
+      "url": "https://www.trendforce.com/news/2026/04/09/news-from-annual-deals-to-3-5-year-ltas-samsung-and-sk-hynix-reportedly-reset-big-tech-memory-contracts/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "tf_hynix_cap",
+      "title": "[News] SK hynix Reportedly to Double DRAM Capacity to 1M Monthly Wafers by 2030, Speeds Yongin Expansion",
+      "publisher": "TrendForce News（轉述 The Elec）",
+      "url": "https://www.trendforce.com/news/2026/06/05/news-sk-hynix-reportedly-to-double-dram-capacity-to-1m-monthly-wafers-by-2030-speeds-yongin-expansion/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "tt_yongin",
+      "title": "SK hynix DRAM Capacity Roadmap Revealed: Yongin Alone Adds 360K Wafers Monthly",
+      "publisher": "Tech Times",
+      "url": "https://www.techtimes.com/articles/317859/20260606/sk-hynix-dram-capacity-roadmap-revealed-yongin-alone-adds-360k-wafers-monthly.htm",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "pc_lta",
+      "title": "Lenovo, HP and Dell Lock In 2027 Memory Supply Through Long-Term Agreements as PC Makers Pivot to Enterprise（轉述韓國電子新聞 ETNews）",
+      "publisher": "BigGo Finance",
+      "url": "https://finance.biggo.com/news/9b3c0f37-cfcd-4808-b70e-bf2e29f92ea3",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "pc_lta2",
+      "title": "Smartphone makers vulnerable to DRAM, NAND price hikes as PC titans sign LTAs",
+      "publisher": "Sammy Fans",
+      "url": "https://www.sammyfans.com/2026/10/20/pc-titans-sign-dram-nand-ltas-2027/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "dell_cnbc",
+      "title": "Dell shares climb 22% on earnings beat as company navigates rising memory costs",
+      "publisher": "CNBC",
+      "url": "https://www.cnbc.com/2026/02/27/dell-stock-earnings-memory-shortage-ai-servers.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "sold_2027",
+      "title": "Memory Makers Seal 2027 Deals: No Room for New Buyers",
+      "publisher": "TechPowerUp",
+      "url": "https://www.techpowerup.com/351344/memory-makers-seal-2027-deals-no-room-for-new-buyers",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "sold_2027b",
+      "title": "Memory capacity for all of 2027 has reportedly been booked and sold, with no more DRAM or HBM available",
+      "publisher": "TweakTown",
+      "url": "https://www.tweaktown.com/news/113004/memory-capacity-for-all-of-2027-has-reportedly-been-booked-and-sold-with-no-more-dram-or-hbm-available/index.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "samsung_lta",
+      "title": "Samsung secures long-term agreements for bulk of 2027 DRAM, NAND and HBM supply",
+      "publisher": "Sammy Fans",
+      "url": "https://www.sammyfans.com/2026/10/19/samsung-secures-long-term-agreements-for-bulk-of-2027-dram-nand-and-hbm-supply/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "csp_lta",
+      "title": "AI Giants Are Entering Into Years-Long Memory Contracts",
+      "publisher": "Wccftech（轉述韓國經濟新聞）",
+      "url": "https://wccftech.com/ai-giants-are-entering-into-years-long-memory-contracts-proving-to-be-the-best-case-scenario-for-suppliers/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "alphasense",
+      "title": "AI Memory Super Cycle: DRAM, HBM, and the New Supply Reality",
+      "publisher": "AlphaSense",
+      "url": "https://www.alpha-sense.com/resources/research-articles/ai-memory-super-cycle/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "rubin_share",
+      "title": "HBM4 Goes to War: SK hynix's 70% Share and the Three-Way Race for Vera Rubin",
+      "publisher": "vlsi.kr",
+      "url": "https://www.vlsi.kr/en/hbm4-three-way-race-en/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "rubin_tpu",
+      "title": "NVIDIA to Use SK hynix and Samsung HBM4 for \"Vera Rubin\" Without Micron",
+      "publisher": "TechPowerUp",
+      "url": "https://www.techpowerup.com/346044/nvidia-to-use-sk-hynix-and-samsung-hbm4-for-vera-rubin-without-micron",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "rubin_cert",
+      "title": "Nvidia Vera Rubin HBM4: Jensen Huang Confirms All Three Suppliers in Production",
+      "publisher": "Tech Times",
+      "url": "https://www.techtimes.com/articles/317855/20260605/nvidia-vera-rubin-hbm4-jensen-huang-confirms-all-three-suppliers-production-q3-ship.htm",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "apple_cxmt",
+      "title": "Apple Failed to Find Fourth DRAM Supplier as 2027 Market Closes Completely",
+      "publisher": "Tech Times",
+      "url": "https://www.techtimes.com/articles/323108/20260805/apple-failed-find-fourth-dram-supplier-2027-market-closes-completely.htm",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "apple_tg",
+      "title": "Apple seeks RAM from blacklisted Chinese company as memory shortage impacts everything",
+      "publisher": "Tom's Guide",
+      "url": "https://www.tomsguide.com/phones/iphones/apple-seeks-ram-from-blacklisted-chinese-company-as-memory-shortage-impacts-everything-but-it-may-not-be-enough",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "android_kh",
+      "title": "Supply control, pricing power help secure memory as Chinese rivals face shortages",
+      "publisher": "The Korea Herald",
+      "url": "https://www.koreaherald.com/article/10727402",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "android_cut",
+      "title": "Xiaomi, Oppo, Vivo, Transsion cut 2026 smartphone shipment forecasts",
+      "publisher": "TechNode",
+      "url": "https://technode.com/2026/01/16/xiaomi-oppo-vivo-transsion-cut-2026-smartphone-shipment-forecasts/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "android_reject",
+      "title": "Vivo and Oppo reject Samsung's latest DRAM price hike",
+      "publisher": "Notebookcheck",
+      "url": "https://www.notebookcheck.net/Vivo-and-Oppo-reject-Samsung-s-latest-DRAM-price-hike-crisis-continues-to-escalate.1348314.0.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "crucial",
+      "title": "Micron Announces Exit from Crucial Consumer Business",
+      "publisher": "StorageNewsletter",
+      "url": "https://www.storagenewsletter.com/2025/12/05/micron-announces-exit-from-crucial-consumer-business/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "id": "samsung_p5",
+      "title": "Samsung and SK are expanding fast, but why is memory still in short supply?（論壇彙整，可信度低）",
+      "publisher": "SemiWiki Forum",
+      "url": "https://semiwiki.com/forum/threads/samsung-and-sk-are-expanding-fast-but-why-is-memory-still-in-short-supply.24881/",
+      "accessed_date": "2026-10-30"
+    }
+  ]
+}

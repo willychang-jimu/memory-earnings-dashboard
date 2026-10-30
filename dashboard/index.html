@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>記憶體三雄供貨追蹤</title>
 <!-- 資源加版本參數：改版後強制瀏覽器重抓，避免載到舊的 JS/CSS（手機主畫面捷徑特別容易卡快取）。改動 app.js / style.css 後記得同步更新這個日期。 -->
-<link rel="stylesheet" href="style.css?v=20260916s">
+<link rel="stylesheet" href="style.css?v=20261030a">
 </head>
 <body>
 <div class="wrap">
@@ -64,6 +64,7 @@
   <nav class="tabs" id="tabs" role="tablist">
     <button class="tab" role="tab" data-panel="panel-quarters" aria-selected="true">各季度</button>
     <button class="tab" role="tab" data-panel="panel-compare" aria-selected="false">跨季比較</button>
+    <button class="tab" role="tab" data-panel="panel-outlook" aria-selected="false">2027 供給展望</button>
     <button class="tab" role="tab" data-panel="panel-broker" aria-selected="false">投行觀點</button>
     <button class="tab" role="tab" data-panel="panel-raw" aria-selected="false">原始資料</button>
   </nav>
@@ -76,7 +77,7 @@
   <section class="panel" id="panel-quarters" role="tabpanel">
     <div class="card" data-export-title="下一批資料時程">
       <div class="card-head"><h2>下一批資料什麼時候有</h2></div>
-      <p class="note">目前收錄到 2026 Q2。到日期後把新一季資料補進 <code>data/</code>，再跑 <code>scripts/normalize.py</code> 與 <code>scripts/build_manifest.py</code>。</p>
+      <p class="note">目前收錄到 2026 Q3。到日期後把新一季資料補進 <code>data/</code>，再跑 <code>scripts/normalize.py</code> 與 <code>scripts/build_manifest.py</code>。</p>
       <div class="table-scroll"><table class="data" id="upcoming-table"></table></div>
     </div>
     <div id="quarters-list"></div>
@@ -160,6 +161,42 @@
     <div id="commentary-list"></div>
   </section>
 
+  <!-- ── 2027 供給展望 ───────────────────── -->
+  <section class="panel" id="panel-outlook" role="tabpanel" hidden>
+    <div class="disclaimer">
+      <strong>這一頁是整理者彙整與推估，不是公司說法。</strong>每一列都標明依據類型（公司說法／研究機構預估／媒體轉述／整理者推論）並附出處。
+      三家<strong>都不揭露</strong>個別客戶（例如 HP、Dell、Lenovo）拿到多少貨，查不到的一律寫「查無公開資料」，不以推估值填滿。
+      範圍以 DRAM（含 HBM）為主，NAND 只列方向。<span id="outlook-reviewed"></span>
+    </div>
+
+    <div class="card" data-export-title="2027 供貨判讀">
+      <div class="card-head">
+        <h2>2027 供貨判讀</h2>
+        <span class="note">整理者推論</span>
+      </div>
+      <p class="note">先講結論：2027 年的貨先給誰、誰最可能拿不到。</p>
+      <div id="outlook-takeaways"></div>
+    </div>
+
+    <div class="card" data-export-title="2027 供給對應（客戶別）">
+      <div class="card-head"><h2>2027 供給對應：客戶群 × 供應商</h2></div>
+      <p class="note">「供貨保障」是整理者依長約、預付款、議價力推估的相對順位（高／中／低／最低），不是公司或研究機構給的評等。上方公司篩選會隱藏對應的供應商欄。</p>
+      <div class="table-scroll"><table class="data" id="outlook-customer-table"></table></div>
+    </div>
+
+    <div class="card" data-export-title="2027 三家產能與供給">
+      <div class="card-head"><h2>三家 2027 產能與供給</h2></div>
+      <p class="note">新廠的「開始產出」和「對供給有實質影響」差好幾季，看時程時要分開。產能數字多為媒體轉述，未經公司證實的都已註明。</p>
+      <div class="table-scroll"><table class="data" id="outlook-supplier-table"></table></div>
+    </div>
+
+    <div class="card" data-export-title="2027 產業供給預估">
+      <div class="card-head"><h2>2027 產業層級預估</h2></div>
+      <p class="note">研究機構（主要是 TrendForce）對 2027 年的供需預估，與公司說法並列。不同機構、不同口徑的數字不可直接相減。</p>
+      <div class="table-scroll"><table class="data" id="outlook-industry-table"></table></div>
+    </div>
+  </section>
+
   <!-- ── 投行觀點 ───────────────────────── -->
   <section class="panel" id="panel-broker" role="tabpanel" hidden>
     <div class="card" data-export-title="投行評等與目標價異動">
@@ -198,6 +235,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="vendor/pptxgen.bundle.js"></script>
-<script src="app.js?v=20260916s"></script>
+<script src="app.js?v=20261030a"></script>
 </body>
 </html>

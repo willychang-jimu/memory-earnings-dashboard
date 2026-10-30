@@ -14,6 +14,7 @@ const state = {
   brokers: [],         // 投行觀點
   divergences: [],
   upcoming: [],
+  outlook: null,       // 2027 供給展望（整理者彙整）
   selected: new Set(Object.keys(COMPANIES)),
   range: "all",
   charts: {},
@@ -187,15 +188,17 @@ async function loadAll() {
     })
   );
 
-  const [quarters, brokers, divergences, upcoming] = await Promise.all([
+  const [quarters, brokers, divergences, upcoming, outlook] = await Promise.all([
     Promise.all(quarterJobs),
     Promise.all(brokerJobs),
     loadJson("../data/analysis/divergences.json"),
     loadJson("../data/analysis/upcoming.json"),
+    loadJson("../data/analysis/outlook_2027.json"),
   ]);
 
   state.divergences = divergences?.items || [];
   state.upcoming = upcoming?.events || [];
+  state.outlook = outlook;
 
   state.quarters = quarters.filter(Boolean).sort((a, b) => sortKey(a) - sortKey(b));
   state.brokers = brokers
@@ -1019,6 +1022,161 @@ function renderDivergences() {
     }
     container.appendChild(block);
   });
+}
+
+/* ── 2027 供給展望分頁 ───────────────────── */
+
+/** 出處以 id 指向 outlook_2027.json 的 sources；supporting 指向季度檔 */
+function outlookSourcesNode(ids, supporting) {
+  const wrap = el("div", "quote-speaker");
+  const byId = new Map((state.outlook?.sources || []).map((s) => [s.id, s]));
+  const links = (ids || []).map((id) => byId.get(id)).filter(Boolean);
+  if (!links.length && !(supporting || []).length) return null;
+  wrap.appendChild(document.createTextNode("出處："));
+  links.forEach((src, i) => {
+    if (i) wrap.appendChild(document.createTextNode("、"));
+    const a = el("a", "src-link", src.publisher);
+    a.href = src.url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.title = src.title;
+    wrap.appendChild(a);
+  });
+  if ((supporting || []).length) {
+    wrap.appendChild(document.createTextNode(`${links.length ? "；" : ""}季度資料：${supporting.join("、")}`));
+  }
+  return wrap;
+}
+
+function outlookTextCell(text, ids, supporting) {
+  const td = el("td", "wide");
+  td.appendChild(text ? el("div", null, text) : el("span", "na", "—"));
+  const srcNode = outlookSourcesNode(ids, supporting);
+  if (srcNode) td.appendChild(srcNode);
+  return td;
+}
+
+function renderOutlook() {
+  const o = state.outlook;
+  const reviewed = document.getElementById("outlook-reviewed");
+  reviewed.textContent = o?.last_reviewed ? `　最後檢查：${o.last_reviewed}。` : "";
+
+  const takeaways = document.getElementById("outlook-takeaways");
+  takeaways.textContent = "";
+  if (!o) {
+    showEmpty(takeaways, "尚無 2027 展望資料。");
+  } else {
+    (o.takeaways || []).forEach((t) => {
+      const block = el("div", "quote-block");
+      const headline = el("div", null, t.headline);
+      headline.style.fontWeight = "620";
+      headline.style.margin = "2px 0 4px";
+      block.append(headline, el("div", null, t.detail));
+      const srcNode = outlookSourcesNode(t.sources, t.supporting);
+      if (srcNode) block.appendChild(srcNode);
+      takeaways.appendChild(block);
+    });
+  }
+
+  const companies = Object.keys(COMPANIES).filter((c) => state.selected.has(c));
+
+  // 客戶群 × 供應商
+  const ct = document.getElementById("outlook-customer-table");
+  ct.textContent = "";
+  if (!o?.customers?.length) {
+    ct.appendChild(el("caption", "empty", "尚無資料。"));
+  } else {
+    const thead = el("thead");
+    const hr = el("tr");
+    ["客戶群", "供貨保障（推估）", "需求面"].forEach((h) => hr.appendChild(el("th", "tight", h)));
+    companies.forEach((c) => {
+      const th = el("th", "tight");
+      th.appendChild(companyTagCell(c).firstChild);
+      hr.appendChild(th);
+    });
+    thead.appendChild(hr);
+    ct.appendChild(thead);
+    const tbody = el("tbody");
+    o.customers.forEach((row) => {
+      const tr = el("tr");
+      const tdSeg = el("td", "tight");
+      tdSeg.appendChild(el("div", null, row.segment));
+      tdSeg.lastChild.style.fontWeight = "620";
+      tdSeg.appendChild(el("div", "quote-speaker", row.examples || ""));
+      const tdSec = el("td", "wide");
+      tdSec.appendChild(el("span", "rating-pill", row.security || "—"));
+      tdSec.appendChild(el("div", null, row.security_note || ""));
+      tr.append(tdSeg, tdSec, outlookTextCell(row.demand_note, row.sources));
+      companies.forEach((c) => tr.appendChild(longTextCell(row.by_supplier?.[c])));
+      tbody.appendChild(tr);
+    });
+    ct.appendChild(tbody);
+  }
+
+  // 三家產能與供給：列是項目、欄是公司
+  const st = document.getElementById("outlook-supplier-table");
+  st.textContent = "";
+  const sup = (o?.suppliers || []).filter((x) => state.selected.has(x.company));
+  if (!sup.length) {
+    st.appendChild(el("caption", "empty", "尚無資料。"));
+  } else {
+    const thead = el("thead");
+    const hr = el("tr");
+    hr.appendChild(el("th", "tight", "項目"));
+    sup.forEach((x) => {
+      const th = el("th", "tight");
+      th.appendChild(companyTagCell(x.company).firstChild);
+      hr.appendChild(th);
+    });
+    thead.appendChild(hr);
+    st.appendChild(thead);
+    const fields = [
+      ["定位", "role"],
+      ["2027 產能／新廠", "capacity_2027"],
+      ["2027 位元成長", "bit_outlook_2027"],
+      ["2027 HBM", "hbm_2027"],
+      ["長約覆蓋", "contract_coverage"],
+      ["公司對供需的說法", "supply_view"],
+      ["整理者判讀", "takeaway"],
+    ];
+    const tbody = el("tbody");
+    fields.forEach(([label, key]) => {
+      const tr = el("tr");
+      tr.appendChild(el("td", "tight", label));
+      sup.forEach((x) => tr.appendChild(longTextCell(x[key])));
+      tbody.appendChild(tr);
+    });
+    const srcRow = el("tr");
+    srcRow.appendChild(el("td", "tight", "出處"));
+    sup.forEach((x) => srcRow.appendChild(outlookTextCell("", x.sources, x.supporting)));
+    tbody.appendChild(srcRow);
+    st.appendChild(tbody);
+  }
+
+  // 產業層級
+  const it = document.getElementById("outlook-industry-table");
+  it.textContent = "";
+  if (!o?.industry?.length) {
+    it.appendChild(el("caption", "empty", "尚無資料。"));
+  } else {
+    const thead = el("thead");
+    const hr = el("tr");
+    ["項目", "預估值", "依據類型", "說明與出處"].forEach((h) => hr.appendChild(el("th", "tight", h)));
+    thead.appendChild(hr);
+    it.appendChild(thead);
+    const tbody = el("tbody");
+    o.industry.forEach((row) => {
+      const tr = el("tr");
+      tr.append(
+        el("td", "tight", row.item),
+        el("td", null, row.value || "—"),
+        el("td", "tight", row.basis || "—"),
+        outlookTextCell(row.detail, row.sources, row.supporting)
+      );
+      tbody.appendChild(tr);
+    });
+    it.appendChild(tbody);
+  }
 }
 
 /* 供需鬆緊是有序刻度，越緊越深；顏色只輔助，狀態文字永遠在，不靠顏色單獨傳達 */
@@ -1868,6 +2026,7 @@ function renderAll() {
   renderBrokers();
   renderUpcoming();
   renderDivergences();
+  renderOutlook();
   renderSupplyBalance();
   renderSupplyMatrix();
   renderPricing();
